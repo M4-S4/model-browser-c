@@ -1,4 +1,4 @@
-from typing import Any, Callable, Dict, List
+from typing import Any, Callable, Dict
 from urllib.parse import urlsplit
 
 from . import PLUGIN_ID
@@ -47,8 +47,6 @@ def _parse_api_base(value: str) -> str:
     return value
 
 
-BOOLEAN_SETTINGS = ("hide_poi", "enable_civarchive")
-
 _PARSERS: Dict[str, Callable[[str], Any]] = {
     "nsfw_ceiling": _parse_choice("inherit", "blur", "blocked"),
     "nsfw_max_level": _parse_int(1, 8, allowed=(1, 2, 4, 8)),
@@ -75,21 +73,6 @@ def get_setting(key: str) -> Any:
 
     row = PluginRepository().get_plugin_setting(PLUGIN_ID, key)
     return parse_setting(key, None if row is None else row.setting_value)
-
-
-def normalise_stored_booleans() -> List[str]:
-    from src.plugin_api import PluginRepository
-
-    repository = PluginRepository()
-    rewritten: List[str] = []
-    for key in BOOLEAN_SETTINGS:
-        row = repository.get_plugin_setting(PLUGIN_ID, key)
-        if row is None or row.setting_value in ("true", "false"):
-            continue
-        value = "true" if parse_setting(key, row.setting_value) else "false"
-        repository.set_plugin_setting(plugin_id=PLUGIN_ID, setting_key=key, setting_value=value)
-        rewritten.append(key)
-    return rewritten
 
 
 def user_nsfw_mode(user_id: str) -> str:

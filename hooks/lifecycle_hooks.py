@@ -4,10 +4,10 @@ import threading
 from src.plugin_api import HookContext
 
 if __name__.count(".") >= 2:
-    from ..backend import PLUGIN_ID, settings, tables
+    from ..backend import PLUGIN_ID, tables
     from ..backend.watcher import Watcher
 else:
-    from backend import PLUGIN_ID, settings, tables
+    from backend import PLUGIN_ID, tables
     from backend.watcher import Watcher
 
 logger = logging.getLogger("plugins.model-browser")
@@ -25,12 +25,6 @@ def on_boot(context: HookContext) -> HookContext:
         logger.info("[MODEL-BROWSER] Tables ready: %s", ", ".join(tables.TABLE_NAMES))
     except Exception:
         logger.exception("[MODEL-BROWSER] Could not create the plugin's tables")
-    try:
-        rewritten = settings.normalise_stored_booleans()
-        if rewritten:
-            logger.info("[MODEL-BROWSER] Settings rewritten as true/false: %s", ", ".join(rewritten))
-    except Exception:
-        logger.exception("[MODEL-BROWSER] Could not normalise the plugin's stored settings")
     try:
         if _app_loop_running():
             _start_watcher()

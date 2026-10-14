@@ -43,10 +43,10 @@ In Admin → Plugins → Model Browser → Settings:
 - **Highest CivitAI image level treated as safe** (PG, PG-13, R or X; default PG-13): images
   above this level count as NSFW and follow the content policy; models whose images are all
   above it count as NSFW models.
-- **Hide CivitAI models depicting real people** (Show / Hide; Show by default).
+- **Hide CivitAI models depicting real people** (off by default).
 - **CivitAI API base URL** (default `https://civitai.com/api/v1`): switch to
   `https://civitai.red/api/v1` if civitai.com starts filtering the API to SFW content.
-- **Enable CivArchive (experimental, unofficial)** (Off / On; Off by default); read the CivArchive
+- **Enable CivArchive (experimental, unofficial)** (off by default); read the CivArchive
   section below before turning it on.
 - **Search cache TTL (minutes)** (default 10, from 1 to 1440): raw answers from the sources
   are cached in the database and filtered per user on every request.

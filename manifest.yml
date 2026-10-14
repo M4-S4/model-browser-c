@@ -108,24 +108,18 @@ settings:
       - { value: "4", label: "R" }
       - { value: "8", label: "X" }
   - name: "hide_poi"
-    type: "select"
+    type: "boolean"
     label: "Hide CivitAI models depicting real people"
-    default: "false"
-    options:
-      - { value: "false", label: "Show" }
-      - { value: "true",  label: "Hide" }
+    default: false
   - name: "civitai_api_base"
     type: "string"
     label: "CivitAI API base URL"
     description: "Switch to https://civitai.red/api/v1 if civitai.com starts filtering the API to SFW content"
     default: "https://civitai.com/api/v1"
   - name: "enable_civarchive"
-    type: "select"
+    type: "boolean"
     label: "Enable CivArchive (experimental, unofficial)"
-    default: "false"
-    options:
-      - { value: "false", label: "Off" }
-      - { value: "true",  label: "On" }
+    default: false
   - name: "cache_ttl_minutes"
     type: "number"
     label: "Search cache TTL (minutes)"

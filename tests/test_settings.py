@@ -5,11 +5,9 @@ import pytest
 import yaml
 
 from backend.settings import (
-    BOOLEAN_SETTINGS,
     CORE_USER_NSFW_SETTING,
     DEFAULTS,
     get_setting,
-    normalise_stored_booleans,
     parse_setting,
     user_nsfw_mode,
 )
@@ -29,16 +27,15 @@ def test_the_defaults_and_options_match_the_manifest():
             assert str(parse_setting(key, option["value"])).lower() == option["value"], (key, option)
 
 
-def test_the_yes_no_settings_are_two_option_selects_not_booleans():
+def test_the_yes_no_settings_are_manifest_booleans():
     manifest = yaml.safe_load((PLUGIN_ROOT / "manifest.yml").read_text(encoding="utf-8"))
     specs = {spec["name"]: spec for spec in manifest["settings"]}
 
-    assert set(BOOLEAN_SETTINGS) == {key for key, value in DEFAULTS.items() if isinstance(value, bool)}
-    for key in BOOLEAN_SETTINGS:
-        assert specs[key]["type"] == "select", key
-        assert specs[key]["default"] == "false", key
-        assert [option["value"] for option in specs[key]["options"]] == ["false", "true"], key
-    assert not [key for key, spec in specs.items() if spec["type"] == "boolean"]
+    booleans = {key for key, value in DEFAULTS.items() if isinstance(value, bool)}
+    assert booleans == {key for key, spec in specs.items() if spec["type"] == "boolean"}
+    for key in booleans:
+        assert specs[key]["default"] is DEFAULTS[key], key
+        assert (parse_setting(key, "true"), parse_setting(key, "false")) == (True, False), key
 
 
 @pytest.mark.parametrize("raw", [None, "", "   "])
@@ -145,59 +142,6 @@ def test_user_nsfw_mode_reads_the_cores_user_setting(monkeypatch, stored, mode):
     assert user_nsfw_mode("user-1") == mode
     assert repository.asked == [("user-1", CORE_USER_NSFW_SETTING)]
     assert CORE_USER_NSFW_SETTING == "media_nsfw_filter_mode"
-
-
-class _SettingsRepository:
-    def __init__(self, rows):
-        self.rows = dict(rows)
-        self.written = []
-
-    def __call__(self):
-        return self
-
-    def get_plugin_setting(self, plugin_id, key, user_id=None):
-        assert (plugin_id, user_id) == ("model-browser-c", None)
-        return None if key not in self.rows else SimpleNamespace(setting_value=self.rows[key])
-
-    def set_plugin_setting(self, plugin_id, setting_key, setting_value, user_id=None, is_secret=False):
-        assert (plugin_id, user_id, is_secret) == ("model-browser-c", None, False)
-        self.rows[setting_key] = setting_value
-        self.written.append((setting_key, setting_value))
-
-
-def test_normalise_stored_booleans_rewrites_the_cores_str_of_a_python_bool(monkeypatch):
-    repository = _SettingsRepository({"hide_poi": "False", "enable_civarchive": "True", "nsfw_ceiling": "Blur"})
-    monkeypatch.setattr("src.plugin_api.PluginRepository", repository)
-
-    assert normalise_stored_booleans() == ["hide_poi", "enable_civarchive"]
-    assert repository.written == [("hide_poi", "false"), ("enable_civarchive", "true")]
-    assert repository.rows["nsfw_ceiling"] == "Blur"
-
-    assert normalise_stored_booleans() == []
-    assert len(repository.written) == 2
-
-
-@pytest.mark.parametrize(
-    "stored, expected",
-    [
-        ("true", None),
-        ("false", None),
-        ("1", "true"),
-        ("off", "false"),
-        ("", "false"),
-        (None, "false"),
-        ("maybe", "false"),
-    ],
-)
-def test_normalise_stored_booleans_writes_an_option_value_or_nothing(monkeypatch, stored, expected):
-    repository = _SettingsRepository({"hide_poi": stored})
-    monkeypatch.setattr("src.plugin_api.PluginRepository", repository)
-
-    rewritten = normalise_stored_booleans()
-
-    assert repository.written == ([] if expected is None else [("hide_poi", expected)])
-    assert rewritten == ([] if expected is None else ["hide_poi"])
-    assert "enable_civarchive" not in repository.rows
 
 
 def test_get_setting_parses_what_the_core_stored_for_the_plugin(monkeypatch):
