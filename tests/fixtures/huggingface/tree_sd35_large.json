@@ -1,0 +1,160 @@
+{
+ "_status": 200,
+ "_headers": {
+  "Content-Type": "application/json; charset=utf-8",
+  "Content-Length": "9923",
+  "ETag": "W/\"26c3-/i/4sn5IxFVTC+IUpxegKEk+5QE\""
+ },
+ "body": [
+  {
+   "type": "directory",
+   "oid": "01c0f45dfc21a8c8dcfecd4caf3cb8a9ae6ee333",
+   "size": 0,
+   "path": "scheduler"
+  },
+  {
+   "type": "directory",
+   "oid": "403c3a48f6e6484fb80dbb49f5ac056b9343d64f",
+   "size": 0,
+   "path": "text_encoder"
+  },
+  {
+   "type": "directory",
+   "oid": "030544c04a52e52d0231c7b81c33b7b139819e46",
+   "size": 0,
+   "path": "text_encoder_2"
+  },
+  {
+   "type": "directory",
+   "oid": "07ae6b420b53fc0e7c2adfd59ae2eb9f86d04985",
+   "size": 0,
+   "path": "text_encoder_3"
+  },
+  {
+   "type": "file",
+   "oid": "cdd8e48fec284706ec2507c582514d77d071a208",
+   "size": 1576,
+   "path": ".gitattributes"
+  },
+  {
+   "type": "file",
+   "oid": "b07f871a39b333819b9a986ac2dbb7f6fcb7a95e",
+   "size": 11726,
+   "path": "LICENSE.md"
+  },
+  {
+   "type": "file",
+   "oid": "ea0639ef3cdc69145b6d9fba44f2e4cd969e6ab7",
+   "size": 10473,
+   "path": "README.md"
+  },
+  {
+   "type": "file",
+   "oid": "17e68c53db215c593cf1a508bef11596c0cd1c70",
+   "size": 11575,
+   "path": "SD3.5L_example_workflow.json"
+  },
+  {
+   "type": "file",
+   "oid": "6b47baaaf4a0ae3867d00a833b7225d0ebceb61e",
+   "size": 262061,
+   "path": "mmdit.png"
+  },
+  {
+   "type": "file",
+   "oid": "091846749bd6a05347382e809ef9414f788e6909",
+   "size": 16460379262,
+   "lfs": {
+    "oid": "****************************************************************",
+    "size": 16460379262,
+    "pointerSize": 136
+   },
+   "xetHash": "****************************************************************",
+   "path": "sd3.5_large.safetensors"
+  },
+  {
+   "type": "file",
+   "oid": "7eba317fc91cc0b7188d27c58faf7c7c4f097c36",
+   "size": 18080198,
+   "lfs": {
+    "oid": "****************************************************************",
+    "size": 18080198,
+    "pointerSize": 133
+   },
+   "xetHash": "****************************************************************",
+   "path": "sd3.5_large_demo.png"
+  },
+  {
+   "type": "file",
+   "oid": "888b139f21181cd4ee4e93ce739ee63f26f2079c",
+   "size": 247323896,
+   "lfs": {
+    "oid": "****************************************************************",
+    "size": 247323896,
+    "pointerSize": 134
+   },
+   "xetHash": "****************************************************************",
+   "path": "text_encoder/model.fp16.safetensors"
+  },
+  {
+   "type": "file",
+   "oid": "888b139f21181cd4ee4e93ce739ee63f26f2079c",
+   "size": 247323896,
+   "lfs": {
+    "oid": "****************************************************************",
+    "size": 247323896,
+    "pointerSize": 134
+   },
+   "xetHash": "****************************************************************",
+   "path": "text_encoder/model.safetensors"
+  },
+  {
+   "type": "file",
+   "oid": "1a41ba6f6d67ebaaea453978332a941d0bc5dae5",
+   "size": 1389382176,
+   "lfs": {
+    "oid": "****************************************************************",
+    "size": 1389382176,
+    "pointerSize": 135
+   },
+   "xetHash": "****************************************************************",
+   "path": "text_encoder_2/model.fp16.safetensors"
+  },
+  {
+   "type": "file",
+   "oid": "1a41ba6f6d67ebaaea453978332a941d0bc5dae5",
+   "size": 1389382176,
+   "lfs": {
+    "oid": "****************************************************************",
+    "size": 1389382176,
+    "pointerSize": 135
+   },
+   "xetHash": "****************************************************************",
+   "path": "text_encoder_2/model.safetensors"
+  },
+  {
+   "type": "file",
+   "oid": "821fab5489700b2759adf6279e66ae49ce977d12",
+   "size": 4994582104,
+   "lfs": {
+    "oid": "****************************************************************",
+    "size": 4994582104,
+    "pointerSize": 135
+   },
+   "xetHash": "****************************************************************",
+   "path": "text_encoder_3/model-00001-of-00002.safetensors"
+  },
+  {
+   "type": "file",
+   "oid": "6a80301dd8f107a40fd7727de44c95dee84f6a7b",
+   "size": 4530066248,
+   "lfs": {
+    "oid": "****************************************************************",
+    "size": 4530066248,
+    "pointerSize": 135
+   },
+   "xetHash": "****************************************************************",
+   "path": "text_encoder_3/model-00002-of-00002.safetensors"
+  }
+ ]
+}

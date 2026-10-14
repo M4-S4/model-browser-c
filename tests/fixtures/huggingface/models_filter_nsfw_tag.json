@@ -1,0 +1,112 @@
+{
+ "_status": 200,
+ "_headers": {
+  "Content-Type": "application/json; charset=utf-8",
+  "Content-Length": "1759",
+  "ETag": "W/\"6df-76gw4ElvWxSFbi6f0A66phMxAUs\"",
+  "Link": "<https://huggingface.co/api/models?filter=not-for-all-audiences&limit=2&full=true&cursor=eyIkb3IiOlt7InRyZW5kaW5nU2NvcmUiOjgsIl9pZCI6eyIkZ3QiOiI2ODE4YzZkYTg3MmM1MDAwYTU5NjhiZDgifX0seyJ0cmVuZGluZ1Njb3JlIjp7IiRsdCI6OH19LHsidHJlbmRpbmdTY29yZSI6bnVsbH1dLCJzZWFyY2hTZXF1ZW5jZVRva2VuIjoiQ0pibHF3SWFDU0VBQUFBQUFBQWdRQm9PV2d4b0dNYmFoeXhRQUtXV2k5Z2lEbG9NYUJqRzJvY3NVQUNsbG92WSJ9>; rel=\"next\""
+ },
+ "body": [
+  {
+   "_id": "6aba7e15cf9c7d4948694775",
+   "id": "sample-org/Sample-Q-Mature-Qwen-Image-2.1",
+   "author": "sample-org",
+   "gated": false,
+   "lastModified": "2026-09-30T15:08:43.000Z",
+   "likes": 514,
+   "trendingScore": 28.200000000000003,
+   "private": false,
+   "sha": "a81b9af51120a78e285e57906f2250a2a02080e9",
+   "downloads": 176109,
+   "tags": [
+    "diffusion-single-file",
+    "text-to-image",
+    "qwen-image",
+    "comfyui",
+    "int8",
+    "photorealistic",
+    "concept",
+    "nsfw",
+    "not-for-all-audiences",
+    "base_model:Qwen/Qwen-Image-2.1",
+    "base_model:merge:Qwen/Qwen-Image-2.1",
+    "license:other",
+    "region:us"
+   ],
+   "pipeline_tag": "text-to-image",
+   "library_name": "diffusion-single-file",
+   "createdAt": "2026-09-28T14:47:49.000Z",
+   "modelId": "sample-org/Sample-Q-Mature-Qwen-Image-2.1",
+   "siblings": [
+    {
+     "rfilename": ".gitattributes"
+    },
+    {
+     "rfilename": "LICENSE"
+    },
+    {
+     "rfilename": "NOTICE"
+    },
+    {
+     "rfilename": "SampleQ_V3_base_int8_convrot.safetensors"
+    },
+    {
+     "rfilename": "SampleQ_V3_base_workflow.json"
+    },
+    {
+     "rfilename": "SampleQ_V4_int8_convrot.safetensors"
+    },
+    {
+     "rfilename": "SampleQ_V4_workflow.json"
+    },
+    {
+     "rfilename": "README.md"
+    },
+    {
+     "rfilename": "images/01.jpg"
+    },
+    {
+     "rfilename": "images/02.jpg"
+    },
+    {
+     "rfilename": "images/03.jpg"
+    }
+   ]
+  },
+  {
+   "_id": "6818c6da872c5000a5968bd8",
+   "id": "sample-labs/Flux-Sample-Mature",
+   "author": "sample-labs",
+   "gated": false,
+   "lastModified": "2025-05-05T14:21:20.000Z",
+   "likes": 641,
+   "trendingScore": 8,
+   "private": false,
+   "sha": "328160f16bc4072cf2bb7ee162d77f3b9b5f786c",
+   "downloads": 0,
+   "tags": [
+    "text-to-image",
+    "en",
+    "base_model:black-forest-labs/FLUX.1-dev",
+    "base_model:finetune:black-forest-labs/FLUX.1-dev",
+    "license:creativeml-openrail-m",
+    "region:us",
+    "not-for-all-audiences"
+   ],
+   "pipeline_tag": "text-to-image",
+   "createdAt": "2025-05-05T14:10:34.000Z",
+   "modelId": "sample-labs/Flux-Sample-Mature",
+   "siblings": [
+    {
+     "rfilename": ".gitattributes"
+    },
+    {
+     "rfilename": "README.md"
+    },
+    {
+     "rfilename": "lora.safetensors"
+    }
+   ]
+  }
+ ]
+}

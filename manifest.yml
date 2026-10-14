@@ -1,0 +1,139 @@
+id: "model-browser-c"
+name: "Model Browser C"
+version: "0.1.0"
+description: "Browse and download models from CivitAI, Hugging Face, OpenModelDB and CivArchive"
+author: "Masa"
+license: "GPL-3.0"
+type: "full-stack"
+category: "sources"
+
+api:
+  module: "backend/api.py"
+
+hooks:
+  backend:
+    - hook: "plugin.lifecycle.boot"
+      handler: "hooks.lifecycle_hooks.on_boot"
+    - hook: "plugin.lifecycle.ready"
+      handler: "hooks.lifecycle_hooks.on_ready"
+    - hook: "plugin.lifecycle.disable"
+      handler: "hooks.lifecycle_hooks.on_disable"
+    - hook: "download.after_complete"
+      handler: "hooks.download_hooks.on_download_complete"
+    - hook: "provider.register"
+      handler: "hooks.provider_hooks.register_providers"
+    - hook: "notification_type.register"
+      handler: "hooks.notification_hooks.register_types"
+
+pages:
+  - route: "model-browser-c"
+    component: "ModelBrowserPage.js"
+    label: "Model Browser"
+sidebar:
+  - label: "Model Browser"
+    route: "model-browser-c"
+    icon: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+    order: 75
+
+admin_tabs:
+  - id: "permissions"
+    label: "Permissions"
+    component: "PermissionsTab.js"
+    order: 10
+
+setup:
+  - kind: "check"
+    check: "backend.setup_checks:CivitaiProviderReady"
+    label: "Configure the CivitAI provider (API key) so logged-in downloads work"
+  - kind: "check"
+    check: "backend.setup_checks:HuggingFaceProviderReady"
+    label: "Configure the Hugging Face provider (token) for gated repositories"
+
+docs:
+  - path: "README.md"
+    title: "Model Browser C"
+    audience: "admin"
+
+model_metadata_fields:
+  - key: "mb_base_model"
+    label: "Base model"
+    field_type: "text"
+    description: "Base model as the source states it (filled by Model Browser)"
+  - key: "mb_license"
+    label: "License"
+    field_type: "text"
+    description: "License as the source states it (filled by Model Browser)"
+
+limit_kinds:
+  - key: "model-browser.downloads"
+    label: "Model downloads per month"
+    short_label: "Model downloads"
+    description: "Files queued from the Model Browser for the user (downloads and approved requests); a failed download is refunded"
+    value_type: "count"
+    unit: "per month"
+    window: "month"
+    enforce_at: ["submit"]
+    ledger: false
+    measure_handler: "backend.limit_handlers.ledger_total"
+    applies_handler: "backend.limit_handlers.never_applies"
+  - key: "model-browser.download_bytes"
+    label: "Downloaded model bytes per month"
+    short_label: "Model download volume"
+    description: "Size of the files queued from the Model Browser for the user; a failed download is refunded"
+    value_type: "bytes"
+    window: "month"
+    enforce_at: ["submit"]
+    ledger: false
+    measure_handler: "backend.limit_handlers.ledger_total"
+    applies_handler: "backend.limit_handlers.never_applies"
+
+settings:
+  - name: "nsfw_ceiling"
+    type: "select"
+    label: "NSFW in the browser"
+    description: "Can only make the instance and group content policy stricter"
+    default: "inherit"
+    options:
+      - { value: "inherit", label: "Follow the content policy" }
+      - { value: "blur",    label: "Blur at most" }
+      - { value: "blocked", label: "Never show" }
+  - name: "nsfw_max_level"
+    type: "select"
+    label: "Highest CivitAI image level treated as safe"
+    description: "Images above this level count as NSFW and follow the content policy; models whose images are all above it count as NSFW models"
+    default: "2"
+    options:
+      - { value: "1", label: "PG" }
+      - { value: "2", label: "PG-13" }
+      - { value: "4", label: "R" }
+      - { value: "8", label: "X" }
+  - name: "hide_poi"
+    type: "select"
+    label: "Hide CivitAI models depicting real people"
+    default: "false"
+    options:
+      - { value: "false", label: "Show" }
+      - { value: "true",  label: "Hide" }
+  - name: "civitai_api_base"
+    type: "string"
+    label: "CivitAI API base URL"
+    description: "Switch to https://civitai.red/api/v1 if civitai.com starts filtering the API to SFW content"
+    default: "https://civitai.com/api/v1"
+  - name: "enable_civarchive"
+    type: "select"
+    label: "Enable CivArchive (experimental, unofficial)"
+    default: "false"
+    options:
+      - { value: "false", label: "Off" }
+      - { value: "true",  label: "On" }
+  - name: "cache_ttl_minutes"
+    type: "number"
+    label: "Search cache TTL (minutes)"
+    description: "1 to 1440; raw source answers are cached in the database and filtered per user on every request"
+    default: 10
+  - name: "providers_notice"
+    type: "info"
+    label: "Logged-in downloads use the CivitAI and Hugging Face provider plugins"
+    description: "Configure their API key / token there; models that require a login fail with 401 otherwise."
+    href: "/admin?tab=plugins&id=civitai-provider"
+    link_label: "Open the CivitAI provider"

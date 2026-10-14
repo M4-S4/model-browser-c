@@ -1,0 +1,293 @@
+{
+ "pageProps": {
+  "id": "e47d1de297b8ec749aab188969172e79898028e8ad5e9333e87d7d975087269a",
+  "files": [
+   {
+    "filename": "tangbohu_saturation_v1.0.safetensors",
+    "url": "https://civitai.com/api/download/models/83095",
+    "source": "civitai",
+    "model_id": "78291",
+    "model_version_id": "83095",
+    "deleted_at": null,
+    "is_gated": false,
+    "is_paid": false
+   },
+   {
+    "filename": "tangbohu_saturation_v1.0.safetensors",
+    "url": "https://huggingface.co/idolt/Lora4/resolve/main/tangbohu_saturation_v1.0.safetensors",
+    "source": "huggingface",
+    "model_id": null,
+    "model_version_id": null,
+    "deleted_at": null,
+    "is_gated": false,
+    "is_paid": false
+   },
+   {
+    "filename": "tangbohu_saturation_v1.0 (1).safetensors",
+    "url": "https://huggingface.co/QEEWDFHGFH/052723/resolve/main/tangbohu_saturation_v1.0 (1).safetensors",
+    "source": "huggingface",
+    "model_id": null,
+    "model_version_id": null,
+    "deleted_at": null,
+    "is_gated": false,
+    "is_paid": false
+   },
+   {
+    "filename": "tangbohu_saturation_v1.0.safetensors",
+    "url": "https://huggingface.co/Xenos14/QoL-LoRas/resolve/main/tangbohu_saturation_v1.0.safetensors",
+    "source": "huggingface",
+    "model_id": null,
+    "model_version_id": null,
+    "deleted_at": null,
+    "is_gated": false,
+    "is_paid": false
+   },
+   {
+    "filename": "tangbohu_saturation_v1.0.safetensors",
+    "url": "https://huggingface.co/mlchen123/loraModels/resolve/main/Style/tangbohu_saturation_v1.0.safetensors",
+    "source": "huggingface",
+    "model_id": null,
+    "model_version_id": null,
+    "deleted_at": null,
+    "is_gated": false,
+    "is_paid": false
+   },
+   {
+    "filename": "tangbohu_saturation_v1.0.safetensors",
+    "url": "https://huggingface.co/sample-user/loras_new/resolve/main/tangbohu_saturation_v1.0.safetensors",
+    "source": "huggingface",
+    "model_id": null,
+    "model_version_id": null,
+    "deleted_at": null,
+    "is_gated": false,
+    "is_paid": false
+   },
+   {
+    "filename": "tangbohu_saturation_v1.0.safetensors",
+    "url": "https://huggingface.co/tim9292654/lora/resolve/main/细化/tangbohu_saturation_v1.0.safetensors",
+    "source": "huggingface",
+    "model_id": null,
+    "model_version_id": null,
+    "deleted_at": null,
+    "is_gated": false,
+    "is_paid": false
+   }
+  ],
+  "models": [
+   {
+    "id": "78291",
+    "name": "Tangbohu Saturation Tweaker LoRA (唐伯虎饱和度调整LoRA)",
+    "type": "LORA",
+    "description": "<p>这是一个LoRA，用于控制画面饱和度，同时尽量保持原图；</p><p>增加权重增加饱和度，减少权重减少饱和度，最高/最低可达4/-4！再多就没法看了</p><p>使用较大权重的时候画面有可能会产生比较大的变化</p><p>注意：使用负权重来减少饱和度！</p><p></p><p>This is a LoRA used to control the saturation of the image while maintaining the original image as much as possible;</p><p>Increase weight to increase saturation, decrease weight to decrease saturation, with a maximum/minimum of 4/-4! No more will make it impossible to read</p><p>When using larger weights, there may be significant changes in the image</p><p>Note: Use negative weights to reduce saturation!</p>",
+    "username": "TangBohu",
+    "download_count": 2756,
+    "favorite_count": 0,
+    "comment_count": 2,
+    "rating_count": 0,
+    "rating": 0,
+    "is_nsfw": true,
+    "nsfw_level": 3,
+    "created_at": "2025-04-24T17:42:03.780Z",
+    "updated_at": "2026-10-11T05:43:54.474Z",
+    "deleted_at": null,
+    "tags": [
+     "style"
+    ],
+    "creator_id": "TangBohu",
+    "creator_username": "TangBohu",
+    "creator_name": "TangBohu",
+    "creator_url": "/users/TangBohu",
+    "versions": [
+     {
+      "id": "83095",
+      "name": "v1.0",
+      "created_at": "2023-05-27T20:28:45.027Z",
+      "url": "/models/78291?modelVersionId=83095"
+     }
+    ],
+    "version": {
+     "id": "83095",
+     "model_id": 78291,
+     "name": "v1.0",
+     "base_model": "SD 1.5",
+     "description": null,
+     "download_count": 2756,
+     "rating_count": 311,
+     "rating": 4.99,
+     "is_nsfw": true,
+     "nsfw_level": 3,
+     "created_at": "2023-05-27T20:28:45.027Z",
+     "updated_at": "2026-10-11T05:43:55.364Z",
+     "deleted_at": null,
+     "base_model_type": "Standard",
+     "favorite_count": 0,
+     "files": [
+      {
+       "id": "56837",
+       "name": "tangbohu_saturation_v1.0.safetensors",
+       "type": "Model",
+       "size_kb": 26577.859375,
+       "download_url": "https://civitai.com/api/download/models/83095",
+       "model_id": 78291,
+       "model_name": "Tangbohu Saturation Tweaker LoRA (唐伯虎饱和度调整LoRA)",
+       "model_version_id": 83095,
+       "is_nsfw": true,
+       "nsfw_level": 3,
+       "sha256": "e47d1de297b8ec749aab188969172e79898028e8ad5e9333e87d7d975087269a",
+       "created_at": "2023-05-27T20:28:45.027Z",
+       "updated_at": "2026-10-11T05:43:55.867Z",
+       "is_primary": false,
+       "mirrors": [
+        {
+         "filename": "tangbohu_saturation_v1.0.safetensors",
+         "url": "https://civitai.com/api/download/models/83095",
+         "source": "civitai",
+         "model_id": "78291",
+         "model_version_id": "83095",
+         "deleted_at": null,
+         "is_gated": false,
+         "is_paid": false
+        },
+        {
+         "filename": "tangbohu_saturation_v1.0.safetensors",
+         "url": "https://huggingface.co/idolt/Lora4/resolve/main/tangbohu_saturation_v1.0.safetensors",
+         "source": "huggingface",
+         "model_id": null,
+         "model_version_id": null,
+         "deleted_at": null,
+         "is_gated": false,
+         "is_paid": false
+        },
+        {
+         "filename": "tangbohu_saturation_v1.0 (1).safetensors",
+         "url": "https://huggingface.co/QEEWDFHGFH/052723/resolve/main/tangbohu_saturation_v1.0 (1).safetensors",
+         "source": "huggingface",
+         "model_id": null,
+         "model_version_id": null,
+         "deleted_at": null,
+         "is_gated": false,
+         "is_paid": false
+        },
+        {
+         "filename": "tangbohu_saturation_v1.0.safetensors",
+         "url": "https://huggingface.co/Xenos14/QoL-LoRas/resolve/main/tangbohu_saturation_v1.0.safetensors",
+         "source": "huggingface",
+         "model_id": null,
+         "model_version_id": null,
+         "deleted_at": null,
+         "is_gated": false,
+         "is_paid": false
+        },
+        {
+         "filename": "tangbohu_saturation_v1.0.safetensors",
+         "url": "https://huggingface.co/mlchen123/loraModels/resolve/main/Style/tangbohu_saturation_v1.0.safetensors",
+         "source": "huggingface",
+         "model_id": null,
+         "model_version_id": null,
+         "deleted_at": null,
+         "is_gated": false,
+         "is_paid": false
+        },
+        {
+         "filename": "tangbohu_saturation_v1.0.safetensors",
+         "url": "https://huggingface.co/sample-user/loras_new/resolve/main/tangbohu_saturation_v1.0.safetensors",
+         "source": "huggingface",
+         "model_id": null,
+         "model_version_id": null,
+         "deleted_at": null,
+         "is_gated": false,
+         "is_paid": false
+        },
+        {
+         "filename": "tangbohu_saturation_v1.0.safetensors",
+         "url": "https://huggingface.co/tim9292654/lora/resolve/main/细化/tangbohu_saturation_v1.0.safetensors",
+         "source": "huggingface",
+         "model_id": null,
+         "model_version_id": null,
+         "deleted_at": null,
+         "is_gated": false,
+         "is_paid": false
+        }
+       ],
+       "deleted_at": null
+      }
+     ],
+     "images": [
+      {
+       "id": 936343,
+       "url": "https://c.genur.art/25918dc8-6192-4967-8521-22d52abd3a52_small.webp",
+       "nsfwLevel": 1,
+       "width": 1536,
+       "height": 857,
+       "hash": "UYON8#xuWWxt~qf8ayoexvWBoKWC~pkCayoe",
+       "type": "image",
+       "minor": false,
+       "poi": false,
+       "hasMeta": true,
+       "hasPositivePrompt": true,
+       "onSite": false,
+       "remixOfId": null,
+       "image_url": "https://c.genur.art/25918dc8-6192-4967-8521-22d52abd3a52_small.webp",
+       "link": "https://genur.art/posts/936343",
+       "has_metadata": true
+      },
+      {
+       "id": 936312,
+       "url": "https://c.genur.art/9406bbaa-93c1-4650-9489-2ab1b112c525_small.webp",
+       "nsfwLevel": 1,
+       "width": 1536,
+       "height": 857,
+       "hash": "UaKnMISeoKWVtQV@WVRj?vt7fkxa~qaeWBay",
+       "type": "image",
+       "minor": false,
+       "poi": false,
+       "hasMeta": true,
+       "hasPositivePrompt": true,
+       "onSite": false,
+       "remixOfId": null,
+       "image_url": "https://c.genur.art/9406bbaa-93c1-4650-9489-2ab1b112c525_small.webp",
+       "link": "https://genur.art/posts/936312",
+       "has_metadata": true
+      },
+      {
+       "id": 936357,
+       "url": "https://c.genur.art/7686b9b0-cb7d-4bb8-b3f1-89ed048a5d04_small.webp",
+       "nsfwLevel": 1,
+       "width": 2560,
+       "height": 857,
+       "hash": "U,GI[rjEa#js?wn%ayfi-=jrf6a|%MbFj[j[",
+       "type": "image",
+       "minor": false,
+       "poi": false,
+       "hasMeta": true,
+       "hasPositivePrompt": true,
+       "onSite": false,
+       "remixOfId": null,
+       "image_url": "https://c.genur.art/7686b9b0-cb7d-4bb8-b3f1-89ed048a5d04_small.webp",
+       "link": "https://genur.art/posts/936357",
+       "has_metadata": true
+      }
+     ],
+     "trigger": [],
+     "allow_download": true,
+     "download_url": "/api/download/models/83095",
+     "platform_url": "https://civitai.red/models/78291?modelVersionId=83095",
+     "civitai_model_id": 78291,
+     "civitai_model_version_id": 83095,
+     "url": "/models/78291?modelVersionId=83095",
+     "mirrors": []
+    },
+    "platform": "civitai",
+    "platform_name": "CivitAI"
+   }
+  ],
+  "meta": {
+   "title": "tangbohu_saturation_v1.0.safetensors - SHA256 mirrors - CivArchive",
+   "description": "Download tangbohu_saturation_v1.0.safetensors (SHA256: e47d1de297b8ec74...). Mirrors on CivitAI. Used by Tangbohu Saturation Tweaker LoRA (唐伯虎饱和度调整LoRA).",
+   "image": "https://c.genur.art/25918dc8-6192-4967-8521-22d52abd3a52_small.webp",
+   "canonical": "https://civarchive.com/sha256/e47d1de297b8ec749aab188969172e79898028e8ad5e9333e87d7d975087269a"
+  },
+  "isNsfw": true
+ },
+ "__N_SSP": true
+}

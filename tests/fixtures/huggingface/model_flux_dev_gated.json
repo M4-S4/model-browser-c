@@ -1,0 +1,228 @@
+{
+ "_status": 200,
+ "_headers": {
+  "Content-Type": "application/json; charset=utf-8",
+  "Content-Length": "5570",
+  "ETag": "W/\"15c2-wVLVOk1eNh48KiuVTnxXWn4lq2o\""
+ },
+ "body": {
+  "_id": "66aaa908fc35e079a941470d",
+  "id": "black-forest-labs/FLUX.1-dev",
+  "private": false,
+  "pipeline_tag": "text-to-image",
+  "library_name": "diffusers",
+  "tags": [
+   "diffusers",
+   "safetensors",
+   "text-to-image",
+   "image-generation",
+   "flux",
+   "en",
+   "license:other",
+   "endpoints_compatible",
+   "diffusers:FluxPipeline",
+   "region:us"
+  ],
+  "downloads": 658652,
+  "likes": 15503,
+  "modelId": "black-forest-labs/FLUX.1-dev",
+  "author": "black-forest-labs",
+  "sha": "3de623fc3c33e44ffbe2bad470d0f45bccf2eb21",
+  "lastModified": "2025-06-27T16:22:19.000Z",
+  "gated": "auto",
+  "disabled": false,
+  "model-index": null,
+  "config": {
+   "diffusers": {
+    "_class_name": "FluxPipeline"
+   }
+  },
+  "cardData": {
+   "language": [
+    "en"
+   ],
+   "license": "other",
+   "license_name": "flux-1-dev-non-commercial-license",
+   "license_link": "LICENSE.md",
+   "extra_gated_prompt": "By clicking \"Agree\", you agree to the [FluxDev Non-Commercial License Agreement](https://huggingface.co/black-forest-labs/FLUX.1-dev/blob/main/LICENSE.md) and acknowledge the [Acceptable Use Policy](https://huggingface.co/black-forest-labs/FLUX.1-dev/blob/main/POLICY.md).",
+   "tags": [
+    "text-to-image",
+    "image-generation",
+    "flux"
+   ]
+  },
+  "siblings": [
+   {
+    "rfilename": ".gitattributes"
+   },
+   {
+    "rfilename": "LICENSE.md"
+   },
+   {
+    "rfilename": "README.md"
+   },
+   {
+    "rfilename": "ae.safetensors"
+   },
+   {
+    "rfilename": "dev_grid.jpg"
+   },
+   {
+    "rfilename": "flux1-dev.safetensors"
+   },
+   {
+    "rfilename": "model_index.json"
+   },
+   {
+    "rfilename": "scheduler/scheduler_config.json"
+   },
+   {
+    "rfilename": "text_encoder/config.json"
+   },
+   {
+    "rfilename": "text_encoder/model.safetensors"
+   },
+   {
+    "rfilename": "text_encoder_2/config.json"
+   },
+   {
+    "rfilename": "text_encoder_2/model-00001-of-00002.safetensors"
+   },
+   {
+    "rfilename": "text_encoder_2/model-00002-of-00002.safetensors"
+   },
+   {
+    "rfilename": "text_encoder_2/model.safetensors.index.json"
+   },
+   {
+    "rfilename": "tokenizer/merges.txt"
+   },
+   {
+    "rfilename": "tokenizer/special_tokens_map.json"
+   },
+   {
+    "rfilename": "tokenizer/tokenizer_config.json"
+   },
+   {
+    "rfilename": "tokenizer/vocab.json"
+   },
+   {
+    "rfilename": "tokenizer_2/special_tokens_map.json"
+   },
+   {
+    "rfilename": "tokenizer_2/spiece.model"
+   }
+  ],
+  "spaces": [
+   "tardellirs/model-pulse",
+   "embedl/hfviewer",
+   "hugging-apps/t3-video-4k",
+   "kandinskylab/Kandinsky-6.0-Pro-distill-5s",
+   "RioShiina/ImageGen",
+   "black-forest-labs/FLUX.1-dev",
+   "TencentARC/Pixal3D",
+   "hugging-apps/kandinsky-6-lite-distill-5s",
+   "aquanode/gpu-vram-calculator",
+   "TencentARC/Pixal3D-Server",
+   "hugging-apps/qwen-video-edit",
+   "alxander84/ImageGen-32",
+   "fastgpu/vram-and-gpu-cost-calculator",
+   "jasperai/Flux.1-dev-Controlnet-Upscaler",
+   "DamarJati/FLUX.1-RealismLora",
+   "prithivMLmods/FLUX-LoRA-DLC",
+   "ByteDance/Hyper-FLUX-8Steps-LoRA",
+   "black-forest-labs/FLUX.1-Fill-dev",
+   "r3gm/DiffuseCraft",
+   "John6666/votepurchase-multiple-model",
+   "gokaygokay/FLUX.1-dev-with-Captioner",
+   "gokaygokay/Flux-TRELLIS",
+   "prithivMLmods/TRELLIS.2-Text-to-3D",
+   "vilarin/lumiere",
+   "haodongli/DVD",
+   "mcp-tools/FLUX.1-Krea-dev",
+   "ysharma/Workflow1111",
+   "alyxsis/Fun-Img",
+   "example-user/demo-space-01",
+   "phrographica/DVD-grayscale",
+   "Dekonstruktio/Fluxus",
+   "example-user/demo-space-02",
+   "Nymbo/Fun-Img",
+   "yanze/PuLID-FLUX",
+   "multimodalart/flux-lora-the-explorer",
+   "jamesliu1217/EasyControl_Ghibli",
+   "ByteDance/InfiniteYou-FLUX",
+   "multimodalart/flux-style-shaping",
+   "multimodalart/flux-fill-outpaint",
+   "bytedance-research/UNO-FLUX",
+   "radames/Real-Time-Latent-Consistency-Model",
+   "ByteDance/DreamO",
+   "prithivMLmods/FLUX-LoRA-DLC2",
+   "multimodalart/FLUX.1-merged",
+   "multimodalart/flux-lora-lab",
+   "InstantX/InstantCharacter",
+   "multimodalart/logo-in-context",
+   "Nymbo/Serverless-ImgGen-Hub",
+   "black-forest-labs/FLUX.1-Krea-dev",
+   "Yuanshi/OminiControl_Art",
+   "Yntec/ToyWorld",
+   "bytedance-research/USO",
+   "ameerazam08/FLUX.1-dev-Inpainting-Model-Beta-GPU",
+   "fantaxy/flx-upscale",
+   "prithivMLmods/FLUX-REALISM",
+   "DamarJati/FLUX.1-DEV-Canny",
+   "John6666/DiffuseCraftMod",
+   "autotrain-projects/train-flux-lora-ease",
+   "yiren98/OmniConsistency",
+   "fantaxy/flx-pulid",
+   "multimodalart/flux-outpainting",
+   "ginigen/Book-Cover",
+   "Agents-MCP-Hackathon/AI-Marketing-Content-Creator",
+   "dn6/FLUX-GIFs",
+   "Manjushri/Manju-Dream-Booth-GPU",
+   "primecai/diffusion-self-distillation",
+   "black-forest-labs/FLUX.1-Redux-dev",
+   "openfree/pepe",
+   "InstantX/flux-IP-adapter",
+   "Heartsync/FLUX-Vision",
+   "NeurixYUFI/imggen",
+   "Alpha-VLLM/Lumina-Image-2.0",
+   "multimodalart/flux-cfg",
+   "openfree/DreamO-video",
+   "Shakker-Labs/FLUX.1-dev-ControlNet-Union-Pro",
+   "Yntec/PrintingPress",
+   "radames/Real-Time-SD-Turbo",
+   "Nymbo/Compare-6",
+   "nvidia/addit",
+   "example-user/demo-space-03",
+   "aiqtech/FLUX-Ghibli-Studio-LoRA",
+   "ameerazam08/PhotoDoodle-Image-Edit-GPU",
+   "radames/real-time-pix2pix-turbo",
+   "fotographerai/Zen-Style-Shape",
+   "FINAL-Bench/all-bench-leaderboard",
+   "ginipick/flxloraexp",
+   "nupurkmr9/SynCD",
+   "black-forest-labs/FLUX.1-Depth-dev",
+   "ginigen/Flux-LayerDiffuse",
+   "Shakker-Labs/FLUX.1-dev-ControlNet-Union-Pro-2.0",
+   "xiaozaa/catvton-flux-try-on",
+   "seawolf2357/flxloraexp",
+   "MagicBag/FireFlow",
+   "BLIP3o/blip-3o",
+   "multimodalart/civitai-to-hf",
+   "black-forest-labs/FLUX.1-canny-dev",
+   "fallenshock/FlowEdit",
+   "jamesliu1217/EasyControl",
+   "InstantX/SD35-IP-Adapter",
+   "akhaliq/SRPO"
+  ],
+  "createdAt": "2024-07-31T21:13:44.000Z",
+  "safetensors": {
+   "parameters": {
+    "BF16": 11901408320
+   },
+   "total": 11901408320
+  },
+  "inference": "warm",
+  "usedStorage": 69492027725
+ }
+}

@@ -1,0 +1,253 @@
+{
+ "_status": 200,
+ "_headers": {
+  "Content-Type": "application/json; charset=utf-8",
+  "Content-Length": "4037",
+  "ETag": "W/\"fc5-uJ+fwK5ibfuiKkkt7NFagn2lOUE\"",
+  "Link": "<https://huggingface.co/api/models?search=lora&limit=3&full=true&cursor=eyIkb3IiOlt7InRyZW5kaW5nU2NvcmUiOjc5LCJfaWQiOnsiJGd0IjoiNmFiODk2MGRhNDQxNmIxM2FlMjlmNjdmIn19LHsidHJlbmRpbmdTY29yZSI6eyIkbHQiOjc5fX0seyJ0cmVuZGluZ1Njb3JlIjpudWxsfV0sInNlYXJjaFNlcXVlbmNlVG9rZW4iOiJDTkNEemdJYUNTRUFBQUFBQU1CVFFCb09XZ3hxdUpZTnBFRnJFNjRwOW44aURsb01hcmlXRGFSQmF4T3VLZlovIn0%3D>; rel=\"next\""
+ },
+ "body": [
+  {
+   "_id": "6ac1d012137f93e079b729df",
+   "id": "sample-lab/Qwen-Image-2.1-Outfit-Sample-Consistency-LoRA",
+   "author": "sample-lab",
+   "gated": false,
+   "lastModified": "2026-10-05T13:49:00.000Z",
+   "likes": 116,
+   "trendingScore": 107,
+   "private": false,
+   "sha": "226c0a4edcee08328f2369f42f14b305e9671d9c",
+   "downloads": 0,
+   "tags": [
+    "lora",
+    "image-editing",
+    "outfit-sample",
+    "consistency",
+    "virtual-try-on",
+    "qwen-image",
+    "qwen-image-2.1",
+    "comfyui",
+    "ai-toolkit",
+    "image-to-image",
+    "base_model:Qwen/Qwen-Image-2.1",
+    "base_model:adapter:Qwen/Qwen-Image-2.1",
+    "license:other",
+    "region:us"
+   ],
+   "pipeline_tag": "image-to-image",
+   "createdAt": "2026-10-04T04:03:30.000Z",
+   "modelId": "sample-lab/Qwen-Image-2.1-Outfit-Sample-Consistency-LoRA",
+   "siblings": [
+    {
+     "rfilename": ".gitattributes"
+    },
+    {
+     "rfilename": "README.md"
+    },
+    {
+     "rfilename": "RESEARCH.md"
+    },
+    {
+     "rfilename": "figure_difference.jpg"
+    },
+    {
+     "rfilename": "figure_difference_2.jpg"
+    },
+    {
+     "rfilename": "figure_difference_3.jpg"
+    },
+    {
+     "rfilename": "figure_difference_train.jpg"
+    },
+    {
+     "rfilename": "figure_set_out_to_fix.jpg"
+    },
+    {
+     "rfilename": "figure_trainer_crop.jpg"
+    },
+    {
+     "rfilename": "outfit_sample_demo.mp4"
+    },
+    {
+     "rfilename": "qwen-image-2.1-outfit-sample-1250.safetensors"
+    },
+    {
+     "rfilename": "qwen-image-2.1-outfit-sample-1500.safetensors"
+    },
+    {
+     "rfilename": "qwen-image-2.1-outfit-sample.safetensors"
+    },
+    {
+     "rfilename": "workflows/qwen-image-2.1-outfit-sample.json"
+    }
+   ]
+  },
+  {
+   "_id": "6ab62d57c732154111ecfb1b",
+   "id": "sample-lab/MiniMax-H3-Character-Sample-LoRA",
+   "author": "sample-lab",
+   "gated": false,
+   "lastModified": "2026-10-10T07:41:28.000Z",
+   "likes": 408,
+   "trendingScore": 104,
+   "private": false,
+   "sha": "a665bb7e3bb9804e487d2925f67744f554c8ad49",
+   "downloads": 40640,
+   "tags": [
+    "diffusion-single-file",
+    "minimax-h3",
+    "lora",
+    "character-sample",
+    "video-editing",
+    "ref2va",
+    "comfyui",
+    "ai-toolkit",
+    "video-to-video",
+    "en",
+    "dataset:sample-lab/H3-Character-Sample-v1",
+    "base_model:Comfy-Org/MiniMax-H3",
+    "base_model:adapter:Comfy-Org/MiniMax-H3",
+    "license:other",
+    "region:us"
+   ],
+   "pipeline_tag": "video-to-video",
+   "library_name": "diffusion-single-file",
+   "createdAt": "2026-09-25T08:14:15.000Z",
+   "modelId": "sample-lab/MiniMax-H3-Character-Sample-LoRA",
+   "siblings": [
+    {
+     "rfilename": ".gitattributes"
+    },
+    {
+     "rfilename": "LICENSE"
+    },
+    {
+     "rfilename": "NOTICE"
+    },
+    {
+     "rfilename": "README.md"
+    },
+    {
+     "rfilename": "SHA256SUMS"
+    },
+    {
+     "rfilename": "assets/character-sample-showcase.gif"
+    },
+    {
+     "rfilename": "examples/H3 Character Sample v1 Ref2VA.json"
+    },
+    {
+     "rfilename": "examples/UPSTREAM-LICENSE.txt"
+    },
+    {
+     "rfilename": "examples/sample-lab-character-sample-turbo8-adaptive-window.json"
+    },
+    {
+     "rfilename": "h3_character_sample_pro4500_1000.safetensors"
+    },
+    {
+     "rfilename": "training/base-model-files.json"
+    },
+    {
+     "rfilename": "training/requirements-pinned.txt"
+    },
+    {
+     "rfilename": "training/train-1000-noeval.json"
+    },
+    {
+     "rfilename": "training/train-launcher.py"
+    }
+   ]
+  },
+  {
+   "_id": "6ab8960da4416b13ae29f67f",
+   "id": "pablodawson/MiniMax-H3-360-Orbit-LoRA",
+   "author": "pablodawson",
+   "gated": false,
+   "lastModified": "2026-09-27T04:06:23.000Z",
+   "likes": 280,
+   "trendingScore": 79,
+   "private": false,
+   "sha": "5ddbc2dbbe95edbbdaf5017c3e934b1d01791697",
+   "downloads": 13805,
+   "tags": [
+    "minimax-h3",
+    "lora",
+    "image-to-video",
+    "first-last-frame",
+    "flf2v",
+    "camera-control",
+    "orbit",
+    "360",
+    "3d-consistency",
+    "gaussian-splatting",
+    "ai-toolkit",
+    "image-text-to-video",
+    "base_model:MiniMaxAI/MiniMax-H3",
+    "base_model:adapter:MiniMaxAI/MiniMax-H3",
+    "license:other",
+    "region:us"
+   ],
+   "pipeline_tag": "image-text-to-video",
+   "library_name": "minimax-h3",
+   "createdAt": "2026-09-27T04:05:33.000Z",
+   "modelId": "pablodawson/MiniMax-H3-360-Orbit-LoRA",
+   "siblings": [
+    {
+     "rfilename": ".gitattributes"
+    },
+    {
+     "rfilename": "README.md"
+    },
+    {
+     "rfilename": "media/girl2_comparison.mp4"
+    },
+    {
+     "rfilename": "media/girl2_comparison.webp"
+    },
+    {
+     "rfilename": "media/girl2_lora.mp4"
+    },
+    {
+     "rfilename": "media/hero.mp4"
+    },
+    {
+     "rfilename": "media/hero.webp"
+    },
+    {
+     "rfilename": "media/hero_1200.mp4"
+    },
+    {
+     "rfilename": "media/man2_comparison.mp4"
+    },
+    {
+     "rfilename": "media/man2_comparison.webp"
+    },
+    {
+     "rfilename": "media/man2_lora.mp4"
+    },
+    {
+     "rfilename": "media/man_comparison.mp4"
+    },
+    {
+     "rfilename": "media/man_comparison.webp"
+    },
+    {
+     "rfilename": "media/man_lora.mp4"
+    },
+    {
+     "rfilename": "media/skate_comparison.mp4"
+    },
+    {
+     "rfilename": "media/skate_comparison.webp"
+    },
+    {
+     "rfilename": "media/skate_lora.mp4"
+    },
+    {
+     "rfilename": "minimax_h3_flf2v_lora_v1.safetensors"
+    }
+   ]
+  }
+ ]
+}

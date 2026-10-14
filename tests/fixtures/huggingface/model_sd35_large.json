@@ -1,0 +1,253 @@
+{
+ "_status": 200,
+ "_headers": {
+  "Content-Type": "application/json; charset=utf-8",
+  "Content-Length": "7234",
+  "ETag": "W/\"1c42-YWmgVH+FdxB6hGulsvBT7aWzK9Q\""
+ },
+ "body": {
+  "_id": "67175475ab870480b86e7caa",
+  "id": "stabilityai/stable-diffusion-3.5-large",
+  "private": false,
+  "pipeline_tag": "text-to-image",
+  "library_name": "diffusers",
+  "tags": [
+   "diffusers",
+   "safetensors",
+   "text-to-image",
+   "stable-diffusion",
+   "en",
+   "arxiv:2403.03206",
+   "license:other",
+   "diffusers:StableDiffusion3Pipeline",
+   "region:us"
+  ],
+  "downloads": 47711,
+  "likes": 4112,
+  "modelId": "stabilityai/stable-diffusion-3.5-large",
+  "author": "stabilityai",
+  "sha": "ceddf0a7fdf2064ea28e2213e3b84e4afa170a0f",
+  "lastModified": "2024-10-22T14:36:33.000Z",
+  "gated": "auto",
+  "disabled": false,
+  "model-index": null,
+  "config": {
+   "diffusers": {
+    "_class_name": "StableDiffusion3Pipeline"
+   }
+  },
+  "cardData": {
+   "license": "other",
+   "license_name": "stabilityai-ai-community",
+   "license_link": "LICENSE.md",
+   "tags": [
+    "text-to-image",
+    "stable-diffusion",
+    "diffusers"
+   ],
+   "inference": true,
+   "extra_gated_prompt": "By clicking \"Agree\", you agree to the [License Agreement](https://huggingface.co/stabilityai/stable-diffusion-3.5-large/blob/main/LICENSE.md) and acknowledge Stability AI's [Privacy Policy](https://stability.ai/privacy-policy).",
+   "extra_gated_fields": {
+    "Name": "text",
+    "Email": "text",
+    "Country": "country",
+    "Organization or Affiliation": "text",
+    "Receive email updates and promotions on Stability AI products, services, and research?": {
+     "type": "select",
+     "options": [
+      "Yes",
+      "No"
+     ]
+    },
+    "What do you intend to use the model for?": {
+     "type": "select",
+     "options": [
+      "Research",
+      "Personal use",
+      "Creative Professional",
+      "Startup",
+      "Enterprise"
+     ]
+    },
+    "I agree to the License Agreement and acknowledge Stability AI's Privacy Policy": "checkbox"
+   },
+   "language": [
+    "en"
+   ],
+   "pipeline_tag": "text-to-image"
+  },
+  "siblings": [
+   {
+    "rfilename": ".gitattributes"
+   },
+   {
+    "rfilename": "LICENSE.md"
+   },
+   {
+    "rfilename": "README.md"
+   },
+   {
+    "rfilename": "SD3.5L_example_workflow.json"
+   },
+   {
+    "rfilename": "mmdit.png"
+   },
+   {
+    "rfilename": "model_index.json"
+   },
+   {
+    "rfilename": "scheduler/scheduler_config.json"
+   },
+   {
+    "rfilename": "sd3.5_large.safetensors"
+   },
+   {
+    "rfilename": "sd3.5_large_demo.png"
+   },
+   {
+    "rfilename": "text_encoder/config.json"
+   },
+   {
+    "rfilename": "text_encoder/model.fp16.safetensors"
+   },
+   {
+    "rfilename": "text_encoder/model.safetensors"
+   },
+   {
+    "rfilename": "text_encoder_2/config.json"
+   },
+   {
+    "rfilename": "text_encoder_2/model.fp16.safetensors"
+   },
+   {
+    "rfilename": "text_encoder_2/model.safetensors"
+   },
+   {
+    "rfilename": "text_encoder_3/config.json"
+   },
+   {
+    "rfilename": "text_encoder_3/model-00001-of-00002.safetensors"
+   },
+   {
+    "rfilename": "text_encoder_3/model-00002-of-00002.safetensors"
+   },
+   {
+    "rfilename": "text_encoder_3/model.fp16-00001-of-00002.safetensors"
+   },
+   {
+    "rfilename": "text_encoder_3/model.fp16-00002-of-00002.safetensors"
+   }
+  ],
+  "spaces": [
+   "tardellirs/model-pulse",
+   "embedl/hfviewer",
+   "hugging-apps/t3-video-4k",
+   "RioShiina/ImageGen",
+   "aquanode/gpu-vram-calculator",
+   "alxander84/ImageGen-32",
+   "fastgpu/vram-and-gpu-cost-calculator",
+   "haodongli/DVD",
+   "phrographica/DVD-grayscale",
+   "Dekonstruktio/Fluxus",
+   "example-user/demo-space-01",
+   "stabilityai/stable-diffusion-3.5-large",
+   "Nymbo/Serverless-ImgGen-Hub",
+   "Yntec/ToyWorld",
+   "NeurixYUFI/imggen",
+   "Yntec/PrintingPress",
+   "Nymbo/Compare-6",
+   "FINAL-Bench/all-bench-leaderboard",
+   "multimodalart/civitai-to-hf",
+   "gokaygokay/SD3.5-with-Captioner",
+   "InstantX/SD35-IP-Adapter",
+   "Nymbo/Stable-Diffusion-3.5-Large-Serverless",
+   "gokaygokay/SD3.5-Prompt-Generator",
+   "Yntec/blitz_diffusion",
+   "example-user/demo-space-02",
+   "Nymbo/Best-Images-Overall",
+   "prs-eth/FLAIR",
+   "dbaranchuk/SwD-SD3.5-Large",
+   "weepiess2383/CFG-Zero-Star",
+   "alfredplpl/sd3-with-LLM",
+   "alexnasa/ReCamMaster-ZEROGPU",
+   "fffiloni/Stand-In",
+   "jbilcke-hf/OmniAvatar",
+   "Nymbo/Flood",
+   "PhelpsGG/stabilityai-stable-diffusion-3.5-large",
+   "AlekseyCalvin/Stabled_LoRAs_on_SD3.5_MERGED",
+   "Abinivesh/Multi-models-prompt-to-image-generation",
+   "arad1367/Stable_Diffusion_3.5_Large_Customized",
+   "NativeAngels/Compare-6",
+   "MrDrmm/DiffFlu2",
+   "example-user/demo-space-03",
+   "rahul7star/PusaV1",
+   "HighFocusRecords/Stable-Diffusion-3.5-Large-ServerlessNYMBO",
+   "Parmist/strangerzonehf-Flux-Super-Realism-LoRA",
+   "kaleidoskop-hug/PrintingPress",
+   "gwada/stabilityai-stable-diffusion-3.5-large",
+   "MrDrmm/Gen2",
+   "m3g4p0p/qr-code",
+   "AthuKawaleLogituit/SD3.5-Large",
+   "Nymbo/Image-Models-Test-Playground",
+   "jbilcke-hf/ReCamMaster",
+   "SAITAN666/StableDiffusion35Large-Image-Models-Test-November-2024",
+   "NativeAngels/HuggingfaceDiffusion",
+   "NativeAngels/ToyWorld",
+   "sst12345/CoRe2",
+   "Kunbyte/Lumen",
+   "Mr-Vicky-01/AI_Artist",
+   "vasilisklv/genai_story_creation_game",
+   "FradigmaDangerYT/stabilityai-stable-diffusion-3.5-large",
+   "NativeAngels/Serverless-ImgGen-Hub",
+   "RageshAntony/ragesh-stable-diffusion-3.5-large",
+   "alexeyGod/stable-diffusion-3.5-large",
+   "BarBar288/Chatbot",
+   "arudradey/all-bench-leaderboard",
+   "Nymbo/DrawApp",
+   "Nymbo/MultiQueue",
+   "liruiw/hma",
+   "Vishalkarnik0891/stabilityai-stable-diffusion-3.5-large",
+   "zzhou292/stabilityai-stable-diffusion-3.5-large",
+   "benjamin-paine/absynth-2.0",
+   "Abhik0069/stabilityai-stable-diffusion-3.5-large",
+   "phamngoctukts/assistant",
+   "zulteon/SD3.5Large",
+   "awacke1/ImageMultiagentSystem",
+   "Jodaye33/stabilityai-stable-diffusion-3.5-large",
+   "MrDrmm/Self",
+   "MrDrmm/Gen",
+   "sanzydev/stabilityai-stable-diffusion-3.5-large",
+   "SrKatayama/stabilityai-stable-diffusion-3.5-large",
+   "freddyaboulton/qr-code",
+   "mojitocup/realistic-xl",
+   "Ntdeseb/ntia",
+   "MohanamaniDeepika/anycoder",
+   "example-user/demo-space-04",
+   "example-user/demo-space-05",
+   "Tinchote/ImageGen",
+   "hugging-apps/lip-forcing",
+   "abalanescu/flow2",
+   "AlekseyCalvin/SD35soonrLoRAs",
+   "SalvaNanez/stabilityai-stable-diffusion-3.5-large",
+   "Meetop/stabilityai-stable-diffusion-3.5-large",
+   "THARUN9522/stabilityai-stable-diffusion-3.5-large",
+   "anthienlong/stable-diffusion-3.5-large",
+   "DanialKing1/stabilityai-stable-diffusion-3.5-large",
+   "ordlibrary/stabilityai-stable-diffusion-3.5-large",
+   "bgaap/stabilityai-stable-diffusion-3.5-large",
+   "amos1088/test_gradio",
+   "thesab/Grape-Leaf-Disease-Synth-Generator",
+   "SeePlay/stabilityai-stable-diffusion-3.5-large",
+   "sskoder/stabilityai-stable-diffusion-3.5-large"
+  ],
+  "createdAt": "2024-10-22T07:29:57.000Z",
+  "safetensors": {
+   "parameters": {
+    "BF16": 8146280768
+   },
+   "total": 8146280768
+  },
+  "inference": "warm",
+  "usedStorage": 75493590524
+ }
+}

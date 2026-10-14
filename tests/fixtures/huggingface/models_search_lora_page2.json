@@ -1,0 +1,202 @@
+{
+ "_status": 200,
+ "_headers": {
+  "Content-Type": "application/json; charset=utf-8",
+  "Content-Length": "32475",
+  "ETag": "W/\"7edb-KGXSQWqz0HHgmOKWr0xHNjouZTY\"",
+  "Link": "<https://huggingface.co/api/models?search=lora&limit=3&full=true&cursor=eyIkb3IiOlt7InRyZW5kaW5nU2NvcmUiOjY1LCJfaWQiOnsiJGd0IjoiNmFjNTcwZmIzZTUzNzFkNDdmODY1YmFiIn19LHsidHJlbmRpbmdTY29yZSI6eyIkbHQiOjY1fX0seyJ0cmVuZGluZ1Njb3JlIjpudWxsfV0sInNlYXJjaFNlcXVlbmNlVG9rZW4iOiJDSXZEelFJYUNTRUFBQUFBQUVCUVFCb09XZ3hxeFhEN1BsTngxSCtHVzZzaURsb01hc1Z3K3o1VGNkUi9obHVyIn0%3D>; rel=\"next\""
+ },
+ "body": [
+  {
+   "_id": "6abcd7c5ee108db5d602dcab",
+   "id": "RunningHubAI/rh-qwen-image-2.1-lora-2104918997757157378",
+   "author": "RunningHubAI",
+   "gated": false,
+   "lastModified": "2026-09-30T09:36:03.000Z",
+   "likes": 85,
+   "trendingScore": 78,
+   "private": false,
+   "sha": "682fb47975c4fe57f97b54cfb42398f3efe397cb",
+   "downloads": 0,
+   "tags": [
+    "comfyui",
+    "lora",
+    "text-to-image",
+    "region:us"
+   ],
+   "pipeline_tag": "text-to-image",
+   "createdAt": "2026-09-30T09:35:01.000Z",
+   "modelId": "RunningHubAI/rh-qwen-image-2.1-lora-2104918997757157378",
+   "siblings": [
+    {
+     "rfilename": ".gitattributes"
+    },
+    {
+     "rfilename": "Qwenimag21_c2-st2000.safetensors"
+    },
+    {
+     "rfilename": "README.md"
+    },
+    {
+     "rfilename": "README_cn.md"
+    },
+    {
+     "rfilename": "poster.gif"
+    }
+   ]
+  },
+  {
+   "_id": "6abac7abd0c69b4b0037778d",
+   "id": "Lightricks/LTX-2.5-22b-IC-LoRA-Alpha-Gen",
+   "author": "Lightricks",
+   "gated": "auto",
+   "lastModified": "2026-10-01T13:53:08.000Z",
+   "likes": 148,
+   "trendingScore": 74,
+   "private": false,
+   "sha": "6184df14b1b560bf9b6447d3ee126bd7e4a88513",
+   "downloads": 7964,
+   "tags": [
+    "ltx",
+    "alpha-matte",
+    "matting",
+    "background-removal",
+    "ic-lora",
+    "ltx-2.5",
+    "video-to-video",
+    "vfx",
+    "en",
+    "base_model:Lightricks/LTX-2.5",
+    "base_model:adapter:Lightricks/LTX-2.5",
+    "license:other",
+    "region:us"
+   ],
+   "pipeline_tag": "video-to-video",
+   "library_name": "ltx",
+   "createdAt": "2026-09-28T20:01:47.000Z",
+   "modelId": "Lightricks/LTX-2.5-22b-IC-LoRA-Alpha-Gen",
+   "siblings": [
+    {
+     "rfilename": ".gitattributes"
+    },
+    {
+     "rfilename": "README.md"
+    },
+    {
+     "rfilename": "examples/backlit_hair_sbs.mp4"
+    },
+    {
+     "rfilename": "examples/dancer_smoke_sbs.mp4"
+    },
+    {
+     "rfilename": "examples/dog_fur_sbs.mp4"
+    },
+    {
+     "rfilename": "examples/dragon_fire_sbs.mp4"
+    },
+    {
+     "rfilename": "examples/sheer_curtain_sbs.mp4"
+    },
+    {
+     "rfilename": "examples/water_pour_sbs.mp4"
+    },
+    {
+     "rfilename": "ltx-2.5-22b-ic-lora-alpha-gen-0.9.safetensors"
+    }
+   ]
+  },
+  {
+   "_id": "6ac570fb3e5371d47f865bab",
+   "id": "akhaliq/Qwen-Image-2.1-Multiple-Angles-LoRA",
+   "author": "akhaliq",
+   "gated": false,
+   "lastModified": "2026-10-07T15:17:46.000Z",
+   "likes": 66,
+   "trendingScore": 65,
+   "private": false,
+   "sha": "0d91c4dfa22b3f5aa89c020eadc30d8f42cb51c0",
+   "downloads": 1050,
+   "tags": [
+    "diffusers",
+    "qwen-image-2.1",
+    "lora",
+    "camera-control",
+    "multiple-angles",
+    "image-editing",
+    "multi-view",
+    "dome-objaverse",
+    "image-to-image",
+    "base_model:Qwen/Qwen-Image-2.1",
+    "base_model:adapter:Qwen/Qwen-Image-2.1",
+    "license:apache-2.0",
+    "region:us"
+   ],
+   "pipeline_tag": "image-to-image",
+   "library_name": "diffusers",
+   "createdAt": "2026-10-06T22:06:51.000Z",
+   "modelId": "akhaliq/Qwen-Image-2.1-Multiple-Angles-LoRA",
+   "siblings": [
+    {
+     "rfilename": ".gitattributes"
+    },
+    {
+     "rfilename": "README.md"
+    },
+    {
+     "rfilename": "benchmarks/bench_montage.jpg"
+    },
+    {
+     "rfilename": "benchmarks/bench_results.json"
+    },
+    {
+     "rfilename": "benchmarks/checkpoint_curve/manifest.json"
+    },
+    {
+     "rfilename": "benchmarks/checkpoint_curve/sheet_cat.jpg"
+    },
+    {
+     "rfilename": "benchmarks/checkpoint_curve/sheet_strip0.jpg"
+    },
+    {
+     "rfilename": "benchmarks/checkpoint_curve/sheet_strip1.jpg"
+    },
+    {
+     "rfilename": "benchmarks/orbit_candidates_seedA.jpg"
+    },
+    {
+     "rfilename": "benchmarks/orbit_candidates_seedB.jpg"
+    },
+    {
+     "rfilename": "benchmarks/orbit_dog_candidates_seedA.jpg"
+    },
+    {
+     "rfilename": "benchmarks/orbit_dog_candidates_seedB.jpg"
+    },
+    {
+     "rfilename": "benchmarks/v2_curve/sheet_cat.jpg"
+    },
+    {
+     "rfilename": "benchmarks/v2_curve/sheet_strip0.jpg"
+    },
+    {
+     "rfilename": "benchmarks/v2_curve/sheet_strip1.jpg"
+    },
+    {
+     "rfilename": "benchmarks/v2_verify/character_sheet.jpg"
+    },
+    {
+     "rfilename": "checkpoints/ab_qwen21_angles_ab_base_qwen21_angles_ab_base.safetensors"
+    },
+    {
+     "rfilename": "checkpoints/angles_full_qwen21_multiple_angles_v1_qwen21_multiple_angles_v1.safetensors"
+    },
+    {
+     "rfilename": "checkpoints/angles_full_qwen21_multiple_angles_v1_qwen21_multiple_angles_v1_000000250.safetensors"
+    },
+    {
+     "rfilename": "checkpoints/angles_full_qwen21_multiple_angles_v1_qwen21_multiple_angles_v1_000000500.safetensors"
+    }
+   ]
+  }
+ ]
+}

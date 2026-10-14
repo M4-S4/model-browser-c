@@ -1,0 +1,287 @@
+{
+ "_status": 200,
+ "_headers": {
+  "Content-Type": "application/json; charset=utf-8",
+  "Content-Length": "7209",
+  "ETag": "W/\"1c29-2RhBmLD0yfF3wqmG2DfU1Wm4zsY\"",
+  "Link": "<https://huggingface.co/api/models?pipeline_tag=text-to-image&sort=downloads&direction=-1&limit=3&full=true&cursor=eyIkb3IiOlt7ImRvd25sb2FkcyI6MTY0NTU5NSwiX2lkIjp7IiRndCI6IjY2ZDE5NTgwZTI2MzI0OTBhNmJjNTgyOSJ9fSx7ImRvd25sb2FkcyI6eyIkbHQiOjE2NDU1OTV9fSx7ImRvd25sb2FkcyI6bnVsbH1dLCJzZWFyY2hTZXF1ZW5jZVRva2VuIjoiQ002K3pRSWFDU0VBQUFBQUd4dzVRUm9PV2d4bTBaV0E0bU1ra0thOFdDa2lEbG9NWnRHVmdPSmpKSkNtdkZncCJ9>; rel=\"next\""
+ },
+ "body": [
+  {
+   "_id": "64bfcd5ff462a99a04fd1ec8",
+   "id": "stabilityai/stable-diffusion-xl-base-1.0",
+   "author": "stabilityai",
+   "gated": false,
+   "lastModified": "2023-10-30T16:03:47.000Z",
+   "likes": 8294,
+   "private": false,
+   "sha": "462165984030d82259a11f4367a4eed129e94a7b",
+   "downloads": 4310723,
+   "tags": [
+    "diffusers",
+    "onnx",
+    "safetensors",
+    "text-to-image",
+    "stable-diffusion",
+    "arxiv:2307.01952",
+    "arxiv:2211.01324",
+    "arxiv:2108.01073",
+    "arxiv:2112.10752",
+    "license:openrail++",
+    "endpoints_compatible",
+    "diffusers:StableDiffusionXLPipeline",
+    "deploy:sagemaker",
+    "deploy:azure",
+    "region:us"
+   ],
+   "pipeline_tag": "text-to-image",
+   "library_name": "diffusers",
+   "createdAt": "2023-07-25T13:25:51.000Z",
+   "modelId": "stabilityai/stable-diffusion-xl-base-1.0",
+   "siblings": [
+    {
+     "rfilename": ".gitattributes"
+    },
+    {
+     "rfilename": "01.png"
+    },
+    {
+     "rfilename": "LICENSE.md"
+    },
+    {
+     "rfilename": "README.md"
+    },
+    {
+     "rfilename": "comparison.png"
+    },
+    {
+     "rfilename": "model_index.json"
+    },
+    {
+     "rfilename": "pipeline.png"
+    },
+    {
+     "rfilename": "scheduler/scheduler_config.json"
+    },
+    {
+     "rfilename": "sd_xl_base_1.0.safetensors"
+    },
+    {
+     "rfilename": "sd_xl_base_1.0_0.9vae.safetensors"
+    },
+    {
+     "rfilename": "sd_xl_offset_example-lora_1.0.safetensors"
+    },
+    {
+     "rfilename": "text_encoder/config.json"
+    },
+    {
+     "rfilename": "text_encoder/flax_model.msgpack"
+    },
+    {
+     "rfilename": "text_encoder/model.fp16.safetensors"
+    },
+    {
+     "rfilename": "text_encoder/model.onnx"
+    },
+    {
+     "rfilename": "text_encoder/model.safetensors"
+    },
+    {
+     "rfilename": "text_encoder/openvino_model.bin"
+    },
+    {
+     "rfilename": "text_encoder/openvino_model.xml"
+    },
+    {
+     "rfilename": "text_encoder_2/config.json"
+    },
+    {
+     "rfilename": "text_encoder_2/flax_model.msgpack"
+    }
+   ]
+  },
+  {
+   "_id": "6ab000f1a587030ee97d13cf",
+   "id": "sample-quant/Qwen-Image-2.1-Sample-GGUF",
+   "author": "sample-quant",
+   "gated": false,
+   "lastModified": "2026-10-11T12:04:13.000Z",
+   "likes": 3940,
+   "private": false,
+   "sha": "a6dc609469e6a66045dea689764067824fad1007",
+   "downloads": 2188658,
+   "tags": [
+    "gguf",
+    "qwen",
+    "image-generation",
+    "comfyui",
+    "comfyui-gguf",
+    "text-to-image",
+    "base_model:Qwen/Qwen-Image-2.1",
+    "base_model:quantized:Qwen/Qwen-Image-2.1",
+    "license:other",
+    "region:us"
+   ],
+   "pipeline_tag": "text-to-image",
+   "library_name": "gguf",
+   "createdAt": "2026-09-20T15:51:13.000Z",
+   "modelId": "sample-quant/Qwen-Image-2.1-Sample-GGUF",
+   "siblings": [
+    {
+     "rfilename": ".gitattributes"
+    },
+    {
+     "rfilename": "README.md"
+    },
+    {
+     "rfilename": "SHA256SUMS"
+    },
+    {
+     "rfilename": "assets/Qwen-Image-2.1-Benchmark.png"
+    },
+    {
+     "rfilename": "qwen-image-2.1-UC-BF16.gguf"
+    },
+    {
+     "rfilename": "qwen-image-2.1-UC-MLX-4bit.safetensors"
+    },
+    {
+     "rfilename": "qwen-image-2.1-UC-MLX-6bit.safetensors"
+    },
+    {
+     "rfilename": "qwen-image-2.1-UC-MLX-8bit.safetensors"
+    },
+    {
+     "rfilename": "qwen-image-2.1-UC-NVFP4.safetensors"
+    },
+    {
+     "rfilename": "qwen-image-2.1-UC-Q4_0.gguf"
+    },
+    {
+     "rfilename": "qwen-image-2.1-UC-Q4_K_M.gguf"
+    },
+    {
+     "rfilename": "qwen-image-2.1-UC-Q5_K_M.gguf"
+    },
+    {
+     "rfilename": "qwen-image-2.1-UC-Q6_K.gguf"
+    },
+    {
+     "rfilename": "qwen-image-2.1-UC-Q8_0.gguf"
+    },
+    {
+     "rfilename": "qwen-image-2.1-UC-fp8.safetensors"
+    },
+    {
+     "rfilename": "qwen-image-2.1-UC-int8_convrot.safetensors"
+    },
+    {
+     "rfilename": "qwen-image-2.1-sample-lora.safetensors"
+    },
+    {
+     "rfilename": "text_encoders/qwen3vl_8b_bf16.safetensors"
+    },
+    {
+     "rfilename": "text_encoders/qwen3vl_8b_int8_convrot.safetensors"
+    },
+    {
+     "rfilename": "vae/qwen_image_2.1_vae_bf16.safetensors"
+    }
+   ]
+  },
+  {
+   "_id": "66d19580e2632490a6bc5829",
+   "id": "stable-diffusion-v1-5/stable-diffusion-v1-5",
+   "author": "stable-diffusion-v1-5",
+   "gated": false,
+   "lastModified": "2024-09-07T16:20:30.000Z",
+   "likes": 1309,
+   "private": false,
+   "sha": "451f4fe16113bff5a5d2269ed5ad43b0592e9a14",
+   "downloads": 1645595,
+   "tags": [
+    "diffusers",
+    "safetensors",
+    "stable-diffusion",
+    "stable-diffusion-diffusers",
+    "text-to-image",
+    "arxiv:2207.12598",
+    "arxiv:2112.10752",
+    "arxiv:2103.00020",
+    "arxiv:2205.11487",
+    "arxiv:1910.09700",
+    "license:creativeml-openrail-m",
+    "endpoints_compatible",
+    "diffusers:StableDiffusionPipeline",
+    "region:us"
+   ],
+   "pipeline_tag": "text-to-image",
+   "library_name": "diffusers",
+   "createdAt": "2024-08-30T09:48:48.000Z",
+   "modelId": "stable-diffusion-v1-5/stable-diffusion-v1-5",
+   "siblings": [
+    {
+     "rfilename": ".gitattributes"
+    },
+    {
+     "rfilename": "README.md"
+    },
+    {
+     "rfilename": "feature_extractor/preprocessor_config.json"
+    },
+    {
+     "rfilename": "model_index.json"
+    },
+    {
+     "rfilename": "safety_checker/config.json"
+    },
+    {
+     "rfilename": "safety_checker/model.fp16.safetensors"
+    },
+    {
+     "rfilename": "safety_checker/model.safetensors"
+    },
+    {
+     "rfilename": "safety_checker/pytorch_model.bin"
+    },
+    {
+     "rfilename": "safety_checker/pytorch_model.fp16.bin"
+    },
+    {
+     "rfilename": "scheduler/scheduler_config.json"
+    },
+    {
+     "rfilename": "text_encoder/config.json"
+    },
+    {
+     "rfilename": "text_encoder/model.fp16.safetensors"
+    },
+    {
+     "rfilename": "text_encoder/model.safetensors"
+    },
+    {
+     "rfilename": "text_encoder/pytorch_model.bin"
+    },
+    {
+     "rfilename": "text_encoder/pytorch_model.fp16.bin"
+    },
+    {
+     "rfilename": "tokenizer/merges.txt"
+    },
+    {
+     "rfilename": "tokenizer/special_tokens_map.json"
+    },
+    {
+     "rfilename": "tokenizer/tokenizer_config.json"
+    },
+    {
+     "rfilename": "tokenizer/vocab.json"
+    },
+    {
+     "rfilename": "unet/config.json"
+    }
+   ]
+  }
+ ]
+}

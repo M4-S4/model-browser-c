@@ -1,0 +1,58 @@
+{
+ "_status": 200,
+ "_headers": {
+  "Content-Type": "application/json; charset=utf-8",
+  "Content-Length": "1098",
+  "ETag": "W/\"44a-hJamTGsSwQJDBWlUj/h8UuQq39g\""
+ },
+ "body": [
+  {
+   "type": "file",
+   "oid": "6d34772f5ca361021038b404fb913ec8dc0b1a5a",
+   "size": 1175,
+   "path": ".gitattributes"
+  },
+  {
+   "type": "file",
+   "oid": "e80a994492fb7f20ab9e73cd3e2dad47fa9b2410",
+   "size": 1200,
+   "path": "README.md"
+  },
+  {
+   "type": "file",
+   "oid": "313b87ab9359a04b0f450695b1a01a88edd4ac95",
+   "size": 67061725,
+   "lfs": {
+    "oid": "c830d067d54fc767b9543a8432f36d91bc2de313584e8bbfe4ac26a47339e899",
+    "size": 67061725,
+    "pointerSize": 133
+   },
+   "xetHash": "68ad2a882736ccefecf39696e22783d24598f7e8e5a5082b735e9f05d6987937",
+   "path": "RealESRGAN_x2.pth"
+  },
+  {
+   "type": "file",
+   "oid": "0271c7326bedc41232e15142c569e09920451045",
+   "size": 67040989,
+   "lfs": {
+    "oid": "aa00f09ad753d88576b21ed977e97d634976377031b178acc3b5b238df463400",
+    "size": 67040989,
+    "pointerSize": 133
+   },
+   "xetHash": "0484f3a0a675fc3b4759239d800cf646384c2604c5fa645ca896ce3a0f7c72ba",
+   "path": "RealESRGAN_x4.pth"
+  },
+  {
+   "type": "file",
+   "oid": "d7ff1ca806acc221253d31a646b62f3f061ea36f",
+   "size": 67189359,
+   "lfs": {
+    "oid": "8b72fb469d12f05a4770813d2603eb1b550f40df6fb8b37d6c7bc2db3d2bff5e",
+    "size": 67189359,
+    "pointerSize": 133
+   },
+   "xetHash": "e0d4ecca06bd66a4253edea2803e71caadeefe6154078a1929f24a1bfcde1a85",
+   "path": "RealESRGAN_x8.pth"
+  }
+ ]
+}

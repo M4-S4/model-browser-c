@@ -1,0 +1,411 @@
+{
+ "ai-generated": {
+  "name": "AI Generated",
+  "description": "Images or videos rendered with tools such as Stable Diffusion"
+ },
+ "anime": {
+  "name": "Anime",
+  "description": "Image or video of anime or anime-style artwork."
+ },
+ "anti-aliasing": {
+  "name": "Anti-aliasing",
+  "description": "The model smooths aliasing artifacts (also called jaggies)."
+ },
+ "cartoon": {
+  "name": "Cartoon",
+  "description": "Image or video of western cartoon or artwork in a similar style."
+ },
+ "cgi": {
+  "name": "CGI",
+  "description": "Computer Generated Imagery (CGI). These are images or videos that have been rendered in software such as Blender. A good example would be the movie \"Toy Story\""
+ },
+ "colorization": {
+  "name": "Colorization",
+  "description": "The model colorizes grayscale and/or black-and-white images."
+ },
+ "compression-removal": {
+  "name": "Compression Removal",
+  "description": "The model is capable of removing compression. This can be any type of compression, such as JPEG or H264.",
+  "implies": [
+   "restoration"
+  ]
+ },
+ "dds": {
+  "name": "DDS",
+  "description": "The model is able to remove DDS block compression artifacts. \n\nModels with this tag may only support specific compression methods and/or settings (e.g. BC1/DTX1, BC7).",
+  "implies": [
+   "compression-removal",
+   "restoration"
+  ]
+ },
+ "debanding": {
+  "name": "Debanding",
+  "description": "The removes banding artifacts caused by color quantization. Such artifacts and frequently be observed in GIF images.",
+  "implies": [
+   "restoration"
+  ]
+ },
+ "deblur": {
+  "name": "Deblur",
+  "description": "The model tries to remove blur from the input.",
+  "implies": [
+   "restoration"
+  ]
+ },
+ "dedither": {
+  "name": "Dedither",
+  "description": "The model removes dithering artifacts from the input.",
+  "implies": [
+   "restoration"
+  ]
+ },
+ "dehalftone": {
+  "name": "Dehalftone",
+  "description": "The model removes halftone patterns from the input. This is typically on printed media, such as magazines or album covers.",
+  "implies": [
+   "restoration"
+  ]
+ },
+ "dehalo": {
+  "name": "Dehalo",
+  "description": "The model removes haloing and color bleeding from the input.",
+  "implies": [
+   "restoration"
+  ]
+ },
+ "denoise": {
+  "name": "Denoise",
+  "description": "The model removes noise from the input.\n\nModels with this tag may only work with specific kinds of noise.",
+  "implies": [
+   "restoration"
+  ]
+ },
+ "faces": {
+  "name": "Faces",
+  "description": "Image or video of faces. This can be photograph or artwork."
+ },
+ "game-screenshots": {
+  "name": "Game Screenshots",
+  "description": "Images (screenshots) taken of video games."
+ },
+ "game-textures": {
+  "name": "Game Textures",
+  "description": "Textures used in video games or other 3D applications. These textures are typically diffuse/albedo maps, but other types of textures (such as normal maps) are also included."
+ },
+ "general-upscaler": {
+  "name": "General Upscaler",
+  "description": "The model can upscale any subject.\n\nGeneral purpose models achieve good results across a wide range of inputs. However, models that specialize in the subject of a specific image (e.g. anime, faces, text, etc.) will typically achieve better results than general purpose models."
+ },
+ "inpainting": {
+  "name": "Inpainting",
+  "description": "The model fills in selected parts of an image."
+ },
+ "jpeg": {
+  "name": "JPEG",
+  "description": "The model is able to remove JPEG compression artifacts.\n\nModels with this tag may only support specific JPEG compression settings (e.g. quality between 80% and 100%).",
+  "implies": [
+   "compression-removal",
+   "restoration"
+  ]
+ },
+ "manga": {
+  "name": "Manga",
+  "description": "Image of manga pages or manga-style artwork."
+ },
+ "photo": {
+  "name": "Realistic",
+  "description": "Image or video of realistic looking imagery. E.g. images recorded with camera."
+ },
+ "pixel-art": {
+  "name": "Pixel Art",
+  "description": "Pixel art. This includes things such as retro pixel artwork (think SNES games)."
+ },
+ "pretrained": {
+  "name": "Pretrained",
+  "description": "The model is intended to be used to train new models."
+ },
+ "research": {
+  "name": "Research",
+  "description": "The model is the result of a research paper. The paper or GitHub repo is typically linked in the description."
+ },
+ "restoration": {
+  "name": "Restoration",
+  "description": "The model restores images or video frames through compression removal, artifact clean up, or otherwise."
+ },
+ "text": {
+  "name": "Text",
+  "description": "Image or video of text."
+ },
+ "texture-generation": {
+  "name": "Texture Generation",
+  "description": "The model generates textures from other textures. E.g. a model could generate a normal map from a diffuse texture."
+ },
+ "video-frame": {
+  "name": "Video Frame",
+  "description": "Images of individual video frames."
+ },
+ "arch:atd": {
+  "name": "ATD",
+  "description": ""
+ },
+ "arch:cain": {
+  "name": "CAIN",
+  "description": ""
+ },
+ "arch:cain-yuv": {
+  "name": "CAIN YUV",
+  "description": ""
+ },
+ "arch:compact": {
+  "name": "Compact",
+  "description": ""
+ },
+ "arch:craft": {
+  "name": "CRAFT",
+  "description": ""
+ },
+ "arch:cugan": {
+  "name": "CUGAN",
+  "description": ""
+ },
+ "arch:dat": {
+  "name": "DAT",
+  "description": ""
+ },
+ "arch:dctlsa": {
+  "name": "DCTLSA",
+  "description": ""
+ },
+ "arch:ditn": {
+  "name": "DITN",
+  "description": ""
+ },
+ "arch:drct": {
+  "name": "DRCT",
+  "description": ""
+ },
+ "arch:edsr": {
+  "name": "EDSR",
+  "description": ""
+ },
+ "arch:esrgan": {
+  "name": "ESRGAN",
+  "description": ""
+ },
+ "arch:esrgan+": {
+  "name": "ESRGAN+",
+  "description": ""
+ },
+ "arch:grl": {
+  "name": "GRL",
+  "description": ""
+ },
+ "arch:hat": {
+  "name": "HAT",
+  "description": ""
+ },
+ "arch:hma": {
+  "name": "HMA",
+  "description": ""
+ },
+ "arch:ludvae": {
+  "name": "LUDVAE",
+  "description": ""
+ },
+ "arch:mosr": {
+  "name": "MoSR",
+  "description": ""
+ },
+ "arch:omnisr": {
+  "name": "OmniSR",
+  "description": ""
+ },
+ "arch:rcan": {
+  "name": "RCAN",
+  "description": ""
+ },
+ "arch:real-cugan": {
+  "name": "Real-CUGAN",
+  "description": ""
+ },
+ "arch:realplksr": {
+  "name": "RealPLKSR",
+  "description": ""
+ },
+ "arch:realplksr-dysample": {
+  "name": "RealPLKSR_dysample",
+  "description": ""
+ },
+ "arch:rgt": {
+  "name": "RGT",
+  "description": ""
+ },
+ "arch:rife": {
+  "name": "RIFE",
+  "description": ""
+ },
+ "arch:sofvsr": {
+  "name": "SOFVSR",
+  "description": ""
+ },
+ "arch:span": {
+  "name": "SPAN",
+  "description": ""
+ },
+ "arch:spsr": {
+  "name": "SPSR",
+  "description": ""
+ },
+ "arch:sr-res-net": {
+  "name": "SRResNet",
+  "description": ""
+ },
+ "arch:srformer": {
+  "name": "SRFormer",
+  "description": ""
+ },
+ "arch:swift-srgan": {
+  "name": "Swift-SRGAN",
+  "description": ""
+ },
+ "arch:swinir": {
+  "name": "SwinIR",
+  "description": ""
+ },
+ "arch:tscunet": {
+  "name": "TSCUNet",
+  "description": ""
+ },
+ "color:1": {
+  "name": "Grayscale",
+  "description": "The model upscales grayscale images. A typical example for grayscale models are models that upscale the alpha channel of images."
+ },
+ "color:1-3": {
+  "name": "Grayscale→RGB",
+  "description": "The model colorizes grayscale images to RGB."
+ },
+ "color:3": {
+  "name": "RGB",
+  "description": "The model upscales images without transparency. Some applications (e.g. chaiNNer and CupScale) can still upscale images with transparency using this model."
+ },
+ "color:4": {
+  "name": "RGBA",
+  "description": "The model upscales images with transparency."
+ },
+ "dataset:anime": {
+  "name": "Anime",
+  "description": "Anime dataset"
+ },
+ "dataset:game-textures": {
+  "name": "Game Textures",
+  "description": "Game textures dataset"
+ },
+ "dataset:manga": {
+  "name": "Manga",
+  "description": "Manga dataset"
+ },
+ "dataset:realistic": {
+  "name": "Realistic",
+  "description": "Realistic dataset"
+ },
+ "helper:invalid-channels": {
+  "name": "Invalid channels",
+  "description": "The number of input or output channels of the model is not valid."
+ },
+ "helper:invalid-date": {
+  "name": "Invalid date",
+  "description": "The model has no date or its date is invalid."
+ },
+ "helper:invalid-scale": {
+  "name": "Invalid scale",
+  "description": "The scale of the model is not valid."
+ },
+ "helper:needs-description": {
+  "name": "Needs description",
+  "description": "The model has no description."
+ },
+ "helper:needs-tags": {
+  "name": "Needs tags",
+  "description": "The model has no tags."
+ },
+ "input:audio": {
+  "name": "Audio",
+  "description": ""
+ },
+ "input:image": {
+  "name": "Image",
+  "description": ""
+ },
+ "input:video": {
+  "name": "Video",
+  "description": ""
+ },
+ "license:by": {
+  "name": "Credit",
+  "description": "Crediting the author is **required** when sharing the model or derivative works (e.g. model interpolations).\n\nSimply using the model to upscale images is typically okay, and no credit is required for upscaled images."
+ },
+ "license:commercial": {
+  "name": "Commercial",
+  "description": "The model may be included and used in commercial products."
+ },
+ "license:modifications": {
+  "name": "Modifications",
+  "description": "The author allows that this model may be used to create derivative works (e.g. model interpolations)."
+ },
+ "license:sa": {
+  "name": "Same license",
+  "description": "The author **requires** that derivative works have the same license or a compatible license as the model. Derivative works include model interpolations and using it a pretrained model."
+ },
+ "license:unknown": {
+  "name": "Unknown License",
+  "description": "The model either has no license or is licensed under a custom or infrequently used license."
+ },
+ "platform:ncnn": {
+  "name": "NCNN",
+  "description": "The model has NCNN models (`.bin`+`.param`) to download."
+ },
+ "platform:ncnn-compatible": {
+  "name": "NCNN Compatible",
+  "description": "The either has NCNN models to download or can be converted into an NCNN model."
+ },
+ "platform:onnx": {
+  "name": "ONNX",
+  "description": "The model has ONNX models (`.onnx`) to download."
+ },
+ "platform:onnx-compatible": {
+  "name": "ONNX Compatible",
+  "description": "The either has ONNX models to download or can be converted into an ONNX model."
+ },
+ "platform:pytorch": {
+  "name": "PyTorch",
+  "description": "The model has PyTorch models (`.pth`/`.pt`) to download."
+ },
+ "platform:pytorch-compatible": {
+  "name": "PyTorch Compatible",
+  "description": "The either has PyTorch models to download or can be converted into a PyTorch model."
+ },
+ "scale:1": {
+  "name": "1x",
+  "description": ""
+ },
+ "scale:16": {
+  "name": "16x",
+  "description": ""
+ },
+ "scale:2": {
+  "name": "2x",
+  "description": ""
+ },
+ "scale:3": {
+  "name": "3x",
+  "description": ""
+ },
+ "scale:4": {
+  "name": "4x",
+  "description": ""
+ },
+ "scale:8": {
+  "name": "8x",
+  "description": ""
+ }
+}

@@ -1,0 +1,459 @@
+{
+ "_status": 200,
+ "_headers": {
+  "Content-Type": "application/json; charset=utf-8",
+  "Cache-Control": "public, s-maxage=300, stale-while-revalidate=150"
+ },
+ "body": {
+  "items": [
+   {
+    "id": 82098,
+    "name": "Add More Details - Detail Enhancer / Tweaker (细节调整) LoRA",
+    "description": "<h2 id=\"heading-734\">Add More Details - Detail Enhancer / Tweaker</h2><p><strong>Do you like what I do? Consider supporting me on </strong><a target=\"_blank\" rel=\"ugc\" href=\"https://www.patreon.com/Lykon275\"><strong>Patreon</strong></a><strong> 🅿️ or feel free to </strong><a target=\"_blank\" rel=\"ugc\" href=\"https://snipfeed.co/lykon\"><strong>buy me a coffee</strong></a><strong> ☕</strong><br /></p><p>I've been using the (great) Detail Tweaker by CyberAIchemist for a while now, and I was really curious. I really just wanted to know if I was capable of doing something similar. </p><p>I had a lot …",
+    "allowNoCredit": true,
+    "allowCommercialUse": [
+     "Image",
+     "RentCivit",
+     "Rent"
+    ],
+    "allowDerivatives": true,
+    "allowDifferentLicense": true,
+    "type": "LORA",
+    "minor": false,
+    "sfwOnly": false,
+    "poi": false,
+    "nsfw": false,
+    "nsfwLevel": 3,
+    "availability": "Public",
+    "userId": 53515,
+    "hasActivePaidAccess": false,
+    "baseModels": [
+     "SD 1.5"
+    ],
+    "cosmetic": null,
+    "eventDecoration": null,
+    "supportsGeneration": true,
+    "stats": {
+     "downloadCount": 409619,
+     "thumbsUpCount": 21294,
+     "thumbsDownCount": 14,
+     "commentCount": 0,
+     "tippedAmountCount": 3374
+    },
+    "creator": {
+     "username": "Lykon",
+     "image": "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/3b119431-445f-4b21-aba6-87a5ee9518ef/width=96/Lykon.jpeg"
+    },
+    "tags": [
+     "portraits",
+     "lora",
+     "tool",
+     "detail tweaker",
+     "detail",
+     "landscape",
+     "backgrounds",
+     "detailer",
+     "enhancer",
+     "details"
+    ],
+    "modelVersions": [
+     {
+      "id": 87153,
+      "index": 0,
+      "name": "v1.0",
+      "baseModel": "SD 1.5",
+      "baseModelType": "Standard",
+      "publishedAt": "2023-06-01T17:50:20.439Z",
+      "flags": 0,
+      "availability": "Public",
+      "nsfwLevel": 3,
+      "description": null,
+      "trainedWords": [],
+      "vaeId": null,
+      "coveredNext": true,
+      "paidAccess": null,
+      "stats": {
+       "downloadCount": 409619,
+       "thumbsUpCount": 21294,
+       "thumbsDownCount": 14
+      },
+      "supportsGeneration": true,
+      "files": [
+       {
+        "id": 59655,
+        "sizeKB": 9324.0185546875,
+        "name": "more_details.safetensors",
+        "overrideName": null,
+        "type": "Model",
+        "pickleScanResult": "Success",
+        "pickleScanMessage": "No Pickle imports",
+        "virusScanResult": "Success",
+        "virusScanMessage": null,
+        "scannedAt": "2023-06-01T17:51:26.439Z",
+        "metadata": {
+         "format": "SafeTensor",
+         "size": null,
+         "fp": "fp16"
+        },
+        "hashes": {
+         "AutoV1": "6CA57A45",
+         "AutoV2": "D9CF2F88DE",
+         "SHA256": "D9CF2F88DEC53A8DD8C09ABA2B1D67963B265EBDF8255660F5BCD7F1C8EDBA33",
+         "CRC32": "2689A350",
+         "BLAKE3": "F11043E61653E9554B228ABD28720AD6DD21294F6C2452DA6D8ADC8AAFC1E38D",
+         "AutoV3": "3B8AA1D351EF",
+         "SHA256_12": "D9CF2F88DEC5"
+        },
+        "downloadUrl": "https://civitai.com/api/download/models/87153",
+        "primary": true
+       }
+      ],
+      "images": [
+       {
+        "id": 995787,
+        "url": "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/c1697174-7c8d-4bde-b053-7b1ec0692b64/original=true/995787.jpeg",
+        "nsfwLevel": 1,
+        "width": 1197,
+        "height": 1708,
+        "hash": "UcJaTG9Gbvoe~WR*t7xu%Lxajat7t7WBxtWB",
+        "type": "image",
+        "minor": false,
+        "poi": false,
+        "hasMeta": false,
+        "hasPositivePrompt": false,
+        "onSite": false,
+        "remixOfId": null
+       },
+       {
+        "id": 995798,
+        "url": "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/5157d52c-8b21-4e48-a726-8ea220617d12/original=true/995798.jpeg",
+        "nsfwLevel": 1,
+        "width": 4000,
+        "height": 1301,
+        "hash": "UmNdEu~ptS%Ox]WYs.o0tSWBj[a|%NjYaef6",
+        "type": "image",
+        "minor": false,
+        "poi": false,
+        "hasMeta": true,
+        "hasPositivePrompt": true,
+        "onSite": false,
+        "remixOfId": null
+       },
+       {
+        "id": 995801,
+        "url": "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/7e6fc261-8d8c-431a-9905-a8ec3464379e/original=true/995801.jpeg",
+        "nsfwLevel": 1,
+        "width": 4000,
+        "height": 1261,
+        "hash": "UjIE|h~q?b?b-;WBa|ofxuWCj[WB?bRjWBay",
+        "type": "image",
+        "minor": false,
+        "poi": false,
+        "hasMeta": true,
+        "hasPositivePrompt": true,
+        "onSite": false,
+        "remixOfId": null
+       }
+      ],
+      "downloadUrl": "https://civitai.com/api/download/models/87153"
+     }
+    ]
+   },
+   {
+    "id": 200255,
+    "name": "Hands XL + SD 1.5 + F1D + Pony + Illustrious + zit + ZIB",
+    "description": "<p><strong>Update</strong>: <u>Please if you see any of my models somewhere else report or let me know! Thnx</u></p><p><u>Please read version info</u> (about this version)</p><p>Trained on base model(s) xl + sd1.5 + pony + illu + f1d + zit + zib</p><p>Update: Added <a target=\"_blank\" rel=\"ugc\" href=\"https://civitai.com/models/411088?notOwner=true\">perfection</a> style model (Hands + Feet + all in one)</p><p>Update: Added <a target=\"_blank\" rel=\"ugc\" href=\"https://civitai.com/models/421162/detailed-style-xl-hand-focus-all-in-one-detailed-perfection-style-extension?modelVersionId=469308\">Detaile…",
+    "allowNoCredit": false,
+    "allowCommercialUse": [
+     "RentCivit"
+    ],
+    "allowDerivatives": false,
+    "allowDifferentLicense": true,
+    "type": "LORA",
+    "minor": false,
+    "sfwOnly": false,
+    "poi": false,
+    "nsfw": false,
+    "nsfwLevel": 31,
+    "availability": "Public",
+    "userId": 1269491,
+    "hasActivePaidAccess": false,
+    "baseModels": [
+     "ZImageBase",
+     "ZImageTurbo",
+     "Flux.1 D",
+     "Illustrious",
+     "Pony",
+     "SDXL 1.0",
+     "SD 1.5"
+    ],
+    "cosmetic": null,
+    "eventDecoration": null,
+    "supportsGeneration": true,
+    "stats": {
+     "downloadCount": 309190,
+     "thumbsUpCount": 16424,
+     "thumbsDownCount": 94,
+     "commentCount": 0,
+     "tippedAmountCount": 88377
+    },
+    "creator": {
+     "username": "EauDeNoire",
+     "image": "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/987fc36b-94ac-459a-a808-8bb8cf358f57/width=96/EauDeNoire.jpeg"
+    },
+    "tags": [
+     "pony",
+     "female",
+     "hyperrealism",
+     "sd1.5",
+     "person",
+     "woman",
+     "photorealistic",
+     "illustrious",
+     "girls",
+     "realistic",
+     "film",
+     "polish",
+     "cinematic",
+     "body",
+     "lighting",
+     "realism",
+     "sharp",
+     "real",
+     "f1d",
+     "zit",
+     "lora",
+     "detailed",
+     "anime",
+     "hands",
+     "photo",
+     "male",
+     "man",
+     "hand",
+     "enhancer",
+     "human",
+     "nails",
+     "sdxl",
+     "part",
+     "flux",
+     "assets"
+    ],
+    "modelVersions": [
+     {
+      "id": 3012596,
+      "index": 0,
+      "name": "Hands zib v1.0",
+      "baseModel": "ZImageBase",
+      "baseModelType": "Standard",
+      "publishedAt": "2026-06-22T17:26:03.490Z",
+      "flags": 0,
+      "availability": "Public",
+      "nsfwLevel": 3,
+      "description": "<p>zib v1.0</p><p>** Trigger words are optional.</p>",
+      "trainedWords": [
+       "realistic",
+       "detailed",
+       "photorealistic",
+       "incredibly lifelike",
+       "hand"
+      ],
+      "vaeId": null,
+      "coveredNext": true,
+      "paidAccess": null,
+      "stats": {
+       "downloadCount": 6039,
+       "thumbsUpCount": 252,
+       "thumbsDownCount": 0
+      },
+      "supportsGeneration": true,
+      "files": [
+       {
+        "id": 2891594,
+        "sizeKB": 166140.4375,
+        "name": "Hands zib v1.safetensors",
+        "overrideName": null,
+        "type": "Model",
+        "pickleScanResult": "Success",
+        "pickleScanMessage": null,
+        "virusScanResult": "Success",
+        "virusScanMessage": null,
+        "scannedAt": "2026-06-07T17:09:13.586Z",
+        "metadata": {
+         "format": "SafeTensor",
+         "isRequired": false
+        },
+        "hashes": {
+         "AutoV1": "E7E8ECE8",
+         "AutoV2": "971D7FE602",
+         "SHA256": "971D7FE6023B813411B2978A6098D74E8975AF34388B3A1A1D1F303F80F0E1AD",
+         "CRC32": "6FC201FD",
+         "BLAKE3": "3EA821A638EC06AA0171FC2CB0B4A8A2AE2FC64FFF5F2500747E5D7550A14570",
+         "AutoV3": "09E1B5B25488",
+         "SHA256_12": "971D7FE6023B"
+        },
+        "downloadUrl": "https://civitai.com/api/download/models/3012596",
+        "primary": true
+       }
+      ],
+      "images": [
+       {
+        "id": 133109046,
+        "url": "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/3670819f-b5ff-4882-be80-b171444953d5/original=true/133109046.jpeg",
+        "nsfwLevel": 1,
+        "width": 1024,
+        "height": 1024,
+        "hash": "UbG9N-n3I;kC.TrqrqR%OFjZwbnht7bbj[w]",
+        "type": "image",
+        "minor": false,
+        "poi": false,
+        "hasMeta": true,
+        "hasPositivePrompt": true,
+        "onSite": false,
+        "remixOfId": null
+       },
+       {
+        "id": 133109032,
+        "url": "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/f6592d33-9f07-4c10-b891-3a213df87525/original=true/133109032.jpeg",
+        "nsfwLevel": 1,
+        "width": 1920,
+        "height": 1080,
+        "hash": "UcI5PZ%M_3WX~qRj-:aytRWCM{jZRjoeoLof",
+        "type": "image",
+        "minor": false,
+        "poi": false,
+        "hasMeta": true,
+        "hasPositivePrompt": true,
+        "onSite": false,
+        "remixOfId": null
+       },
+       {
+        "id": 133109061,
+        "url": "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/f1277c77-002e-420c-be97-dab90524d16e/original=true/133109061.jpeg",
+        "nsfwLevel": 1,
+        "width": 1024,
+        "height": 1024,
+        "hash": "UVPP[k~qyExu_49Fxuo#.9%MDhae-:ozt8Mx",
+        "type": "image",
+        "minor": false,
+        "poi": false,
+        "hasMeta": true,
+        "hasPositivePrompt": true,
+        "onSite": false,
+        "remixOfId": null
+       }
+      ],
+      "downloadUrl": "https://civitai.com/api/download/models/3012596"
+     },
+     {
+      "id": 2534692,
+      "index": 1,
+      "name": "Hands zit v2.1",
+      "baseModel": "ZImageTurbo",
+      "baseModelType": "Standard",
+      "publishedAt": "2026-01-09T12:25:07.008Z",
+      "flags": 0,
+      "availability": "Public",
+      "nsfwLevel": 13,
+      "description": "<p>zit v2.1</p><p>lower or rise lower weight if needed.</p>",
+      "trainedWords": [
+       "cinematic realistic style",
+       "detailed",
+       "hand"
+      ],
+      "vaeId": null,
+      "coveredNext": true,
+      "paidAccess": null,
+      "stats": {
+       "downloadCount": 15076,
+       "thumbsUpCount": 674,
+       "thumbsDownCount": 1
+      },
+      "supportsGeneration": true,
+      "files": [
+       {
+        "id": 2422570,
+        "sizeKB": 166140.4375,
+        "name": "Hands v2.1.safetensors",
+        "overrideName": null,
+        "type": "Model",
+        "pickleScanResult": "Success",
+        "pickleScanMessage": "No Pickle imports",
+        "virusScanResult": "Success",
+        "virusScanMessage": null,
+        "scannedAt": "2025-12-25T11:10:26.019Z",
+        "metadata": {
+         "format": "SafeTensor",
+         "size": null,
+         "fp": null
+        },
+        "hashes": {
+         "AutoV1": "54B7D4AF",
+         "AutoV2": "4DC0CE8F13",
+         "SHA256": "4DC0CE8F1346EC00D12014BA273A824782E102C062B7BB4FAA91270F26B970BD",
+         "CRC32": "30C21852",
+         "BLAKE3": "0FCB39FD478C60DADE9EB80C32CAC3B049053B369C09CF3A89804F77FC439937",
+         "AutoV3": "D086370205F8",
+         "SHA256_12": "4DC0CE8F1346"
+        },
+        "downloadUrl": "https://civitai.com/api/download/models/2534692",
+        "primary": true
+       }
+      ],
+      "images": [
+       {
+        "id": 115107783,
+        "url": "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/917def8f-20a5-431a-976a-4b6476fc6544/original=true/115107783.jpeg",
+        "nsfwLevel": 1,
+        "width": 1024,
+        "height": 1024,
+        "hash": "UVHLYn-;~qoe^*jYIVkC_NW;xuaxNdRjM{of",
+        "type": "image",
+        "minor": false,
+        "poi": false,
+        "hasMeta": true,
+        "hasPositivePrompt": true,
+        "onSite": false,
+        "remixOfId": null
+       },
+       {
+        "id": 115107889,
+        "url": "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/3d261395-8624-451b-be7c-300a46834235/original=true/115107889.jpeg",
+        "nsfwLevel": 1,
+        "width": 1024,
+        "height": 1024,
+        "hash": "UZKd#m9Z%h?b~qoexu-;4.xtD%E1RiRkRjRP",
+        "type": "image",
+        "minor": false,
+        "poi": false,
+        "hasMeta": true,
+        "hasPositivePrompt": true,
+        "onSite": false,
+        "remixOfId": null
+       },
+       {
+        "id": 115107879,
+        "url": "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/e39fae2d-420b-42d8-99d6-58a60a964f49/original=true/115107879.jpeg",
+        "nsfwLevel": 1,
+        "width": 1024,
+        "height": 1024,
+        "hash": "U9AdAcXSuO-n_Moc%fWC9aafwvNH%LkBR-t6",
+        "type": "image",
+        "minor": false,
+        "poi": false,
+        "hasMeta": true,
+        "hasPositivePrompt": true,
+        "onSite": false,
+        "remixOfId": null
+       }
+      ],
+      "downloadUrl": "https://civitai.com/api/download/models/2534692"
+     }
+    ]
+   }
+  ],
+  "metadata": {
+   "nextCursor": "287938|23768|12597",
+   "nextPage": "https://civitai.com/api/v1/models?limit=3&types=LORA&sort=Most%20Downloaded&nsfw=false&cursor=287938%7C23768%7C12597"
+  }
+ }
+}

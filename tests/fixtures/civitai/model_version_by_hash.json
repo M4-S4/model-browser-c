@@ -1,0 +1,10 @@
+{
+ "_status": 404,
+ "_headers": {
+  "Content-Type": "application/json; charset=utf-8",
+  "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=1800"
+ },
+ "body": {
+  "error": "Model not found"
+ }
+}

@@ -1,0 +1,256 @@
+{
+ "atd": {
+  "name": "ATD",
+  "input": "image",
+  "compatiblePlatforms": [
+   "pytorch",
+   "onnx"
+  ]
+ },
+ "cain": {
+  "name": "CAIN",
+  "input": "video",
+  "compatiblePlatforms": [
+   "pytorch"
+  ]
+ },
+ "cain-yuv": {
+  "name": "CAIN YUV",
+  "input": "video",
+  "compatiblePlatforms": [
+   "pytorch"
+  ]
+ },
+ "compact": {
+  "name": "Compact",
+  "input": "image",
+  "compatiblePlatforms": [
+   "pytorch",
+   "onnx",
+   "ncnn"
+  ]
+ },
+ "craft": {
+  "name": "CRAFT",
+  "input": "image",
+  "compatiblePlatforms": [
+   "pytorch"
+  ]
+ },
+ "cugan": {
+  "name": "CUGAN",
+  "input": "image",
+  "compatiblePlatforms": [
+   "pytorch",
+   "onnx"
+  ]
+ },
+ "dat": {
+  "name": "DAT",
+  "input": "image",
+  "compatiblePlatforms": [
+   "pytorch",
+   "onnx"
+  ]
+ },
+ "dctlsa": {
+  "name": "DCTLSA",
+  "input": "image",
+  "compatiblePlatforms": [
+   "pytorch"
+  ]
+ },
+ "ditn": {
+  "name": "DITN",
+  "input": "image",
+  "compatiblePlatforms": [
+   "pytorch"
+  ]
+ },
+ "drct": {
+  "name": "DRCT",
+  "input": "image",
+  "compatiblePlatforms": [
+   "pytorch"
+  ]
+ },
+ "edsr": {
+  "name": "EDSR",
+  "input": "image",
+  "compatiblePlatforms": [
+   "pytorch",
+   "onnx"
+  ]
+ },
+ "esrgan": {
+  "name": "ESRGAN",
+  "input": "image",
+  "compatiblePlatforms": [
+   "pytorch",
+   "onnx",
+   "ncnn"
+  ]
+ },
+ "esrgan+": {
+  "name": "ESRGAN+",
+  "input": "image",
+  "compatiblePlatforms": [
+   "pytorch",
+   "onnx",
+   "ncnn"
+  ]
+ },
+ "grl": {
+  "name": "GRL",
+  "input": "image",
+  "compatiblePlatforms": [
+   "pytorch",
+   "onnx"
+  ]
+ },
+ "hat": {
+  "name": "HAT",
+  "input": "image",
+  "compatiblePlatforms": [
+   "pytorch",
+   "onnx"
+  ]
+ },
+ "hma": {
+  "name": "HMA",
+  "input": "image",
+  "compatiblePlatforms": [
+   "pytorch"
+  ]
+ },
+ "ludvae": {
+  "name": "LUDVAE",
+  "input": "image",
+  "compatiblePlatforms": [
+   "pytorch"
+  ]
+ },
+ "mosr": {
+  "name": "MoSR",
+  "input": "image",
+  "compatiblePlatforms": [
+   "pytorch",
+   "onnx"
+  ]
+ },
+ "omnisr": {
+  "name": "OmniSR",
+  "input": "image",
+  "compatiblePlatforms": [
+   "pytorch"
+  ]
+ },
+ "rcan": {
+  "name": "RCAN",
+  "input": "image",
+  "compatiblePlatforms": [
+   "pytorch",
+   "onnx"
+  ]
+ },
+ "real-cugan": {
+  "name": "Real-CUGAN",
+  "input": "image",
+  "compatiblePlatforms": [
+   "pytorch",
+   "onnx"
+  ]
+ },
+ "realplksr": {
+  "name": "RealPLKSR",
+  "input": "image",
+  "compatiblePlatforms": [
+   "pytorch",
+   "onnx"
+  ]
+ },
+ "realplksr-dysample": {
+  "name": "RealPLKSR_dysample",
+  "input": "image",
+  "compatiblePlatforms": [
+   "pytorch"
+  ]
+ },
+ "rgt": {
+  "name": "RGT",
+  "input": "image",
+  "compatiblePlatforms": [
+   "pytorch"
+  ]
+ },
+ "rife": {
+  "name": "RIFE",
+  "input": "video",
+  "compatiblePlatforms": [
+   "pytorch"
+  ]
+ },
+ "sofvsr": {
+  "name": "SOFVSR",
+  "input": "video",
+  "compatiblePlatforms": [
+   "pytorch"
+  ]
+ },
+ "span": {
+  "name": "SPAN",
+  "input": "image",
+  "compatiblePlatforms": [
+   "pytorch",
+   "onnx",
+   "ncnn"
+  ]
+ },
+ "spsr": {
+  "name": "SPSR",
+  "input": "image",
+  "compatiblePlatforms": [
+   "pytorch",
+   "onnx"
+  ]
+ },
+ "sr-res-net": {
+  "name": "SRResNet",
+  "input": "image",
+  "compatiblePlatforms": [
+   "pytorch"
+  ]
+ },
+ "srformer": {
+  "name": "SRFormer",
+  "input": "image",
+  "compatiblePlatforms": [
+   "pytorch",
+   "onnx"
+  ]
+ },
+ "swift-srgan": {
+  "name": "Swift-SRGAN",
+  "input": "image",
+  "compatiblePlatforms": [
+   "pytorch",
+   "onnx"
+  ]
+ },
+ "swinir": {
+  "name": "SwinIR",
+  "input": "image",
+  "compatiblePlatforms": [
+   "pytorch",
+   "onnx"
+  ]
+ },
+ "tscunet": {
+  "name": "TSCUNet",
+  "input": "video",
+  "compatiblePlatforms": [
+   "pytorch",
+   "onnx"
+  ]
+ }
+}

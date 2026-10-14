@@ -1,0 +1,160 @@
+{
+ "_status": 200,
+ "_headers": {
+  "Content-Type": "application/json; charset=utf-8",
+  "Content-Length": "6290",
+  "ETag": "W/\"1892-8SEVcNIsqefNFVRiDWNiT25ZwDc\""
+ },
+ "body": [
+  {
+   "type": "directory",
+   "oid": "d691e682ec8a7c5f20ffd6d2853ea88e673e1f0e",
+   "size": 0,
+   "path": "scheduler"
+  },
+  {
+   "type": "directory",
+   "oid": "4add1dfff7c7c87fa51d6284c340ee44756853b8",
+   "size": 0,
+   "path": "text_encoder"
+  },
+  {
+   "type": "directory",
+   "oid": "6ef6676d409d09e007f4320ed61173d062a52db6",
+   "size": 0,
+   "path": "text_encoder_2"
+  },
+  {
+   "type": "directory",
+   "oid": "5bac82b939c555d0710e4661f5a519193eb25fa3",
+   "size": 0,
+   "path": "tokenizer"
+  },
+  {
+   "type": "file",
+   "oid": "147b590320fca0e30b07fce9b0aff6a9a5c3d6da",
+   "size": 1655,
+   "path": ".gitattributes"
+  },
+  {
+   "type": "file",
+   "oid": "763a44c31c02064a8388981040487ce8731ddc86",
+   "size": 18621,
+   "path": "LICENSE.md"
+  },
+  {
+   "type": "file",
+   "oid": "6089463168e2a87d86f76a6abd7a35f1c791022d",
+   "size": 4394,
+   "path": "README.md"
+  },
+  {
+   "type": "file",
+   "oid": "f2dcd899e03be059304cc980a87bb9389008ba2f",
+   "size": 536,
+   "path": "model_index.json"
+  },
+  {
+   "type": "file",
+   "oid": "a64d1e8763bef5828984682680673fb97829734b",
+   "size": 273,
+   "path": "scheduler/scheduler_config.json"
+  },
+  {
+   "type": "file",
+   "oid": "71f11a92800c4a93cead7cebc556531926ecfc33",
+   "size": 335304388,
+   "lfs": {
+    "oid": "****************************************************************",
+    "size": 335304388,
+    "pointerSize": 134
+   },
+   "xetHash": "****************************************************************",
+   "path": "ae.safetensors"
+  },
+  {
+   "type": "file",
+   "oid": "7c49a4319ae606e6f58dd15991b6f4b7c38a1990",
+   "size": 1301528,
+   "lfs": {
+    "oid": "****************************************************************",
+    "size": 1301528,
+    "pointerSize": 132
+   },
+   "xetHash": "****************************************************************",
+   "path": "dev_grid.jpg"
+  },
+  {
+   "type": "file",
+   "oid": "19debd50d8f431809f22ec7c20cafdda4a861e78",
+   "size": 23802932552,
+   "lfs": {
+    "oid": "****************************************************************",
+    "size": 23802932552,
+    "pointerSize": 136
+   },
+   "xetHash": "****************************************************************",
+   "path": "flux1-dev.safetensors"
+  },
+  {
+   "type": "file",
+   "oid": "40a62c5746d88a2483eb10db5ef38d12c5b6b893",
+   "size": 246144352,
+   "lfs": {
+    "oid": "****************************************************************",
+    "size": 246144352,
+    "pointerSize": 134
+   },
+   "xetHash": "****************************************************************",
+   "path": "text_encoder/model.safetensors"
+  },
+  {
+   "type": "file",
+   "oid": "fb543745ed2f4aa1105e3a8f97ff89a6ff7b5662",
+   "size": 4994582224,
+   "lfs": {
+    "oid": "****************************************************************",
+    "size": 4994582224,
+    "pointerSize": 135
+   },
+   "xetHash": "****************************************************************",
+   "path": "text_encoder_2/model-00001-of-00002.safetensors"
+  },
+  {
+   "type": "file",
+   "oid": "c1596ab4886c9962503f01891b16715d1469fbe5",
+   "size": 4530066360,
+   "lfs": {
+    "oid": "****************************************************************",
+    "size": 4530066360,
+    "pointerSize": 135
+   },
+   "xetHash": "****************************************************************",
+   "path": "text_encoder_2/model-00002-of-00002.safetensors"
+  },
+  {
+   "type": "file",
+   "oid": "317a5ccbde45300f5d1d970d4d449af2108b147e",
+   "size": 791656,
+   "lfs": {
+    "oid": "****************************************************************",
+    "size": 791656,
+    "pointerSize": 131
+   },
+   "xetHash": "****************************************************************",
+   "path": "tokenizer_2/spiece.model"
+  },
+  {
+   "type": "file",
+   "oid": "37ee84ace56bb050bad891c48650aea020dcbdc2",
+   "size": 9983040304,
+   "lfs": {
+    "oid": "****************************************************************",
+    "size": 9983040304,
+    "pointerSize": 135
+   },
+   "xetHash": "****************************************************************",
+   "path": "transformer/diffusion_pytorch_model-00001-of-00003.safetensors"
+  }
+ ]
+}

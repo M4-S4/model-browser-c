@@ -1,0 +1,148 @@
+{
+ "_status": 200,
+ "_headers": {
+  "Content-Type": "application/json; charset=utf-8",
+  "Cache-Control": "public, s-maxage=300, stale-while-revalidate=150"
+ },
+ "body": {
+  "id": 1,
+  "name": "Superhero Diffusion",
+  "description": "<p><strong>IF YOU ARE THE CREATOR OF THIS MODEL PLEASE CONTACT US TO GET IT TRANSFERRED TO YOU!</strong></p><p>This was trained with Pepe Larraz's work. He is not affiliated with this. This model was originally created by ogkalu on HuggingFace.</p>",
+  "allowNoCredit": true,
+  "allowCommercialUse": [
+   "Image",
+   "RentCivit",
+   "Rent",
+   "Sell",
+   "SellMerge"
+  ],
+  "allowDerivatives": true,
+  "allowDifferentLicense": true,
+  "type": "Checkpoint",
+  "minor": false,
+  "sfwOnly": false,
+  "poi": false,
+  "nsfw": false,
+  "nsfwLevel": 1,
+  "availability": "Public",
+  "userId": -1,
+  "hasActivePaidAccess": false,
+  "baseModels": [
+   "SD 1.5"
+  ],
+  "cosmetic": null,
+  "eventDecoration": null,
+  "supportsGeneration": false,
+  "stats": {
+   "downloadCount": 11899,
+   "thumbsUpCount": 459,
+   "thumbsDownCount": 1,
+   "commentCount": 0,
+   "tippedAmountCount": 0
+  },
+  "tags": [
+   "style",
+   "comic book",
+   "pepe larraz"
+  ],
+  "modelVersions": [
+   {
+    "id": 1,
+    "index": 1,
+    "name": "V1",
+    "baseModel": "SD 1.5",
+    "baseModelType": "Standard",
+    "createdAt": "2022-11-04T17:16:47.384Z",
+    "publishedAt": "2022-11-10T22:26:42.056Z",
+    "status": "Published",
+    "flags": 0,
+    "availability": "Public",
+    "nsfwLevel": 1,
+    "trainedWords": [
+     "comicmay"
+    ],
+    "covered": false,
+    "coveredNext": false,
+    "stats": {
+     "downloadCount": 11899,
+     "thumbsUpCount": 459,
+     "thumbsDownCount": 1
+    },
+    "files": [
+     {
+      "id": 472,
+      "sizeKB": 2082913,
+      "name": "superheroDiffusion_v1.ckpt",
+      "overrideName": null,
+      "type": "Model",
+      "pickleScanResult": "Success",
+      "pickleScanMessage": "**Detected Pickle imports (4)**\n```\ntorch.HalfStorage\ntorch._utils._rebuild_tensor_v2\ncollections.OrderedDict\ntorch.FloatStorage\n```",
+      "virusScanResult": "Success",
+      "virusScanMessage": null,
+      "scannedAt": "2022-11-12T10:28:35.468Z",
+      "metadata": {
+       "format": "PickleTensor",
+       "size": "full",
+       "fp": "fp16"
+      },
+      "hashes": {
+       "AutoV1": "F6CA0E2B",
+       "AutoV2": "CAC0A972CF",
+       "SHA256": "CAC0A972CFA40CFE44E3C00D3A488DCBE34668BF291DD6245D70266247643A7C",
+       "CRC32": "E2477533",
+       "BLAKE3": "D9C423E708E512D251AE65C80251BDFA55EB2254BC74E2957E9978FD9BD6171C",
+       "SHA256_12": "CAC0A972CFA4"
+      },
+      "downloadUrl": "https://civitai.com/api/download/models/1?fileId=472",
+      "primary": true
+     }
+    ],
+    "images": [
+     {
+      "url": "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/8d6a57a7-a913-499b-b854-1b8637a3dc00/original=true/188.jpeg",
+      "nsfwLevel": 1,
+      "width": 960,
+      "height": 960,
+      "hash": "UEFFHdYN0*}]%go}t6%2MxEMJU^%z:vyR+R+",
+      "type": "image",
+      "minor": false,
+      "poi": false,
+      "hasMeta": false,
+      "hasPositivePrompt": false,
+      "onSite": false,
+      "remixOfId": null
+     },
+     {
+      "url": "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/e1995603-f4de-4f16-6234-4142509f6900/original=true/187.jpeg",
+      "nsfwLevel": 1,
+      "width": 960,
+      "height": 960,
+      "hash": "UGE3SM5:t2je.Tae%Kkr-obwbYIVR%XTs-a0",
+      "type": "image",
+      "minor": false,
+      "poi": false,
+      "hasMeta": false,
+      "hasPositivePrompt": false,
+      "onSite": false,
+      "remixOfId": null
+     },
+     {
+      "url": "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/da433f0e-64a7-4e08-1c9a-bba425e50100/original=true/186.jpeg",
+      "nsfwLevel": 1,
+      "width": 960,
+      "height": 960,
+      "hash": "UBHBxiHXE3KjKn^eacWVVrR5nNtQ]}DhxuR.",
+      "type": "image",
+      "minor": false,
+      "poi": false,
+      "hasMeta": false,
+      "hasPositivePrompt": false,
+      "onSite": false,
+      "remixOfId": null
+     }
+    ],
+    "downloadUrl": "https://civitai.com/api/download/models/1"
+   }
+  ]
+ }
+}

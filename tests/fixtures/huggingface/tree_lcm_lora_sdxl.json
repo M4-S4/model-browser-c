@@ -1,0 +1,46 @@
+{
+ "_status": 200,
+ "_headers": {
+  "Content-Type": "application/json; charset=utf-8",
+  "Content-Length": "825",
+  "ETag": "W/\"339-hEowYDXzG0Us2s6cpU4pFtd9jqI\""
+ },
+ "body": [
+  {
+   "type": "file",
+   "oid": "1c24a94d768e7be2a28da900a9c91c6f6c00d04d",
+   "size": 1585,
+   "path": ".gitattributes"
+  },
+  {
+   "type": "file",
+   "oid": "e60558f2118bc903946d3c6c49df871339fc3aa3",
+   "size": 9288,
+   "path": "README.md"
+  },
+  {
+   "type": "file",
+   "oid": "41fdc03bf4e58eed414970caf6eff48b98180304",
+   "size": 1726518,
+   "lfs": {
+    "oid": "23f42605e848334d433996c92a5baa12280b18730e56455f58f85d8f2f28f160",
+    "size": 1726518,
+    "pointerSize": 132
+   },
+   "xetHash": "74f8f3f00341adfa04849bb166e18bb230e81b36b3ae8d3438749721b1b279b5",
+   "path": "LCM-LoRA-Technical-Report.pdf"
+  },
+  {
+   "type": "file",
+   "oid": "e2dca1a02eb0d31dc2b9183c0eef147172cc3c77",
+   "size": 393855224,
+   "lfs": {
+    "oid": "a764e6859b6e04047cd761c08ff0cee96413a8e004c9f07707530cd776b19141",
+    "size": 393855224,
+    "pointerSize": 134
+   },
+   "xetHash": "660d96a395d6bb8ea43307d7e65a16417441253d65df5dcab53fd8ee4170b213",
+   "path": "pytorch_lora_weights.safetensors"
+  }
+ ]
+}

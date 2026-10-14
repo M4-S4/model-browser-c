@@ -1,0 +1,13 @@
+{
+ "_status": 400,
+ "_headers": {
+  "Content-Type": "application/json; charset=utf-8",
+  "Cache-Control": "public, s-maxage=300, stale-while-revalidate=150"
+ },
+ "body": {
+  "error": {
+   "name": "ZodError",
+   "message": "[\n  {\n    \"origin\": \"number\",\n    \"code\": \"too_big\",\n    \"maximum\": 100,\n    \"inclusive\": true,\n    \"path\": [\n      \"limit\"\n    ],\n    \"message\": \"Too big: expected number to be <=100\"\n  }\n]"
+  }
+ }
+}

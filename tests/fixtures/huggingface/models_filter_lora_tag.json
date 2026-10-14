@@ -1,0 +1,321 @@
+{
+ "_status": 200,
+ "_headers": {
+  "Content-Type": "application/json; charset=utf-8",
+  "Content-Length": "7200",
+  "ETag": "W/\"1c20-INDwELXIQGYSg7Vu2wLm9OXXP5E\"",
+  "Link": "<https://huggingface.co/api/models?filter=lora&sort=likes&direction=-1&limit=3&full=true&cursor=eyIkb3IiOlt7Imxpa2VzIjoyMzE2LCJfaWQiOnsiJGd0IjoiNmFiZjMxMDUzNGZlYWFhNWIwZTZmNjFiIn19LHsibGlrZXMiOnsiJGx0IjoyMzE2fX0seyJsaWtlcyI6bnVsbH1dLCJzZWFyY2hTZXF1ZW5jZVRva2VuIjoiQ05HYnBnSWFDU0VBQUFBQUFCaWlRQm9PV2d4cXZ6RUZOUDZxcGJEbTloc2lEbG9NYXI4eEJUVCtxcVd3NXZZYiJ9>; rel=\"next\""
+ },
+ "body": [
+  {
+   "_id": "6abc97dfcc65e2cffa0c8ba6",
+   "id": "autotrust/JEV-27B-VL",
+   "author": "autotrust",
+   "gated": false,
+   "lastModified": "2026-10-11T03:50:08.000Z",
+   "likes": 3775,
+   "private": false,
+   "sha": "fee8c1d19d60216f8e9bcbb348141c0aa87ee2cc",
+   "downloads": 1545492,
+   "tags": [
+    "transformers",
+    "safetensors",
+    "qwen3_5",
+    "image-text-to-text",
+    "jev",
+    "system-one",
+    "system-two",
+    "typed-decisions",
+    "decision-model",
+    "calibrated-probabilities",
+    "multimodal",
+    "vision",
+    "zero-shot",
+    "decision-index",
+    "recommendation",
+    "lora",
+    "vllm",
+    "conversational",
+    "en",
+    "dataset:SargeDev/jev-distill-corpus-v3",
+    "arxiv:2512.16899",
+    "base_model:Qwen/Qwen3.8-27B",
+    "base_model:adapter:Qwen/Qwen3.8-27B",
+    "license:apache-2.0",
+    "endpoints_compatible",
+    "region:us"
+   ],
+   "pipeline_tag": "image-text-to-text",
+   "library_name": "transformers",
+   "createdAt": "2026-09-30T05:02:23.000Z",
+   "modelId": "autotrust/JEV-27B-VL",
+   "siblings": [
+    {
+     "rfilename": ".gitattributes"
+    },
+    {
+     "rfilename": "LICENSE"
+    },
+    {
+     "rfilename": "README.md"
+    },
+    {
+     "rfilename": "adapter_vllm/adapter_config.json"
+    },
+    {
+     "rfilename": "adapter_vllm/adapter_model.safetensors"
+    },
+    {
+     "rfilename": "adapter_vllm/decision_head.json"
+    },
+    {
+     "rfilename": "agent_judge.png"
+    },
+    {
+     "rfilename": "agent_judge_planrb.png"
+    },
+    {
+     "rfilename": "blog/JEV-27B-VL.md"
+    },
+    {
+     "rfilename": "blog/hallucination_guard.png"
+    },
+    {
+     "rfilename": "blog/image_recommendation.png"
+    },
+    {
+     "rfilename": "blog/judge_rewardbench.png"
+    },
+    {
+     "rfilename": "blog/news_recommendation.png"
+    },
+    {
+     "rfilename": "blog/search_benchmarks.png"
+    },
+    {
+     "rfilename": "blog/system1_to_system2.png"
+    },
+    {
+     "rfilename": "calibration.json"
+    },
+    {
+     "rfilename": "chat_template.jinja"
+    },
+    {
+     "rfilename": "config.json"
+    },
+    {
+     "rfilename": "generation_config.json"
+    },
+    {
+     "rfilename": "image_recommendation.png"
+    }
+   ]
+  },
+  {
+   "_id": "6aa0140255ff8eff07387347",
+   "id": "Edge0/Edge0-35B-A3B-preview",
+   "author": "Edge0",
+   "gated": false,
+   "lastModified": "2026-10-01T09:43:11.000Z",
+   "likes": 3568,
+   "private": false,
+   "sha": "3fe15cbf2bd5bbcdfd611035e1ac88971ff1cdab",
+   "downloads": 80966,
+   "tags": [
+    "mlx",
+    "safetensors",
+    "qwen3_5_moe",
+    "moe",
+    "edge-inference",
+    "prerouter",
+    "lora",
+    "ssd-offload",
+    "multi-platform",
+    "ios",
+    "android",
+    "windows",
+    "macos",
+    "text-generation",
+    "conversational",
+    "arxiv:2609.18063",
+    "base_model:Qwen/Qwen3.6-35B-A3B",
+    "base_model:adapter:Qwen/Qwen3.6-35B-A3B",
+    "license:apache-2.0",
+    "4-bit",
+    "region:us"
+   ],
+   "pipeline_tag": "text-generation",
+   "library_name": "mlx",
+   "createdAt": "2026-09-08T13:56:18.000Z",
+   "modelId": "Edge0/Edge0-35B-A3B-preview",
+   "siblings": [
+    {
+     "rfilename": ".gitattributes"
+    },
+    {
+     "rfilename": "20260908-223115.jpg"
+    },
+    {
+     "rfilename": "20260910-105854.mp4"
+    },
+    {
+     "rfilename": "README.md"
+    },
+    {
+     "rfilename": "chat_template.jinja"
+    },
+    {
+     "rfilename": "config.json"
+    },
+    {
+     "rfilename": "configuration.json"
+    },
+    {
+     "rfilename": "generation_config.json"
+    },
+    {
+     "rfilename": "lora_edge0_35b.safetensors"
+    },
+    {
+     "rfilename": "model-00001-of-00004.safetensors"
+    },
+    {
+     "rfilename": "model-00002-of-00004.safetensors"
+    },
+    {
+     "rfilename": "model-00003-of-00004.safetensors"
+    },
+    {
+     "rfilename": "model-00004-of-00004.safetensors"
+    },
+    {
+     "rfilename": "model.safetensors.index.json"
+    },
+    {
+     "rfilename": "preprocessor_config.json"
+    },
+    {
+     "rfilename": "prerouter_edge0_35b.safetensors"
+    },
+    {
+     "rfilename": "processor_config.json"
+    },
+    {
+     "rfilename": "tokenizer.json"
+    },
+    {
+     "rfilename": "tokenizer_config.json"
+    },
+    {
+     "rfilename": "vocab.json"
+    }
+   ]
+  },
+  {
+   "_id": "6abf310534feaaa5b0e6f61b",
+   "id": "autotrust/GEV-26B-Decide",
+   "author": "autotrust",
+   "gated": false,
+   "lastModified": "2026-10-11T03:49:30.000Z",
+   "likes": 2316,
+   "private": false,
+   "sha": "80c5a8fa50b3a71af23ea432dee622fac01066a0",
+   "downloads": 1013022,
+   "tags": [
+    "transformers",
+    "safetensors",
+    "gemma4",
+    "image-text-to-text",
+    "system-one",
+    "system-two",
+    "adaptive-thinking",
+    "typed-decisions",
+    "decision-model",
+    "calibrated-probabilities",
+    "jev",
+    "noul",
+    "choice",
+    "score",
+    "lora",
+    "mixture-of-experts",
+    "multimodal",
+    "vllm",
+    "text-classification",
+    "en",
+    "base_model:google/gemma-4-26B-A4B-it",
+    "base_model:adapter:google/gemma-4-26B-A4B-it",
+    "license:apache-2.0",
+    "model-index",
+    "endpoints_compatible",
+    "region:us"
+   ],
+   "pipeline_tag": "text-classification",
+   "library_name": "transformers",
+   "createdAt": "2026-10-02T04:20:21.000Z",
+   "modelId": "autotrust/GEV-26B-Decide",
+   "siblings": [
+    {
+     "rfilename": ".gitattributes"
+    },
+    {
+     "rfilename": "README.md"
+    },
+    {
+     "rfilename": "adapter/README.md"
+    },
+    {
+     "rfilename": "adapter/adapter_config.json"
+    },
+    {
+     "rfilename": "adapter/adapter_model.safetensors"
+    },
+    {
+     "rfilename": "adapter_vllm/adapter_config.json"
+    },
+    {
+     "rfilename": "adapter_vllm/adapter_model.safetensors"
+    },
+    {
+     "rfilename": "adapter_vllm/decision_head.json"
+    },
+    {
+     "rfilename": "calibration.json"
+    },
+    {
+     "rfilename": "calibration_gold.json"
+    },
+    {
+     "rfilename": "chat_template.jinja"
+    },
+    {
+     "rfilename": "config.json"
+    },
+    {
+     "rfilename": "generation_config.json"
+    },
+    {
+     "rfilename": "head.safetensors"
+    },
+    {
+     "rfilename": "judge_config.json"
+    },
+    {
+     "rfilename": "model-00001-of-00002.safetensors"
+    },
+    {
+     "rfilename": "model-00002-of-00002.safetensors"
+    },
+    {
+     "rfilename": "model.safetensors.index.json"
+    },
+    {
+     "rfilename": "patches/vllm-gemma4-lm-head-lora.patch"
+    },
+    {
+     "rfilename": "processor_config.json"
+    }
+   ]
+  }
+ ]
+}

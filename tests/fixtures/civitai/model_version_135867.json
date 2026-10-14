@@ -1,0 +1,208 @@
+{
+ "_status": 200,
+ "_headers": {
+  "Content-Type": "application/json; charset=utf-8",
+  "Cache-Control": "public, s-maxage=300, stale-while-revalidate=150"
+ },
+ "body": {
+  "id": 135867,
+  "modelId": 122359,
+  "name": "v1.0",
+  "nsfwLevel": 1,
+  "createdAt": "2023-08-07T14:51:04.506Z",
+  "updatedAt": "2025-02-14T21:43:00.929Z",
+  "status": "Published",
+  "publishedAt": "2023-08-07T14:55:02.627Z",
+  "trainedWords": [],
+  "trainingStatus": null,
+  "trainingDetails": null,
+  "baseModel": "SDXL 1.0",
+  "baseModelType": "Standard",
+  "description": null,
+  "uploadType": "Created",
+  "usageControl": "Download",
+  "licensingFee": null,
+  "paidAccess": null,
+  "air": "urn:air:sdxl:lora:civitai:122359@135867",
+  "stats": {
+   "downloadCount": 452522,
+   "thumbsUpCount": 43564
+  },
+  "model": {
+   "name": "Detail Tweaker XL",
+   "type": "LORA",
+   "nsfw": false,
+   "poi": false
+  },
+  "files": [
+   {
+    "id": 99264,
+    "sizeKB": 223097.9921875,
+    "name": "add-detail-xl.safetensors",
+    "type": "Model",
+    "pickleScanResult": "Success",
+    "pickleScanMessage": "No Pickle imports",
+    "virusScanResult": "Success",
+    "virusScanMessage": null,
+    "scannedAt": "2023-08-07T14:55:53.517",
+    "metadata": {
+     "format": "SafeTensor",
+     "size": null,
+     "fp": null
+    },
+    "hashes": {
+     "AutoV1": "29A40D2E",
+     "AutoV2": "0D9BD1B873",
+     "SHA256": "0D9BD1B873A7863E128B4672E3E245838858F71469A3CEC58123C16C06F83BD7",
+     "CRC32": "A94E124F",
+     "BLAKE3": "595854A2079ABB9AF0FD84830DDF1142ABFFAA70DEBF51C25C2E73A248CB11CA",
+     "AutoV3": "9C783C8CE46C",
+     "SHA256_12": "0D9BD1B873A7"
+    },
+    "primary": true,
+    "downloadUrl": "https://civitai.com/api/download/models/135867?fileId=99264"
+   }
+  ],
+  "images": [
+   {
+    "url": "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/217179cb-87a0-4e96-8d77-e410f757aba0/original=true/1917130.jpeg",
+    "nsfwLevel": 1,
+    "width": 2698,
+    "height": 1158,
+    "hash": "UUHK;5WYoJR*~qWCj[j[_Ns:a}of_3s:azof",
+    "type": "image",
+    "metadata": {
+     "hash": "UUHK;5WYoJR*~qWCj[j[_Ns:a}of_3s:azof",
+     "size": 4192036,
+     "width": 2698,
+     "height": 1158
+    },
+    "minor": false,
+    "poi": false,
+    "meta": {
+     "Size": "896x1024",
+     "seed": 3308533307,
+     "Model": "dreamshaperXL10_alpha2Xl10",
+     "steps": 20,
+     "Script": "X/Y/Z plot",
+     "X Type": "Prompt S/R",
+     "hashes": {
+      "model": "82b5f664ae"
+     },
+     "prompt": "photo, 8k portrait of beautiful cyborg with brown hair, intricate, elegant, highly detailed, majestic, digital photography, art by artgerm and ruan jia and greg rutkowski surreal painting gold butterfly filigree, broken glass, (masterpiece, sidelighting, finely detailed beautiful eyes: 1.2), hdr, realistic, high definition, <lora:add-detail-xl:-1>",
+     "Version": "v1.5.1",
+     "sampler": "DPM++ SDE Karras",
+     "cfgScale": 7,
+     "resources": [
+      {
+       "hash": "82b5f664ae",
+       "name": "dreamshaperXL10_alpha2Xl10",
+       "type": "model"
+      }
+     ],
+     "Model hash": "82b5f664ae",
+     "add-detail-xl": "1>\"",
+     "\"add-detail-xl": "9c783c8ce46c\""
+    },
+    "availability": "Public",
+    "hasMeta": true,
+    "hasPositivePrompt": true,
+    "onSite": false,
+    "remixOfId": null
+   },
+   {
+    "url": "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/1132c8aa-053e-468b-9f80-32a071f73f57/original=true/1917133.jpeg",
+    "nsfwLevel": 1,
+    "width": 2698,
+    "height": 1158,
+    "hash": "UWDb~Kofa|of?vj[j[kC~WbHj[kC~qoffkof",
+    "type": "image",
+    "metadata": {
+     "hash": "UWDb~Kofa|of?vj[j[kC~WbHj[kC~qoffkof",
+     "size": 3810435,
+     "width": 2698,
+     "height": 1158
+    },
+    "minor": false,
+    "poi": false,
+    "meta": {
+     "Size": "896x1024",
+     "seed": 3407892333,
+     "Model": "dreamshaperXL10_alpha2Xl10",
+     "steps": 20,
+     "Script": "X/Y/Z plot",
+     "X Type": "Prompt S/R",
+     "hashes": {
+      "model": "82b5f664ae"
+     },
+     "prompt": "city street, photo, night, lights, <lora:add-detail-xl:-1>",
+     "Version": "v1.5.1",
+     "sampler": "DPM++ SDE Karras",
+     "cfgScale": 7,
+     "resources": [
+      {
+       "hash": "82b5f664ae",
+       "name": "dreamshaperXL10_alpha2Xl10",
+       "type": "model"
+      }
+     ],
+     "Model hash": "82b5f664ae",
+     "add-detail-xl": "1>\"",
+     "\"add-detail-xl": "9c783c8ce46c\""
+    },
+    "availability": "Public",
+    "hasMeta": true,
+    "hasPositivePrompt": true,
+    "onSite": false,
+    "remixOfId": null
+   },
+   {
+    "url": "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/270b159f-d91b-424b-8ac6-14857726f1f1/original=true/1917136.jpeg",
+    "nsfwLevel": 1,
+    "width": 2698,
+    "height": 1158,
+    "hash": "UjHBSroJays._4oJazs.?cWDayWXpJa}oLWX",
+    "type": "image",
+    "metadata": {
+     "hash": "UjHBSroJays._4oJazs.?cWDayWXpJa}oLWX",
+     "size": 3386323,
+     "width": 2698,
+     "height": 1158
+    },
+    "minor": false,
+    "poi": false,
+    "meta": {
+     "Size": "896x1024",
+     "seed": 4138801743,
+     "Model": "dreamshaperXL10_alpha2Xl10",
+     "steps": 20,
+     "Script": "X/Y/Z plot",
+     "X Type": "Prompt S/R",
+     "hashes": {
+      "model": "82b5f664ae"
+     },
+     "prompt": "anime, road, mountains, sunset, village, <lora:add-detail-xl:-1.5>",
+     "Version": "v1.5.1",
+     "sampler": "DPM++ SDE Karras",
+     "cfgScale": 7,
+     "resources": [
+      {
+       "hash": "82b5f664ae",
+       "name": "dreamshaperXL10_alpha2Xl10",
+       "type": "model"
+      }
+     ],
+     "Model hash": "82b5f664ae",
+     "add-detail-xl": "1.5>\"",
+     "\"add-detail-xl": "9c783c8ce46c\""
+    },
+    "availability": "Public",
+    "hasMeta": true,
+    "hasPositivePrompt": true,
+    "onSite": false,
+    "remixOfId": null
+   }
+  ],
+  "downloadUrl": "https://civitai.com/api/download/models/135867"
+ }
+}
