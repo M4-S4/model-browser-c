@@ -645,8 +645,6 @@ def item_from_detail(detail: ModelDetail, item_id: str) -> SearchItem:
         gated=detail.gated,
         thumbnail=civitai.pick_thumbnail(version.images) if version else None,
         stats=detail.stats,
-        tags=list(detail.tags),
-        updated_at=version.created_at if version else None,
         source_url=detail.source_url,
         primary_sha256=primary.sha256 if primary else None,
     )
@@ -698,8 +696,6 @@ def normalize_item(raw: Mapping[str, Any]) -> SearchItem:
         gated=False,
         thumbnail=list_thumbnail(raw, nsfw),
         stats=Stats(downloads=_int(raw.get("download_count"))),
-        tags=_strings(raw.get("tags")),
-        updated_at=_epoch_text(raw.get("created_at")),
         source_url=model_page_url(model_id, version_id),
         primary_sha256=None,
     )
@@ -886,7 +882,6 @@ class CivArchiveSource:
         return SourceInfo(
             id=SOURCE_ID,
             label=LABEL,
-            enabled=True,
             types=types,
             base_models=base_models,
             sorts=[FilterOption(value=key, label=label) for key, label in SORTS],

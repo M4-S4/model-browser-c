@@ -169,12 +169,12 @@ def test_on_disable_stops_the_watcher_and_drops_a_task_not_started_yet(monkeypat
 def test_disable_stops_a_running_watcher_from_another_thread(app_loop):
     lifecycle_hooks.on_ready(_context("plugin.lifecycle.ready"))
     watcher, future = lifecycle_hooks._watcher, lifecycle_hooks._watcher_future
-    _wait_until(lambda: watcher.running)
+    _wait_until(lambda: watcher.loop is not None)
 
     lifecycle_hooks.on_disable(_context("plugin.lifecycle.disable"))
 
     assert future.result(timeout=2) is None
-    assert not watcher.running
+    assert watcher.loop is None
 
 
 def test_disable_cancels_a_watcher_that_does_not_return(app_loop, monkeypatch):
@@ -182,13 +182,13 @@ def test_disable_cancels_a_watcher_that_does_not_return(app_loop, monkeypatch):
     monkeypatch.setattr(lifecycle_hooks, "STOP_GRACE_SECONDS", 0.05)
     lifecycle_hooks.on_ready(_context("plugin.lifecycle.ready"))
     watcher, future = lifecycle_hooks._watcher, lifecycle_hooks._watcher_future
-    _wait_until(lambda: watcher.running)
+    _wait_until(lambda: watcher.loop is not None)
 
     lifecycle_hooks.on_disable(_context("plugin.lifecycle.disable"))
 
     concurrent.futures.wait([future], timeout=2)
     assert future.cancelled()
-    _wait_until(lambda: not watcher.running)
+    _wait_until(lambda: watcher.loop is None)
 
 
 def test_on_boot_starts_the_watcher_when_the_plugin_is_enabled_at_runtime(app_loop, monkeypatch):
@@ -198,7 +198,7 @@ def test_on_boot_starts_the_watcher_when_the_plugin_is_enabled_at_runtime(app_lo
 
     watcher, future = lifecycle_hooks._watcher, lifecycle_hooks._watcher_future
     assert future is not None
-    _wait_until(lambda: watcher.running)
+    _wait_until(lambda: watcher.loop is not None)
 
     lifecycle_hooks.on_ready(_context("plugin.lifecycle.ready"))
 

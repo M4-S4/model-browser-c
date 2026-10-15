@@ -20,15 +20,6 @@ export function decode83(text) {
 	return value;
 }
 
-export function encode83(value, length) {
-	let result = '';
-	for (let i = 1; i <= length; i += 1) {
-		const digit = Math.floor(value / 83 ** (length - i)) % 83;
-		result += DIGITS[digit];
-	}
-	return result;
-}
-
 export function sRGBToLinear(value) {
 	const v = value / 255;
 	return v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4;
@@ -59,14 +50,7 @@ export function validateBlurhash(hash) {
 	return { ok: true, numX, numY };
 }
 
-export function averageColor(hash) {
-	const check = validateBlurhash(hash);
-	if (!check.ok) throw new BlurhashError(check.error);
-	const value = decode83(hash.slice(2, 6));
-	return [value >> 16, (value >> 8) & 255, value & 255];
-}
-
-export function decodeBlurhash(hash, width, height, punch = 1) {
+export function decodeBlurhash(hash, width, height) {
 	const check = validateBlurhash(hash);
 	if (!check.ok) throw new BlurhashError(check.error);
 	if (!Number.isInteger(width) || !Number.isInteger(height) || width <= 0 || height <= 0) {
@@ -74,7 +58,6 @@ export function decodeBlurhash(hash, width, height, punch = 1) {
 	}
 	const { numX, numY } = check;
 	const maximumValue = (decode83(hash[1]) + 1) / 166;
-	const contrast = Number.isFinite(punch) && punch > 0 ? punch : 1;
 
 	const colors = new Array(numX * numY);
 	const dc = decode83(hash.slice(2, 6));
@@ -85,9 +68,9 @@ export function decodeBlurhash(hash, width, height, punch = 1) {
 		const quantG = Math.floor(value / 19) % 19;
 		const quantB = value % 19;
 		colors[i] = [
-			signPow((quantR - 9) / 9, 2) * maximumValue * contrast,
-			signPow((quantG - 9) / 9, 2) * maximumValue * contrast,
-			signPow((quantB - 9) / 9, 2) * maximumValue * contrast
+			signPow((quantR - 9) / 9, 2) * maximumValue,
+			signPow((quantG - 9) / 9, 2) * maximumValue,
+			signPow((quantB - 9) / 9, 2) * maximumValue
 		];
 	}
 

@@ -61,7 +61,6 @@ def test_the_matrix(core_policy, ceiling_setting, user_mode):
     assert context.mode == MODE[(ceiling, user_mode)]
     assert context.allowed_modes == ALLOWED[ceiling]
     assert context.mode in context.allowed_modes
-    assert context.blocked is (ceiling == "blocked")
 
 
 @pytest.mark.parametrize("core_policy", ["restricted", "ALLOWED", "", None])

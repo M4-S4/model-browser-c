@@ -32,13 +32,6 @@ export function effectiveModes(me) {
 	return MODES.map((id) => ({ id, label: MODE_LABELS[id], disabled: !info.allowed.includes(id) }));
 }
 
-export function modeHint(me, mode) {
-	const info = nsfwInfo(me);
-	if (info.allowed.includes(mode)) return '';
-	if (info.locked) return 'Your content policy hides NSFW media';
-	return 'Your content policy allows blurred NSFW media at most';
-}
-
 export function isRevealable(image, me) {
 	if (!image || image.nsfw !== true || image.url) return false;
 	const info = nsfwInfo(me);

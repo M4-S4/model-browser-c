@@ -399,18 +399,26 @@ test('cloneState copies deeply', () => {
 	assert.deepEqual(state, toFormState(payload()));
 });
 
-function withGlobalStorage(value, fn) {
-	const saved = Object.getOwnPropertyDescriptor(globalThis, 'localStorage');
-	Object.defineProperty(globalThis, 'localStorage', { configurable: true, writable: true, value });
+async function withGlobal(name, value, fn) {
+	const saved = Object.getOwnPropertyDescriptor(globalThis, name);
+	Object.defineProperty(globalThis, name, { configurable: true, writable: true, value });
 	try {
-		return fn();
+		return await fn();
 	} finally {
-		if (saved) Object.defineProperty(globalThis, 'localStorage', saved);
-		else delete globalThis.localStorage;
+		if (saved) Object.defineProperty(globalThis, name, saved);
+		else delete globalThis[name];
 	}
 }
 
-test('readToken reads auth_token from the storage it is given', () => {
+function storageWith(token) {
+	return { getItem: (key) => (key === 'auth_token' ? token : null) };
+}
+
+function withCall(fetchImpl, fn, token = 't') {
+	return withGlobal('localStorage', storageWith(token), () => withGlobal('fetch', fetchImpl, fn));
+}
+
+test('readToken reads auth_token from localStorage', async () => {
 	const asked = [];
 	const storage = {
 		getItem: (key) => {
@@ -418,23 +426,21 @@ test('readToken reads auth_token from the storage it is given', () => {
 			return 'tok-123';
 		}
 	};
-	assert.equal(readToken(storage), 'tok-123');
+	assert.equal(await withGlobal('localStorage', storage, () => readToken()), 'tok-123');
 	assert.deepEqual(asked, ['auth_token']);
 });
 
-test('readToken returns null without a token, with a storage that throws, or without a storage', () => {
-	assert.equal(readToken({ getItem: () => null }), null);
-	assert.equal(readToken({ getItem: () => '' }), null);
-	assert.equal(
-		readToken({
-			getItem: () => {
-				throw new Error('SecurityError');
-			}
-		}),
-		null
-	);
-	assert.equal(readToken({}), null);
-	withGlobalStorage(undefined, () => assert.equal(readToken(), null));
+test('readToken returns null without a token, with a storage that throws, or without a storage', async () => {
+	assert.equal(await withGlobal('localStorage', { getItem: () => null }, () => readToken()), null);
+	assert.equal(await withGlobal('localStorage', { getItem: () => '' }, () => readToken()), null);
+	const throwing = {
+		getItem: () => {
+			throw new Error('SecurityError');
+		}
+	};
+	assert.equal(await withGlobal('localStorage', throwing, () => readToken()), null);
+	assert.equal(await withGlobal('localStorage', {}, () => readToken()), null);
+	assert.equal(await withGlobal('localStorage', undefined, () => readToken()), null);
 });
 
 function fakeFetch(reply) {
@@ -454,7 +460,7 @@ function jsonResponse(status, body) {
 test('fetchPermissions sends a GET with the bearer token and the cookies, and returns the data', async () => {
 	const fetchImpl = fakeFetch(() => jsonResponse(200, payload()));
 
-	const result = await fetchPermissions({ pluginId: 'model-browser-c', token: 'tok-123', fetchImpl });
+	const result = await withCall(fetchImpl, () => fetchPermissions({ pluginId: 'model-browser-c' }), 'tok-123');
 
 	assert.deepEqual(result, { ok: true, data: payload().data });
 	assert.equal(fetchImpl.calls.length, 1);
@@ -467,27 +473,18 @@ test('fetchPermissions sends a GET with the bearer token and the cookies, and re
 	assert.ok(!url.includes('tok-123'), 'the token must stay out of the URL');
 });
 
-test('fetchPermissions defaults to the model-browser plugin and sends no header without a token', async () => {
+test('fetchPermissions asks the plugin it is given and sends no header without a token', async () => {
 	const fetchImpl = fakeFetch(() => jsonResponse(200, payload()));
-	await fetchPermissions({ token: null, fetchImpl });
-	assert.equal(fetchImpl.calls[0].url, '/api/plugins/model-browser-c/permissions');
+	await withCall(fetchImpl, () => fetchPermissions({ pluginId: 'other-plugin' }), null);
+	assert.equal(fetchImpl.calls[0].url, '/api/plugins/other-plugin/permissions');
 	assert.equal('Authorization' in fetchImpl.calls[0].init.headers, false);
-});
-
-test('fetchPermissions reads the token from localStorage when none is given', async () => {
-	const storage = { getItem: (key) => (key === 'auth_token' ? 'from-storage' : null) };
-	const fetchImpl = fakeFetch(() => jsonResponse(200, payload()));
-
-	await withGlobalStorage(storage, () => fetchPermissions({ fetchImpl }));
-
-	assert.equal(fetchImpl.calls[0].init.headers.Authorization, 'Bearer from-storage');
 });
 
 test('savePermissions sends a PUT with the JSON body and returns the stored data', async () => {
 	const body = toPutBody(toFormState(payload()));
 	const fetchImpl = fakeFetch(() => jsonResponse(200, payload()));
 
-	const result = await savePermissions(body, { token: 'tok-123', fetchImpl });
+	const result = await withCall(fetchImpl, () => savePermissions(body, { pluginId: 'model-browser-c' }), 'tok-123');
 
 	assert.deepEqual(result, { ok: true, data: payload().data });
 	const { url, init } = fetchImpl.calls[0];
@@ -505,16 +502,20 @@ test('a failure body from the plugin gives its message', async () => {
 			detail: { success: false, error: 'unknown_group', message: "There is no user group with the id 'x'" }
 		})
 	);
-	assert.deepEqual(await savePermissions({ groups: [] }, { token: 't', fetchImpl }), {
+	assert.deepEqual(await withCall(fetchImpl, () => savePermissions({ groups: [] }, { pluginId: 'model-browser-c' })), {
 		ok: false,
 		status: 400,
 		error: "There is no user group with the id 'x'"
 	});
 });
 
+function fetchedWith(fetchImpl) {
+	return withCall(fetchImpl, () => fetchPermissions({ pluginId: 'model-browser-c' }));
+}
+
 test('a plain FastAPI detail gives its text', async () => {
 	const fetchImpl = fakeFetch(() => jsonResponse(403, { detail: 'Administrator privileges required' }));
-	assert.deepEqual(await fetchPermissions({ token: 't', fetchImpl }), {
+	assert.deepEqual(await fetchedWith(fetchImpl), {
 		ok: false,
 		status: 403,
 		error: 'Administrator privileges required'
@@ -525,33 +526,33 @@ test('a validation list gives the messages joined', async () => {
 	const fetchImpl = fakeFetch(() =>
 		jsonResponse(422, { detail: [{ loc: ['body'], msg: 'Field required' }, { loc: ['body', 'x'], msg: 'Bad value' }] })
 	);
-	const result = await savePermissions({}, { token: 't', fetchImpl });
+	const result = await withCall(fetchImpl, () => savePermissions({}, { pluginId: 'model-browser-c' }));
 	assert.deepEqual(result, { ok: false, status: 422, error: 'Field required; Bad value' });
 });
 
 test('a failure without a readable body is explained from its status', async () => {
 	const none = (status) => fakeFetch(() => ({ ok: false, status, json: async () => Promise.reject(new SyntaxError('Unexpected token <')) }));
 
-	assert.equal((await fetchPermissions({ token: 't', fetchImpl: none(401) })).error, 'Your session has expired: sign in again');
-	assert.equal((await fetchPermissions({ token: 't', fetchImpl: none(403) })).error, 'Only administrators can edit these permissions');
-	assert.equal((await fetchPermissions({ token: 't', fetchImpl: none(502) })).error, 'The server answered with an error (HTTP 502)');
+	assert.equal((await fetchedWith(none(401))).error, 'Your session has expired: sign in again');
+	assert.equal((await fetchedWith(none(403))).error, 'Only administrators can edit these permissions');
+	assert.equal((await fetchedWith(none(502))).error, 'The server answered with an error (HTTP 502)');
 });
 
 test('an unreachable server is reported with status 0', async () => {
 	const fetchImpl = fakeFetch(() => {
 		throw new TypeError('Failed to fetch');
 	});
-	assert.deepEqual(await fetchPermissions({ token: 't', fetchImpl }), { ok: false, status: 0, error: 'Could not reach the server' });
+	assert.deepEqual(await fetchedWith(fetchImpl), { ok: false, status: 0, error: 'Could not reach the server' });
 
 	const other = fakeFetch(() => {
 		throw new Error('boom');
 	});
-	assert.deepEqual(await fetchPermissions({ token: 't', fetchImpl: other }), { ok: false, status: 0, error: 'boom' });
+	assert.deepEqual(await fetchedWith(other), { ok: false, status: 0, error: 'boom' });
 
 	const odd = fakeFetch(() => {
 		throw undefined;
 	});
-	assert.deepEqual(await fetchPermissions({ token: 't', fetchImpl: odd }), { ok: false, status: 0, error: 'Request failed' });
+	assert.deepEqual(await fetchedWith(odd), { ok: false, status: 0, error: 'Request failed' });
 });
 
 test('a success status with a body that is not a permissions answer is an error', async () => {
@@ -559,19 +560,16 @@ test('a success status with a body that is not a permissions answer is an error'
 	for (const body of bodies) {
 		const fetchImpl = fakeFetch(() => jsonResponse(200, body));
 		assert.deepEqual(
-			await fetchPermissions({ token: 't', fetchImpl }),
+			await fetchedWith(fetchImpl),
 			{ ok: false, status: 200, error: 'Unexpected response from the server' },
 			JSON.stringify(body)
 		);
 	}
 	const html = fakeFetch(() => ({ ok: true, status: 200, json: async () => Promise.reject(new SyntaxError('Unexpected token <')) }));
-	assert.equal((await fetchPermissions({ token: 't', fetchImpl: html })).error, 'Unexpected response from the server');
+	assert.equal((await fetchedWith(html)).error, 'Unexpected response from the server');
 });
 
 test('the calls never reject', async () => {
-	const result = await fetchPermissions({
-		token: 't',
-		fetchImpl: () => Promise.reject(new Error('offline'))
-	});
+	const result = await fetchedWith(() => Promise.reject(new Error('offline')));
 	assert.equal(result.ok, false);
 });

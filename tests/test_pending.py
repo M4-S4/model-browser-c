@@ -57,13 +57,6 @@ def test_a_row_knows_whether_it_is_finished_and_whether_it_has_a_hash():
     assert [_row(status=status).finished for status in pending.STATUSES] == [False, False, False, True, True]
 
 
-def test_with_status_is_a_copy_with_a_new_status_and_error():
-    row = _row()
-    failed = pending.with_status(row, "failed", "boom")
-    assert (failed.status, failed.error) == ("failed", "boom")
-    assert (row.status, row.error) == ("queued", None)
-
-
 def test_insert_then_get_round_trips_every_column(table):
     stored = pending.insert(_row(request_id="req-1", limit_ref_id="ref-1"))
 

@@ -367,8 +367,6 @@ def normalize_item(raw: Dict[str, Any]) -> SearchItem:
         early_access=False,
         thumbnail=None,
         stats=_stats(raw),
-        tags=display_tags(tags),
-        updated_at=_text(raw.get("lastModified")),
         source_url=model_page_url(repo),
     )
 
@@ -812,7 +810,6 @@ class HuggingFaceSource:
         return SourceInfo(
             id=SOURCE_ID,
             label=LABEL,
-            enabled=True,
             types=[FilterOption(value=value, label=label) for value, label in PIPELINE_TYPES + TAG_TYPES],
             base_models=[],
             sorts=[FilterOption(value=key, label=label) for key, _, label in SORTS],

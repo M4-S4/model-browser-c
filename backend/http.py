@@ -17,6 +17,7 @@ logger = logging.getLogger("plugins.model-browser")
 USER_AGENT = f"PotionUI-ModelBrowser/{PLUGIN_VERSION} (+https://github.com/PotionUI/PotionUI)"
 TIMEOUT_SECONDS = 30.0
 MAX_BODY_BYTES = 32 * 1024 * 1024
+MAX_UPSTREAM_MESSAGE_LENGTH = 300
 
 DEFAULT_LIMITS: Dict[str, Tuple[float, int]] = {
     "civitai": (0.25, 4),
@@ -71,7 +72,7 @@ def source_label(source_id: str) -> str:
     return SOURCE_LABELS.get(source_id, source_id)
 
 
-def parse_retry_after(value: Optional[str], now: Optional[datetime] = None) -> Optional[float]:
+def parse_retry_after(value: Optional[str]) -> Optional[float]:
     if value is None:
         return None
     value = str(value).strip()
@@ -91,11 +92,10 @@ def parse_retry_after(value: Optional[str], now: Optional[datetime] = None) -> O
         return None
     if when.tzinfo is None:
         when = when.replace(tzinfo=timezone.utc)
-    now = now or datetime.now(timezone.utc)
-    return max(0.0, (when - now).total_seconds())
+    return max(0.0, (when - datetime.now(timezone.utc)).total_seconds())
 
 
-def upstream_message(body: bytes, limit: int = 300) -> Optional[str]:
+def upstream_message(body: bytes) -> Optional[str]:
     try:
         data = json.loads(body)
     except (ValueError, TypeError):
@@ -114,7 +114,9 @@ def upstream_message(body: bytes, limit: int = 300) -> Optional[str]:
     if not message:
         return None
     message = " ".join(message.split())
-    return message if len(message) <= limit else message[: limit - 1].rstrip() + "…"
+    if len(message) <= MAX_UPSTREAM_MESSAGE_LENGTH:
+        return message
+    return message[: MAX_UPSTREAM_MESSAGE_LENGTH - 1].rstrip() + "…"
 
 
 def _zod_message(raw: Any) -> Optional[str]:
@@ -275,10 +277,8 @@ class SourceHttp:
         status, headers, body = await self.get(source_id, url, params)
         return decode_json(source_id, status, body), headers
 
-    async def get_text(
-        self, source_id: str, url: str, params: ParamsInput = None, *, max_bytes: Optional[int] = None
-    ) -> str:
-        _, headers, body = await self.get(source_id, url, params, max_bytes=max_bytes)
+    async def get_text(self, source_id: str, url: str, *, max_bytes: Optional[int] = None) -> str:
+        _, headers, body = await self.get(source_id, url, max_bytes=max_bytes)
         return decode_text(headers, body)
 
     @staticmethod

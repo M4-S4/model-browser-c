@@ -3,11 +3,9 @@ import assert from 'node:assert/strict';
 import {
 	BLURHASH_SIZE,
 	BlurhashError,
-	averageColor,
 	decode83,
 	decodeBlurhash,
 	decodeCached,
-	encode83,
 	linearToSRGB,
 	sRGBToLinear,
 	validateBlurhash
@@ -20,23 +18,12 @@ function pixel(pixels, width, x, y) {
 	return [...pixels.slice(offset, offset + 4)];
 }
 
-function flatHash(r, g, b) {
-	return `00${encode83((r << 16) + (g << 8) + b, 4)}`;
-}
-
 test('decode83 reads base 83 digits', () => {
 	assert.equal(decode83('0'), 0);
 	assert.equal(decode83('~'), 82);
 	assert.equal(decode83('10'), 83);
 	assert.equal(decode83('HV6n'), 9_934_485);
 	assert.throws(() => decode83('a!'), BlurhashError);
-});
-
-test('encode83 is the inverse of decode83', () => {
-	for (const value of [0, 1, 82, 83, 9_934_485, 83 ** 4 - 1]) {
-		assert.equal(decode83(encode83(value, 4)), value);
-	}
-	assert.equal(encode83(9_934_485, 4), 'HV6n');
 });
 
 test('the sRGB conversions round-trip every channel value', () => {
@@ -57,11 +44,6 @@ test('validateBlurhash explains what is wrong', () => {
 	assert.match(validateBlurhash(SAMPLE.slice(0, -1)).error, /4x3 blurhash has 28 characters, not 27/);
 	assert.match(validateBlurhash(`${SAMPLE}x`).error, /not 29/);
 	assert.match(validateBlurhash('LEHV6nWB2yk8pyo0adR*.7kCMd"j').error, /not a base 83 digit/);
-});
-
-test('averageColor is the DC component', () => {
-	assert.deepEqual(averageColor(SAMPLE), [151, 150, 149]);
-	assert.throws(() => averageColor('nope'), BlurhashError);
 });
 
 test('decodeBlurhash fills every pixel of the sample, opaque, with a picture that is not flat', () => {
@@ -94,17 +76,16 @@ test('decodeBlurhash is deterministic and honours the size asked for', () => {
 });
 
 test('a hash with only an average colour decodes to that exact colour everywhere', () => {
-	const pixels = decodeBlurhash(flatHash(255, 0, 0), 4, 4);
+	const pixels = decodeBlurhash('00TI:j', 4, 4);
 	for (let y = 0; y < 4; y += 1) {
 		for (let x = 0; x < 4; x += 1) assert.deepEqual(pixel(pixels, 4, x, y), [255, 0, 0, 255]);
 	}
-	const grey = decodeBlurhash(flatHash(12, 200, 99), 2, 2);
+	const grey = decodeBlurhash('001coC', 2, 2);
 	assert.deepEqual(pixel(grey, 2, 1, 1), [12, 200, 99, 255]);
 });
 
 test('a horizontal AC component brightens the left edge and leaves the middle at the average colour', () => {
-	const ac = 18 * 19 * 19 + 9 * 19 + 9;
-	const hash = `1~${encode83((64 << 16) + (64 << 8) + 64, 4)}${encode83(ac, 2)}`;
+	const hash = '1~7UI{|c';
 	assert.deepEqual(validateBlurhash(hash), { ok: true, numX: 2, numY: 1 });
 	const pixels = decodeBlurhash(hash, 2, 1);
 	assert.deepEqual(pixel(pixels, 2, 1, 0), [64, 64, 64, 255]);
@@ -112,14 +93,6 @@ test('a horizontal AC component brightens the left edge and leaves the middle at
 	assert.equal(left[0], linearToSRGB(sRGBToLinear(64) + 0.5));
 	assert.equal(left[1], 64);
 	assert.equal(left[2], 64);
-});
-
-test('punch scales the AC components', () => {
-	const ac = 18 * 19 * 19 + 9 * 19 + 9;
-	const hash = `1F${encode83((64 << 16) + (64 << 8) + 64, 4)}${encode83(ac, 2)}`;
-	const soft = pixel(decodeBlurhash(hash, 2, 1, 1), 2, 0, 0)[0];
-	const strong = pixel(decodeBlurhash(hash, 2, 1, 2), 2, 0, 0)[0];
-	assert.ok(strong > soft, `${strong} > ${soft}`);
 });
 
 test('decodeBlurhash refuses malformed hashes and bad sizes', () => {

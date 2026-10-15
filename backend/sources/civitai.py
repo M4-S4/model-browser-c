@@ -399,13 +399,13 @@ def _version_date(raw_version: Dict[str, Any]) -> Optional[str]:
     )
 
 
-def version_early_access(raw_version: Dict[str, Any], now: Optional[datetime] = None) -> bool:
+def version_early_access(raw_version: Dict[str, Any]) -> bool:
     availability = raw_version.get("availability")
     if isinstance(availability, str) and availability not in _OPEN_AVAILABILITY:
         return True
     if raw_version.get("paidAccess") or _is_true(raw_version.get("earlyAccess")):
         return True
-    now = now or datetime.now(timezone.utc)
+    now = datetime.now(timezone.utc)
     for key in ("earlyAccessEndsAt", "earlyAccessDeadline"):
         ends = _parse_date(raw_version.get(key))
         if ends is not None and ends > now:
@@ -573,8 +573,6 @@ def normalize_item(raw: Dict[str, Any], max_level: int) -> SearchItem:
         early_access=model_early_access(raw, first),
         thumbnail=pick_thumbnail(images),
         stats=_stats(raw),
-        tags=_tags(raw),
-        updated_at=_version_date(first) if first else None,
         source_url=model_page_url(model_id, nsfw),
         primary_sha256=primary_file_sha256(first),
     )
@@ -681,7 +679,6 @@ class CivitaiSource:
         return SourceInfo(
             id=SOURCE_ID,
             label=LABEL,
-            enabled=True,
             types=types,
             base_models=base_models,
             sorts=[FilterOption(value=key, label=label) for key, _, label in SORTS],

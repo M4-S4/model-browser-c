@@ -118,17 +118,6 @@ def test_an_unreadable_payload_is_a_miss(db, clock):
     assert cache.get("civitai", REQUEST) is None
 
 
-def test_clear(db, clock):
-    cache = Cache(clock=clock)
-    cache.set("civitai", REQUEST, 1)
-    cache.set("huggingface", REQUEST, 2)
-
-    cache.clear("civitai")
-    assert [row["source"] for row in _rows(db)] == ["huggingface"]
-    cache.clear()
-    assert _rows(db) == []
-
-
 def _request(n):
     return {"url": "https://civitai.com/api/v1/models", "params": [["cursor", str(n)]]}
 

@@ -1,5 +1,5 @@
 import json
-from dataclasses import dataclass, field, replace
+from dataclasses import dataclass, field
 from typing import Any, Dict, Iterable, List, Mapping, Optional
 
 TABLE = "model_browser_pending"
@@ -190,7 +190,3 @@ def list_rows(
 def list_unfinished() -> List[PendingRow]:
     rows = list_rows(statuses=UNFINISHED, limit=1000)
     return list(reversed(rows))
-
-
-def with_status(row: PendingRow, status: str, error: Optional[str] = None) -> PendingRow:
-    return replace(row, status=status, error=error)

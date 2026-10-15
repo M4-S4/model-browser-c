@@ -42,15 +42,11 @@ export function percent(fraction) {
 	return Math.max(0, Math.min(100, Math.floor(fraction * 100)));
 }
 
-export function formatDate(value, locale) {
+export function formatDate(value) {
 	if (value === null || value === undefined || value === '') return '';
 	const date = new Date(value);
 	if (Number.isNaN(date.getTime())) return '';
-	try {
-		return date.toLocaleDateString(locale, { year: 'numeric', month: 'short', day: 'numeric' });
-	} catch {
-		return date.toISOString().slice(0, 10);
-	}
+	return date.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
 }
 
 export function plural(count, word, many = `${word}s`) {

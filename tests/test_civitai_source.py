@@ -41,9 +41,7 @@ def test_lora_page_items_are_normalised():
     assert styles.base_model == "Pony"
     assert styles.base_models == ["Pony"]
     assert styles.creator == "obuyb404"
-    assert styles.tags[:3] == ["female", "anime", "western art"]
     assert styles.stats.model_dump() == {"downloads": 663330, "likes": 26764, "rating": None}
-    assert styles.updated_at == "2025-03-20T21:38:31.969Z"
     assert styles.early_access is False
     assert styles.poi is False
     assert styles.installed is None
@@ -795,7 +793,7 @@ async def test_info_lists_the_enums_and_caches_them_for_a_day():
     again = await source.info()
 
     assert info == again
-    assert (info.id, info.label, info.enabled) == ("civitai", "CivitAI", True)
+    assert (info.id, info.label) == ("civitai", "CivitAI")
     assert [option.value for option in info.types] == enums["ModelType"]
     assert info.types[enums["ModelType"].index("LORA")].label == "LoRA"
     assert [option.value for option in info.base_models] == enums["ActiveBaseModel"]

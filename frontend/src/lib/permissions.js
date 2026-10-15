@@ -153,10 +153,9 @@ export function optionsFor(allowed, selected) {
 	return [...allowed, ...outside(selected, allowed)];
 }
 
-export function readToken(storage) {
+export function readToken() {
 	try {
-		const store = storage ?? globalThis.localStorage;
-		return store?.getItem(AUTH_TOKEN_KEY) || null;
+		return globalThis.localStorage?.getItem(AUTH_TOKEN_KEY) || null;
 	} catch {
 		return null;
 	}
@@ -190,8 +189,8 @@ function thrownText(err) {
 	return 'Request failed';
 }
 
-async function call({ pluginId = 'model-browser-c', method, body, token, fetchImpl }) {
-	const bearer = token === undefined ? readToken() : token;
+async function call({ pluginId, method, body }) {
+	const bearer = readToken();
 	const headers = { Accept: 'application/json' };
 	if (bearer) headers.Authorization = `Bearer ${bearer}`;
 	const init = { method, headers, credentials: 'include', cache: 'no-store' };
@@ -203,7 +202,7 @@ async function call({ pluginId = 'model-browser-c', method, body, token, fetchIm
 
 	let response;
 	try {
-		response = await (fetchImpl ?? fetch)(url, init);
+		response = await fetch(url, init);
 	} catch (err) {
 		return { ok: false, status: 0, error: thrownText(err) };
 	}

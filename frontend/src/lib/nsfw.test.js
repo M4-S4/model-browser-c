@@ -7,7 +7,6 @@ import {
 	effectiveModes,
 	isRevealable,
 	mediaState,
-	modeHint,
 	nsfwInfo
 } from './nsfw.js';
 
@@ -60,12 +59,6 @@ test('nsfwInfo reports the setting key, with a default', () => {
 	assert.equal(nsfwInfo(me('allowed', 'blur')).settingKey, 'media_nsfw_filter_mode');
 	assert.equal(nsfwInfo({ nsfw: { ceiling: 'allowed', mode: 'blur', allowed_modes: ['blur'] } }).settingKey, 'media_nsfw_filter_mode');
 	assert.deepEqual(nsfwInfo(me('blur', 'blur')).allowed, ['blur', 'hide']);
-});
-
-test('modeHint explains a disabled mode', () => {
-	assert.equal(modeHint(me('allowed', 'blur'), 'show'), '');
-	assert.match(modeHint(me('blur', 'blur'), 'show'), /blurred NSFW media at most/);
-	assert.match(modeHint(me('blocked', 'hide'), 'blur'), /hides NSFW media/);
 });
 
 test('isRevealable: only a url-less NSFW image, in blur mode, under a ceiling that is not blocked', () => {

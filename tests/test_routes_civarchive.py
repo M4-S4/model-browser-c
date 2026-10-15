@@ -104,7 +104,7 @@ def test_sources_list_civarchive_last_with_its_filters_and_notice(client, archiv
     listed = {source["id"]: source for source in response.json()["data"]}
     assert list(listed) == ["civitai", "huggingface", "openmodeldb", "civarchive"]
     civarchive = listed["civarchive"]
-    assert (civarchive["label"], civarchive["enabled"]) == ("CivArchive", True)
+    assert civarchive["label"] == "CivArchive"
     assert (len(civarchive["types"]), len(civarchive["base_models"])) == (22, 104)
     assert {"value": "LORA", "label": "LORA"} in civarchive["types"]
     assert {"value": "SD 1.5", "label": "SD 1.5"} in civarchive["base_models"]

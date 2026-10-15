@@ -42,7 +42,7 @@ export function enabledSources(sources) {
 			.filter((option) => isObject(option) && typeof option.value === 'string' && option.value)
 			.map((option) => ({ value: option.value, label: text(option.label) || option.value }));
 	return sources
-		.filter((source) => isObject(source) && typeof source.id === 'string' && source.id && source.enabled !== false)
+		.filter((source) => isObject(source) && typeof source.id === 'string' && source.id)
 		.map((source) => ({
 			id: source.id,
 			label: text(source.label) || source.id,
@@ -133,7 +133,7 @@ export function encodeState(state, currentSearch = '') {
 	return params.toString();
 }
 
-export function searchRequest(state, info, { cursor = null, limit = DEFAULT_LIMIT } = {}) {
+export function searchRequest(state, info, { cursor = null } = {}) {
 	const params = new URLSearchParams();
 	const q = text(state.q).trim();
 	if (q) params.set('q', q);
@@ -145,7 +145,7 @@ export function searchRequest(state, info, { cursor = null, limit = DEFAULT_LIMI
 	const period = info?.periods?.length ? state.period || defaults.period : '';
 	if (period) params.set('period', period);
 	if (cursor) params.set('cursor', cursor);
-	params.set('limit', String(Math.max(1, Math.min(50, Math.round(limit) || DEFAULT_LIMIT))));
+	params.set('limit', String(DEFAULT_LIMIT));
 	return params.toString();
 }
 

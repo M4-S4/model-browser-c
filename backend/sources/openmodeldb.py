@@ -418,7 +418,6 @@ def license_from(raw: Mapping[str, Any]) -> License:
 @dataclass(frozen=True)
 class Entry:
     id: str
-    raw: Mapping[str, Any]
     name_key: str
     date: str
     authors: FrozenSet[str]
@@ -501,7 +500,6 @@ def _entry(model_id: str, raw: Mapping[str, Any], tags: Mapping[str, str], archi
         words += [architecture, (known or {}).get("name") or ""]
     return Entry(
         id=model_id,
-        raw=raw,
         name_key=name.casefold(),
         date=date_of(raw) or "",
         authors=frozenset(author.casefold() for author in names),
@@ -697,8 +695,6 @@ def normalize_item(model_id: str, raw: Mapping[str, Any], catalog: Catalog) -> S
         gated=False,
         thumbnail=thumbnail(raw),
         stats=Stats(),
-        tags=tag_names(raw, catalog),
-        updated_at=date_of(raw),
         source_url=model_page_url(model_id),
         primary_sha256=primary.sha256 if primary is not None else None,
     )
@@ -981,7 +977,6 @@ class OpenModelDBSource:
         return SourceInfo(
             id=SOURCE_ID,
             label=LABEL,
-            enabled=True,
             types=types,
             base_models=scales,
             sorts=[FilterOption(value=key, label=label) for key, label in SORTS],

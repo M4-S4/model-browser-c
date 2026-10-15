@@ -150,7 +150,8 @@ async def test_another_file_type_and_folders_are_passed_on(core, civitai):
 
 
 async def test_a_request_id_is_kept_on_the_row(core, civitai):
-    await downloads.start_download(principal(), DownloadRequest.model_validate(body()), request_id="req-1")
+    prepared = await downloads.prepare_download(principal(), DownloadRequest.model_validate(body()))
+    await downloads.queue_prepared(prepared, request_id="req-1")
 
     assert pending.get(SHA).request_id == "req-1"
 
@@ -687,13 +688,13 @@ async def test_a_request_is_checked_against_the_request_view_only(core, civitai)
 
     prepared = await downloads.prepare_download(may_only_request, _request(), purpose="request")
 
-    assert (prepared.purpose, prepared.on_behalf, prepared.assign_to) == ("request", False, "user:user-1")
+    assert (prepared.on_behalf, prepared.assign_to) == (False, "user:user-1")
     with pytest.raises(DownloadError) as raised:
         await downloads.prepare_download(may_only_request, _request())
     assert raised.value.message == "Your permissions do not allow downloads from 'civitai'"
 
     may_only_download = principal(request_params=requesting(sources=frozenset()))
-    assert (await downloads.prepare_download(may_only_download, _request())).purpose == "download"
+    assert (await downloads.prepare_download(may_only_download, _request())).assign_to == "user:user-1"
     with pytest.raises(DownloadError):
         await downloads.prepare_download(may_only_download, _request(), purpose="request")
 
@@ -731,7 +732,8 @@ async def test_a_request_never_names_a_remote_destination(core, civitai):
         await downloads.prepare_download(admin(), _request(destination_backend_id="worker-1"), purpose="request")
 
     assert raised.value.message == "A request cannot choose a remote destination: the file is downloaded to this server"
-    assert (await downloads.prepare_download(admin(), _request(destination_backend_id="worker-1"))).purpose == "download"
+    prepared = await downloads.prepare_download(admin(), _request(destination_backend_id="worker-1"))
+    assert prepared.request.destination_backend_id == "worker-1"
 
 
 async def test_an_unknown_purpose_is_a_programming_error(core, civitai):
@@ -814,7 +816,7 @@ async def test_on_behalf_refusals_speak_of_the_requester(core, civitai, view, ov
 async def test_on_behalf_the_requesters_download_view_does_not_count(core, civitai):
     prepared = await _prepare_for(principal(sources=frozenset(), max_file_gb=0.01))
 
-    assert prepared.on_behalf and prepared.purpose == "request"
+    assert prepared.on_behalf
 
 
 async def test_an_approver_may_pick_one_of_the_requesters_groups(core, civitai):

@@ -6,48 +6,10 @@ function text(value) {
 	return typeof value === 'string' ? value : '';
 }
 
-function errorText(body) {
-	if (typeof body.detail === 'string' && body.detail) return body.detail;
-	const fields = isObject(body.detail) ? body.detail : body;
-	for (const candidate of [fields.message, fields.error]) {
-		if (typeof candidate === 'string' && candidate) return candidate;
-	}
-	return 'Request failed';
-}
-
 function thrownText(err) {
-	if (err instanceof SyntaxError) return 'The backend sent a response that is not valid JSON';
 	if (err instanceof Error && err.message) return err.message;
 	if (typeof err === 'string' && err) return err;
 	return 'Request failed';
-}
-
-export async function fetchHealth(api) {
-	let payload;
-	try {
-		payload = await api.get('/health');
-	} catch (err) {
-		return { ok: false, error: thrownText(err) };
-	}
-
-	if (!isObject(payload)) return { ok: false, error: 'Unexpected response from /health' };
-	if (payload.success === false || payload.detail !== undefined) {
-		return { ok: false, error: errorText(payload) };
-	}
-
-	const body = isObject(payload.data) ? payload.data : payload;
-	const hasStatus = typeof body.status === 'string';
-	const healthy = hasStatus ? body.status === 'ok' : body.ok === true || payload.success === true;
-	if (!healthy) {
-		return { ok: false, error: hasStatus ? `Backend status: ${body.status}` : 'Unexpected response from /health' };
-	}
-	return typeof body.version === 'string' ? { ok: true, version: body.version } : { ok: true };
-}
-
-export function healthLabel(result) {
-	if (!result) return 'Backend: checking…';
-	if (!result.ok) return `Backend error: ${result.error ?? 'unknown error'}`;
-	return result.version ? `Backend: ok (v${result.version.replace(/^v/i, '')})` : 'Backend: ok';
 }
 
 const STATUS_BY_CODE = {
@@ -140,16 +102,15 @@ function thrownError(err) {
 	return { status: 0, code: 'network_error', message: thrownText(err), retryAfter: null };
 }
 
-export function unwrap(payload, status = 0, retryAfterHeader = null) {
-	if (status >= 400) return { ok: false, error: normalizeError(payload, status, retryAfterHeader) };
+export function unwrap(payload, retryAfterHeader = null) {
 	if (isObject(payload) && payload.success === true) return { ok: true, data: payload.data };
 	if (isObject(payload) && payload.success === undefined && payload.detail === undefined && 'data' in payload) {
 		return { ok: true, data: payload.data };
 	}
 	if (!isObject(payload)) {
-		return { ok: false, error: { status, code: 'invalid_response', message: 'Unexpected response from the server', retryAfter: null } };
+		return { ok: false, error: { status: 0, code: 'invalid_response', message: 'Unexpected response from the server', retryAfter: null } };
 	}
-	return { ok: false, error: normalizeError(payload, status, retryAfterHeader) };
+	return { ok: false, error: normalizeError(payload, 0, retryAfterHeader) };
 }
 
 export async function callPlugin(api, method, path, body) {
@@ -209,11 +170,7 @@ export function listDownloads(api, { all, limit } = {}) {
 	return callPlugin(api, 'get', `/downloads${query ? `?${query}` : ''}`);
 }
 
-async function callCore(api, path, { method = 'GET', body, fetchImpl } = {}) {
-	const doFetch = fetchImpl ?? globalThis.fetch;
-	if (typeof doFetch !== 'function') {
-		return { ok: false, error: { status: 0, code: 'no_fetch', message: 'This browser cannot reach the server', retryAfter: null } };
-	}
+async function callCore(api, path, { method = 'GET', body } = {}) {
 	const token = typeof api?.getToken === 'function' ? api.getToken() : null;
 	const headers = { Accept: 'application/json' };
 	if (token) headers.Authorization = `Bearer ${token}`;
@@ -225,7 +182,7 @@ async function callCore(api, path, { method = 'GET', body, fetchImpl } = {}) {
 
 	let response;
 	try {
-		response = await doFetch(path, init);
+		response = await fetch(path, init);
 	} catch (err) {
 		return { ok: false, error: thrownError(err) };
 	}
@@ -236,15 +193,15 @@ async function callCore(api, path, { method = 'GET', body, fetchImpl } = {}) {
 	}
 	const retryAfter = typeof response.headers?.get === 'function' ? response.headers.get('Retry-After') : null;
 	if (!response.ok) return { ok: false, error: normalizeError(payload, response.status || 0, retryAfter) };
-	return unwrap(payload, 0, retryAfter);
+	return unwrap(payload, retryAfter);
 }
 
-export function setNsfwMode(api, mode, { key = 'media_nsfw_filter_mode', fetchImpl } = {}) {
-	return callCore(api, `/api/settings/${encodeSegment(key)}`, { method: 'PUT', body: { value: mode }, fetchImpl });
+export function setNsfwMode(api, mode, key) {
+	return callCore(api, `/api/settings/${encodeSegment(key)}`, { method: 'PUT', body: { value: mode } });
 }
 
-export async function listRemoteBackends(api, { fetchImpl } = {}) {
-	const result = await callCore(api, '/api/backends', { fetchImpl });
+export async function listRemoteBackends(api) {
+	const result = await callCore(api, '/api/backends');
 	if (!result.ok) return result;
 	const backends = Array.isArray(result.data) ? result.data : [];
 	return {

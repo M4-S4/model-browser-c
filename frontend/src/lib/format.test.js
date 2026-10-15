@@ -72,10 +72,11 @@ test('percent turns the core progress fraction into a clamped whole percentage',
 });
 
 test('formatDate formats ISO dates and ignores what is not one', () => {
-	assert.equal(formatDate('2026-10-11T08:30:00Z', 'en-US'), 'Oct 11, 2026');
-	assert.equal(formatDate('', 'en-US'), '');
-	assert.equal(formatDate(null, 'en-US'), '');
-	assert.equal(formatDate('not a date', 'en-US'), '');
+	const day = new Date('2026-10-11T08:30:00Z').toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+	assert.equal(formatDate('2026-10-11T08:30:00Z'), day);
+	assert.equal(formatDate(''), '');
+	assert.equal(formatDate(null), '');
+	assert.equal(formatDate('not a date'), '');
 });
 
 test('plural picks the singular for one', () => {

@@ -222,8 +222,6 @@ def test_an_oracle_model_is_an_upscaler_with_its_primary_hash():
         "gated": False,
         "thumbnail": None,
         "stats": {"downloads": None, "likes": None, "rating": None},
-        "tags": ["Pretrained"],
-        "updated_at": "2019-07-06",
         "source_url": "https://openmodeldb.info/models/16x-ESRGAN",
         "primary_sha256": "8701acac21c4c412a3e05242b389700c1248ff52314380793c045326f4c61dfb",
         "installed": None,
@@ -253,7 +251,7 @@ def test_authors_tags_and_scales():
     assert _item(TWO_AUTHORS).creator == "skr, zarxrax"
     assert _item(ONE_NAME_LIST).creator == "jingyunliang"
     assert (_item(ONE_NAME_LIST).base_model, _item(VIDEO).base_model) == ("SwinIR 8x", "CAIN 2x")
-    assert _item(GITHUB_RAW).tags == ["Compression Removal", "JPEG", "Realistic", "Restoration"]
+    assert _detail(GITHUB_RAW).tags == ["Compression Removal", "JPEG", "Realistic", "Restoration"]
 
 
 def test_without_tags_or_architectures_files_the_keys_are_the_labels():
@@ -262,7 +260,7 @@ def test_without_tags_or_architectures_files_the_keys_are_the_labels():
     item = _item(GITHUB_RAW, cat)
 
     assert (item.type, item.base_model) == ("esrgan", "esrgan 4x")
-    assert item.tags == ["compression-removal", "jpeg", "photo", "restoration"]
+    assert _detail(GITHUB_RAW, cat).tags == ["compression-removal", "jpeg", "photo", "restoration"]
     assert facts_line(cat.models[GITHUB_RAW], cat).startswith("Architecture: esrgan · Scale: 4x · Channels: 3 → 3")
 
 
@@ -272,7 +270,7 @@ def test_an_entry_missing_its_architecture_and_scale_still_normalises():
 
     item = _item(ORACLE, _alone(ORACLE, raw))
 
-    assert (item.type, item.base_model, item.base_models, item.updated_at) == ("Upscaler", None, [], None)
+    assert (item.type, item.base_model, item.base_models) == ("Upscaler", None, [])
     assert (item.name, item.creator) == (ORACLE, None)
 
 
@@ -884,12 +882,13 @@ async def test_tags_and_architectures_are_optional(clock, caplog, failing):
 
     with caplog.at_level(logging.WARNING, logger="plugins.model-browser"):
         item = (await source.search(SearchQuery(q=f"https://openmodeldb.info/models/{GITHUB_RAW}"))).items[0]
+    tags = (await source.detail(GITHUB_RAW)).tags
 
     assert "showing the keys as labels" in caplog.text
     if failing == TAGS:
-        assert (item.tags, item.type) == (["compression-removal", "jpeg", "photo", "restoration"], "ESRGAN")
+        assert (tags, item.type) == (["compression-removal", "jpeg", "photo", "restoration"], "ESRGAN")
     else:
-        assert (item.tags[2], item.type, item.base_model) == ("Realistic", "esrgan", "esrgan 4x")
+        assert (tags[2], item.type, item.base_model) == ("Realistic", "esrgan", "esrgan 4x")
 
 
 async def test_a_broken_cache_never_stops_the_catalogue(clock, caplog):
@@ -951,7 +950,6 @@ async def test_info_lists_the_architectures_and_scales_with_their_labels(clock):
     assert info.model_dump() == {
         "id": "openmodeldb",
         "label": "OpenModelDB",
-        "enabled": True,
         "types": [
             {"value": "cain", "label": "CAIN"},
             {"value": "compact", "label": "Compact"},
@@ -1016,7 +1014,7 @@ async def test_the_default_search_lists_the_downloadable_models_first_by_pages_o
     items = first.items + second.items
     assert [found.mb_type for found in items] == ["upscaler"] * DOWNLOADABLE + [None] * (27 - DOWNLOADABLE)
     for group in (items[:DOWNLOADABLE], items[DOWNLOADABLE:]):
-        dates = [found.updated_at for found in group]
+        dates = [omdb.date_of(models()[found.id]) for found in group]
         assert dates == sorted(dates, reverse=True)
     assert [found.id for found in items][:5] == NEWEST
     assert (items[DOWNLOADABLE - 1].id, items[-1].id) == (ORACLE, "1x-NMKD-YandereInpaint")
@@ -1031,7 +1029,7 @@ async def test_sorts(source):
     by_name = await source.search(SearchQuery(sort="name", limit=50))
 
     assert _ids(default) == _ids(downloadable)
-    dates = [found.updated_at for found in newest.items]
+    dates = [omdb.date_of(models()[found.id]) for found in newest.items]
     assert dates == sorted(dates, reverse=True) and _ids(newest)[-1] == ORACLE
     assert _ids(newest).index(MISSPELT_KEYS) < _ids(newest).index(THREE_FORMATS)
     assert _ids(downloadable).index(THREE_FORMATS) < _ids(downloadable).index(MISSPELT_KEYS)
@@ -1176,11 +1174,11 @@ async def test_safe_max_level_and_period_change_nothing(source):
 async def test_each_search_hands_out_new_items(source):
     first = await source.search(SearchQuery(limit=1))
     first.items[0].installed = True
-    first.items[0].tags.append("changed")
+    first.items[0].base_models.append("changed")
 
     second = await source.search(SearchQuery(limit=1))
 
-    assert second.items[0].installed is None and "changed" not in second.items[0].tags
+    assert second.items[0].installed is None and "changed" not in second.items[0].base_models
 
 
 async def test_values_of_the_wrong_type_still_normalise(clock):
@@ -1191,9 +1189,10 @@ async def test_values_of_the_wrong_type_still_normalise(clock):
     transport.responses[MODELS] = (200, {}, body)
 
     found = (await make_source(transport, clock=clock).search(SearchQuery(limit=1))).items[0]
-    (file,) = (await make_source(transport, clock=clock).detail("4x-Odd")).versions[0].files
+    detail = await make_source(transport, clock=clock).detail("4x-Odd")
+    (file,) = detail.versions[0].files
 
-    assert (found.id, found.name, found.creator, found.tags, found.mb_type) == ("4x-Odd", "4x-Odd", "x", [], "upscaler")
+    assert (found.id, found.name, found.creator, detail.tags, found.mb_type) == ("4x-Odd", "4x-Odd", "x", [], "upscaler")
     assert (file.name, file.size_bytes, file.file_type) == ("o.pth", 1, None)
 
 

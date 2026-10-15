@@ -1,14 +1,13 @@
 from typing import Callable, Dict, List
 
 from .. import settings
-from .base import DEFAULT_LIMIT, MAX_LIMIT, MAX_QUERY_LENGTH, SearchQuery, Source, UnknownSource
+from .base import MAX_LIMIT, MAX_QUERY_LENGTH, SearchQuery, Source, UnknownSource
 from .civarchive import CivArchiveSource
 from .civitai import CivitaiSource
 from .huggingface import HuggingFaceSource
 from .openmodeldb import OpenModelDBSource
 
 __all__ = [
-    "DEFAULT_LIMIT",
     "MAX_LIMIT",
     "MAX_QUERY_LENGTH",
     "SearchQuery",
@@ -16,8 +15,6 @@ __all__ = [
     "UnknownSource",
     "enabled_sources",
     "get_source",
-    "is_enabled",
-    "register_source",
 ]
 
 _FACTORIES: Dict[str, Callable[[], Source]] = {
@@ -29,11 +26,6 @@ _FACTORIES: Dict[str, Callable[[], Source]] = {
 _OPT_IN_SETTINGS = {"civarchive": "enable_civarchive"}
 
 _instances: Dict[str, Source] = {}
-
-
-def register_source(source_id: str, factory: Callable[[], Source]) -> None:
-    _FACTORIES[source_id] = factory
-    _instances.pop(source_id, None)
 
 
 def is_enabled(source_id: str) -> bool:

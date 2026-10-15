@@ -10,7 +10,6 @@
 		image = null,
 		alt = '',
 		width = 0,
-		fit = 'cover',
 		reveal = null,
 		revealedUrl = null,
 		seed = '',
@@ -45,7 +44,6 @@
 	const kind = $derived(image?.kind === 'video' ? 'video' : 'image');
 	const src = $derived(url && width > 0 && !resizedFailed ? thumbUrl(url, width, kind) : url);
 	const pixels = $derived(state === 'blurred' ? decodeCached(image?.blurhash) : null);
-	const fitClass = $derived(fit === 'contain' ? 'object-contain' : 'object-cover');
 
 	onMount(() => {
 		reduced = prefersReducedMotion();
@@ -98,7 +96,7 @@
 			<video
 				bind:this={video}
 				src={src}
-				class="h-full w-full {fitClass}"
+				class="h-full w-full object-cover"
 				muted
 				loop
 				playsinline
@@ -112,7 +110,7 @@
 				<Icon name="play" class="h-3.5 w-3.5" />
 			</span>
 		{:else}
-			<img {src} {alt} class="h-full w-full {fitClass}" loading="lazy" decoding="async" onerror={onImageError} />
+			<img {src} {alt} class="h-full w-full object-cover" loading="lazy" decoding="async" onerror={onImageError} />
 		{/if}
 		{#if onOpen}
 			<button

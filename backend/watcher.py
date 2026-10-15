@@ -26,8 +26,6 @@ WAITING_STATUSES = frozenset({"pending", "downloading", "paused"})
 FINISHING_STATUSES = ("indexed", "assigned")
 
 PENDING_PROVIDER_ID = "model-browser"
-NOTIFY_DOWNLOAD_DONE = notifications.DOWNLOAD_DONE
-NOTIFY_DOWNLOAD_FAILED = notifications.DOWNLOAD_FAILED
 NOT_ASSIGNED_TO_REQUESTER = "The model was downloaded but could not be made visible to you"
 
 _HASH_CHUNK_BYTES = 8 * 1024 * 1024
@@ -389,10 +387,6 @@ class Watcher:
     @property
     def loop(self) -> Optional[asyncio.AbstractEventLoop]:
         return self._loop
-
-    @property
-    def running(self) -> bool:
-        return self._loop is not None
 
     async def run(self) -> None:
         self._stop_event = asyncio.Event()

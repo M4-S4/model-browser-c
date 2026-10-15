@@ -113,11 +113,6 @@ def test_search_items_are_normalised():
         "gated": False,
         "thumbnail": None,
         "stats": {"downloads": 0, "likes": 116, "rating": None},
-        "tags": [
-            "lora", "image-editing", "outfit-sample", "consistency", "virtual-try-on", "qwen-image",
-            "qwen-image-2.1", "comfyui", "ai-toolkit", "image-to-image",
-        ],
-        "updated_at": "2026-10-05T13:49:00.000Z",
         "source_url": "https://huggingface.co/sample-lab/Qwen-Image-2.1-Outfit-Sample-Consistency-LoRA",
         "primary_sha256": None,
         "installed": None,
@@ -131,7 +126,8 @@ def test_search_items_are_normalised():
     assert (character.creator, character.stats.downloads, character.base_models) == (
         "sample-lab", 40640, ["Comfy-Org/MiniMax-H3"],
     )
-    assert "dataset:sample-lab/H3-Character-Sample-v1" in character.tags
+    [raw_character] = [raw for raw in body("models_search_lora") if raw["id"] == character.id]
+    assert "dataset:sample-lab/H3-Character-Sample-v1" in display_tags(raw_character["tags"])
 
 
 def test_list_answers_carry_no_file_hash():
@@ -143,8 +139,8 @@ def test_list_answers_carry_no_file_hash():
 
 def test_license_base_model_and_region_tags_are_not_listed():
     for name in ("models_search_lora", "models_search_lora_page2", "models_text_to_image_top", "models_author"):
-        for normalised in _items(name).values():
-            assert not [tag for tag in normalised.tags if tag.startswith(("license:", "base_model:", "region:"))]
+        for raw in body(name):
+            assert not [tag for tag in display_tags(raw["tags"]) if tag.startswith(("license:", "base_model:", "region:"))]
 
 
 def test_gated_comes_as_a_string():
@@ -351,7 +347,6 @@ async def test_a_pasted_link_is_fetched_through_the_detail_endpoint():
     assert transport.paths() == [f"/api/models/{FLUX}"]
     [found] = page.items
     assert (found.id, found.gated, found.mb_type) == (FLUX, True, "checkpoint")
-    assert found.updated_at == "2025-06-27T16:22:19.000Z"
 
 
 async def test_an_exact_repo_that_does_not_exist_falls_back_to_a_text_search():
@@ -1239,7 +1234,7 @@ async def test_info_lists_fixed_filters_without_asking():
 
     info = await source.info()
 
-    assert (info.id, info.label, info.enabled) == ("huggingface", "Hugging Face", True)
+    assert (info.id, info.label) == ("huggingface", "Hugging Face")
     assert [option.value for option in info.types] == [
         "text-to-image", "image-to-image", "text-to-video", "image-to-video", "text-to-audio", "text-to-3d",
         "image-to-3d", "lora", "controlnet", "gguf", "safetensors", "diffusers",

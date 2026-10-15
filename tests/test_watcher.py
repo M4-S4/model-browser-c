@@ -2,6 +2,7 @@ import asyncio
 import hashlib
 import inspect
 import logging
+from dataclasses import replace
 
 import pytest
 
@@ -85,14 +86,14 @@ async def test_run_returns_promptly_after_request_stop(monkeypatch, caplog, no_p
     monkeypatch.setattr(watcher_module, "POLL_INTERVAL_SECONDS", 0.01)
     watcher = Watcher()
     task = asyncio.create_task(watcher.run())
-    await _until(lambda: watcher.running)
+    await _until(lambda: watcher.loop is not None)
     await asyncio.sleep(0.05)
     assert not task.done()
 
     watcher.request_stop()
     await asyncio.wait_for(task, timeout=1)
 
-    assert not watcher.running
+    assert watcher.loop is None
     assert no_pass[0] is True and len(no_pass) > 1 and not any(no_pass[1:])
     messages = [record.getMessage() for record in caplog.records]
     assert any("Download watcher started" in message for message in messages)
@@ -103,7 +104,7 @@ async def test_a_stop_from_another_thread_cuts_the_poll_interval_short(monkeypat
     monkeypatch.setattr(watcher_module, "POLL_INTERVAL_SECONDS", 60)
     watcher = Watcher()
     task = asyncio.create_task(watcher.run())
-    await _until(lambda: watcher.running and no_pass)
+    await _until(lambda: watcher.loop is not None and no_pass)
 
     await asyncio.to_thread(watcher.request_stop)
 
@@ -118,7 +119,7 @@ async def test_a_stop_requested_before_run_returns_at_once(monkeypatch, no_pass)
     watcher.request_stop()
 
     await asyncio.wait_for(watcher.run(), timeout=1)
-    assert not watcher.running
+    assert watcher.loop is None
     assert no_pass == []
 
 
@@ -559,9 +560,9 @@ def _approved_request(user_id, *, sha256=SHA, assign_to="user", decided_by="admi
         file_id="1001",
         snapshot={"name": "Detail Tweaker XL", "file_name": "add-detail-xl.safetensors"},
     )
-    return requests.set_status(
+    return requests.update(
         created.id,
-        "approved",
+        status="approved",
         decided_by=decided_by,
         sha256=sha256,
         assign_to=f"user:{user_id}" if assign_to == "user" else assign_to,
@@ -699,7 +700,7 @@ async def test_a_request_approved_after_the_assignment_step_is_assigned_when_the
         user_id="user-1", source="civitai", source_model_id="122359", source_version_id="135867", file_id="1001",
         snapshot={},
     )
-    late = requests.set_status(created.id, "approved", decided_by="admin-1", sha256=SHA)
+    late = requests.update(created.id, status="approved", decided_by="admin-1", sha256=SHA)
 
     await Watcher().run_pass()
 
@@ -971,7 +972,7 @@ async def test_a_row_that_has_ended_is_not_failed_again(core):
 
 def test_a_model_is_recorded_only_for_a_row_that_is_still_queued(core):
     _insert(status="assigned", model_id="model-1")
-    older = pending.with_status(_row(), "queued")
+    older = replace(_row(), status="queued")
 
     assert watcher_module.record_indexed(older, model("model-2")) is None
 

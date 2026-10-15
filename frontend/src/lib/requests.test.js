@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { MODEL_TYPES, normalizeMe } from './capabilities.js';
+import { formatDate } from './format.js';
 import {
 	LIST_LIMIT,
 	MAX_NOTE_LENGTH,
@@ -25,7 +26,6 @@ import {
 	groupRequests,
 	initialBadgeCount,
 	initialRequestForm,
-	isFinal,
 	isOpen,
 	listRequests,
 	normalizeListing,
@@ -45,7 +45,6 @@ import {
 	sourceHost,
 	statusInfo,
 	statusLabel,
-	statusTone,
 	tabQuery,
 	tabRequests
 } from './requests.js';
@@ -133,21 +132,17 @@ test('statusInfo gives every status a label, a tone and a hint', () => {
 	}
 	assert.deepEqual(statusInfo('open'), { label: 'Open', tone: 'info', hint: 'Waiting for an admin to decide' });
 	assert.equal(statusLabel('done'), 'Done');
-	assert.equal(statusTone('failed'), 'danger');
-	assert.equal(statusTone('rejected'), 'warning');
+	assert.equal(statusInfo('failed').tone, 'danger');
+	assert.equal(statusInfo('rejected').tone, 'warning');
 	assert.deepEqual(statusInfo('paused'), { label: 'paused', tone: 'neutral', hint: '' });
 	assert.equal(statusLabel(undefined), 'Unknown');
 });
 
-test('isOpen and isFinal read a request or a status', () => {
+test('isOpen reads a request or a status', () => {
 	assert.equal(isOpen('open'), true);
 	assert.equal(isOpen(request('r1', 'open')), true);
 	assert.equal(isOpen(request('r1', 'approved')), false);
 	assert.equal(isOpen(null), false);
-	for (const status of ['done', 'failed', 'rejected', 'cancelled']) assert.equal(isFinal(status), true, status);
-	assert.equal(isFinal('open'), false);
-	assert.equal(isFinal(request('r1', 'approved')), false);
-	assert.equal(isFinal({}), false);
 });
 
 test('normalizeRequest keeps a well formed request', () => {
@@ -515,10 +510,11 @@ test('requestTitle, requestMeta, requestedType and sourceHost', () => {
 
 test('requestByline names who asked and when', () => {
 	const normal = normalizeRequest(request('r1', 'open'));
-	const byline = requestByline(normal, { locale: 'en-US' });
-	assert.equal(byline.text, 'Asked by alice · Oct 11, 2026');
-	assert.ok(byline.title.includes('2026'));
-	assert.equal(requestByline(normal, { showUser: false, locale: 'en-US' }).text, 'Asked on Oct 11, 2026');
+	const time = parseTime(normal.created_at);
+	const byline = requestByline(normal);
+	assert.equal(byline.text, `Asked by alice · ${formatDate(time)}`);
+	assert.equal(byline.title, new Date(time).toLocaleString());
+	assert.equal(requestByline(normal, { showUser: false }).text, `Asked on ${formatDate(time)}`);
 	assert.deepEqual(requestByline(normalizeRequest({ id: 'x' })), { text: 'Asked by an unknown user', title: '' });
 	assert.equal(requestByline(normalizeRequest({ id: 'x' }), { showUser: false }).text, '');
 });

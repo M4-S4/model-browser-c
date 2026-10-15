@@ -146,7 +146,7 @@ def _approved_request(user_id, sha256):
         user_id=user_id, source="huggingface", source_model_id="black-forest-labs/FLUX.1-dev",
         source_version_id="main", file_id="transformer/flux1-dev.safetensors", snapshot={},
     )
-    return requests.set_status(created.id, "approved", decided_by="admin-1", sha256=sha256, assign_to=f"user:{user_id}")
+    return requests.update(created.id, status="approved", decided_by="admin-1", sha256=sha256, assign_to=f"user:{user_id}")
 
 
 async def test_a_nohash_row_moves_to_the_hash_of_the_model_indexed_at_its_path(core, scheduled):

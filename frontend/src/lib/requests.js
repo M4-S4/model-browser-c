@@ -19,7 +19,6 @@ const STATUS_INFO = {
 	rejected: { label: 'Rejected', tone: 'warning', hint: 'An admin turned the request down' },
 	cancelled: { label: 'Cancelled', tone: 'neutral', hint: 'Withdrawn by the requester' }
 };
-const FINAL = new Set(['done', 'failed', 'rejected', 'cancelled']);
 
 const NAIVE_TIME = /^\d{4}-\d{2}-\d{2}[ T]\d{2}:\d{2}(?::\d{2}(?:\.\d+)?)?$/;
 
@@ -65,16 +64,8 @@ export function statusLabel(status) {
 	return statusInfo(status).label;
 }
 
-export function statusTone(status) {
-	return statusInfo(status).tone;
-}
-
 export function isOpen(request) {
 	return statusOf(request) === 'open';
-}
-
-export function isFinal(request) {
-	return FINAL.has(statusOf(request));
 }
 
 export function normalizeRequest(raw) {
@@ -329,17 +320,10 @@ export function sourceHost(request) {
 	}
 }
 
-export function requestByline(request, { showUser = true, locale } = {}) {
+export function requestByline(request, { showUser = true } = {}) {
 	const time = parseTime(request?.created_at);
-	const date = time === null ? '' : formatDate(time, locale);
-	let title = '';
-	if (time !== null) {
-		try {
-			title = new Date(time).toLocaleString(locale);
-		} catch {
-			title = new Date(time).toISOString();
-		}
-	}
+	const date = time === null ? '' : formatDate(time);
+	const title = time === null ? '' : new Date(time).toLocaleString();
 	if (!showUser) return { text: date ? `Asked on ${date}` : '', title };
 	return { text: [`Asked by ${request?.username || 'an unknown user'}`, date].filter(Boolean).join(' · '), title };
 }

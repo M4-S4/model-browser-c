@@ -99,13 +99,13 @@ def test_set_status_records_the_decision_and_leaves_the_rest(table):
     created = _create()
 
     approved = requests.set_status(
-        created.id, "approved", decided_by="admin-1", decision_note="Enjoy", sha256=SHA, assign_to="user:user-1"
+        created.id, "approved", decided_by="admin-1", decision_note="Enjoy", assign_to="user:user-1"
     )
 
     assert (approved.status, approved.decided_by, approved.decision_note) == ("approved", "admin-1", "Enjoy")
-    assert (approved.sha256, approved.assign_to) == (SHA, "user:user-1")
+    assert approved.assign_to == "user:user-1"
     done = requests.set_status(created.id, "done")
-    assert (done.status, done.decided_by, done.sha256) == ("done", "admin-1", SHA)
+    assert (done.status, done.decided_by, done.assign_to) == ("done", "admin-1", "user:user-1")
 
 
 def test_a_conditional_change_only_happens_from_the_statuses_given(table):
@@ -141,8 +141,8 @@ def test_approved_requests_are_found_by_their_pending_row_and_follow_a_rekey(tab
     _create(file_id="1002")
     other = _create(user_id="user-2", file_id="1003")
     for request in (first, second):
-        requests.set_status(request.id, "approved", sha256="nohash:https://x/y", decided_by="admin-1")
-    requests.set_status(other.id, "rejected", sha256="nohash:https://x/y", decided_by="admin-1")
+        requests.update(request.id, status="approved", sha256="nohash:https://x/y", decided_by="admin-1")
+    requests.update(other.id, status="rejected", sha256="nohash:https://x/y", decided_by="admin-1")
 
     assert [row.id for row in requests.list_approved_for_sha256("nohash:https://x/y")] == [first.id, second.id]
     assert requests.relink("nohash:https://x/y", SHA) == 3

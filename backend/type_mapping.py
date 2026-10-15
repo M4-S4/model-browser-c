@@ -69,7 +69,6 @@ HF_TEXT_OUTPUT_TASKS: FrozenSet[str] = frozenset({
     "zero-shot-image-classification",
     "zero-shot-object-detection",
 })
-HUGGINGFACE_MB_TYPES = frozenset({"lora", "controlnet", "vae", "upscaler", "diffusion_model", "checkpoint"})
 
 
 def _has_upscaler_hint(tags: Iterable[str], repo_id: Optional[str]) -> bool:

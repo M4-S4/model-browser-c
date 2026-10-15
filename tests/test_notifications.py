@@ -39,7 +39,6 @@ def test_the_types_are_the_five_plugin_types():
         "model-browser.download_done",
         "model-browser.download_failed",
     ]
-    assert notifications.KEYS == tuple(item.key for item in notifications.TYPES)
     assert all(item.category == "plugin" and item.label and item.description for item in notifications.TYPES)
     assert len({item.label for item in notifications.TYPES}) == 5
 

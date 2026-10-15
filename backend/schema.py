@@ -16,10 +16,6 @@ class NsfwContext(BaseModel):
     max_level: int = 2
     hide_poi: bool = False
 
-    @property
-    def blocked(self) -> bool:
-        return self.ceiling == "blocked"
-
 
 class Image(BaseModel):
     url: Optional[str] = None
@@ -95,8 +91,6 @@ class SearchItem(BaseModel):
     gated: bool = False
     thumbnail: Optional[Image] = None
     stats: Stats = Field(default_factory=Stats)
-    tags: List[str] = Field(default_factory=list)
-    updated_at: Optional[str] = None
     source_url: str
     primary_sha256: Optional[str] = None
     installed: Optional[bool] = None
@@ -134,7 +128,6 @@ class FilterOption(BaseModel):
 class SourceInfo(BaseModel):
     id: SourceId
     label: str
-    enabled: bool = True
     types: List[FilterOption] = Field(default_factory=list)
     base_models: List[FilterOption] = Field(default_factory=list)
     sorts: List[FilterOption] = Field(default_factory=list)

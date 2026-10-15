@@ -55,8 +55,6 @@ TYPES = (
     ),
 )
 
-KEYS = tuple(item.key for item in TYPES)
-
 
 def send(
     user_id: str,

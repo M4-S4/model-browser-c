@@ -3,7 +3,6 @@ import pytest
 from backend.type_mapping import (
     CIVITAI_TYPES,
     HF_TEXT_OUTPUT_TASKS,
-    HUGGINGFACE_MB_TYPES,
     civitai_mb_type,
     huggingface_mb_type,
 )
@@ -51,10 +50,6 @@ def test_types_without_a_potionui_folder_map_to_none(civitai_type):
 
 def test_every_mapped_type_is_a_live_civitai_type():
     assert set(CIVITAI_TYPES) <= set(body("enums")["ModelType"])
-
-
-def test_every_hugging_face_type_is_a_potionui_model_type():
-    assert HUGGINGFACE_MB_TYPES <= set(MODEL_TYPES)
 
 
 @pytest.mark.parametrize(

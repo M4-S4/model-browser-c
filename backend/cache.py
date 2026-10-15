@@ -117,14 +117,5 @@ class Cache:
             logger.debug("[MODEL-BROWSER] Cache purge removed %d rows", deleted)
         return deleted
 
-    def clear(self, source: Optional[str] = None) -> None:
-        from src.plugin_api import db
-
-        with db.get_cursor() as cursor:
-            if source is None:
-                cursor.execute(f"DELETE FROM {TABLE}")
-            else:
-                cursor.execute(f"DELETE FROM {TABLE} WHERE source = ?", (source,))
-
 
 cache = Cache()

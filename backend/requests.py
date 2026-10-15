@@ -259,7 +259,6 @@ def set_status(
     *,
     decided_by: Optional[str] = None,
     decision_note: Optional[str] = None,
-    sha256: Optional[str] = None,
     assign_to: Optional[str] = None,
     only_from: Optional[Iterable[str]] = None,
 ) -> Optional[Request]:
@@ -267,7 +266,6 @@ def set_status(
     for name, value in (
         ("decided_by", decided_by),
         ("decision_note", decision_note),
-        ("sha256", sha256),
         ("assign_to", assign_to),
     ):
         if value is not None:

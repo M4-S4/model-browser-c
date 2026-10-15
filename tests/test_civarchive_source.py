@@ -481,8 +481,6 @@ def test_a_list_result_as_an_item():
         gated=False,
         thumbnail=Image(url=raw["image_url"], nsfw=False, nsfw_level=None, kind="image", id="88246"),
         stats=Stats(downloads=raw["download_count"]),
-        tags=raw["tags"],
-        updated_at="2023-02-10T12:56:41Z",
         source_url="https://civarchive.com/models/7808?modelVersionId=9208",
         primary_sha256=None,
     )
@@ -573,7 +571,6 @@ async def test_a_pasted_civarchive_link_is_that_model_and_version(transport, sou
     assert (item.id, item.name, item.mb_type, item.base_model) == ("78291:83095", model("model_78291_v83095")["name"], "lora", "SD 1.5")
     assert item.primary_sha256 == SHA_78291
     assert item.thumbnail.id == "936343" and item.thumbnail.blurhash
-    assert item.updated_at == "2023-05-27T20:28:45.027Z"
     assert item.source_url == "https://civarchive.com/models/78291?modelVersionId=83095"
     assert transport.paths() == ["/", "models/78291.json"]
 
@@ -603,7 +600,7 @@ async def test_info_lists_the_civitai_types_and_base_models_and_the_notice(trans
     again = await source.info()
 
     options = props("search_filters")["filterOptions"]
-    assert (info.id, info.label, info.enabled) == ("civarchive", "CivArchive", True)
+    assert (info.id, info.label) == ("civarchive", "CivArchive")
     assert [option.value for option in info.types] == options["modelTypes"] and len(info.types) == 22
     assert all(option.label == option.value for option in info.types + info.base_models)
     assert [option.value for option in info.base_models] == options["baseModels"] and len(info.base_models) == 104

@@ -123,17 +123,17 @@ async def test_429_without_retry_after_has_none():
 
 
 def test_parse_retry_after():
-    now = datetime(2026, 10, 11, 12, 0, 0, tzinfo=timezone.utc)
+    in_a_minute = format_datetime(datetime.now(timezone.utc) + timedelta(seconds=60), usegmt=True)
 
-    assert parse_retry_after("30", now) == 30.0
-    assert parse_retry_after(" 2.5 ", now) == 2.5
-    assert parse_retry_after("-4", now) == 0.0
-    assert parse_retry_after("Sun, 11 Oct 2026 12:01:00 GMT", now) == 60.0
-    assert parse_retry_after("Sun, 11 Oct 2026 11:00:00 GMT", now) == 0.0
-    assert parse_retry_after("soon", now) is None
-    assert parse_retry_after("nan", now) is None
-    assert parse_retry_after("", now) is None
-    assert parse_retry_after(None, now) is None
+    assert parse_retry_after("30") == 30.0
+    assert parse_retry_after(" 2.5 ") == 2.5
+    assert parse_retry_after("-4") == 0.0
+    assert 50 < parse_retry_after(in_a_minute) <= 60
+    assert parse_retry_after("Sun, 11 Oct 2020 11:00:00 GMT") == 0.0
+    assert parse_retry_after("soon") is None
+    assert parse_retry_after("nan") is None
+    assert parse_retry_after("") is None
+    assert parse_retry_after(None) is None
 
 
 @pytest.mark.parametrize("status", [500, 502, 503, 504, 520])
@@ -222,7 +222,8 @@ def test_upstream_message_shapes():
     assert upstream_message(b'{"message": "Bad   input\\n here"}') == "Bad input here"
     assert upstream_message(b'{"error": {"name": "Other", "message": "plain"}}') == "plain"
     assert upstream_message(b"<html>") is None
-    assert upstream_message(b'{"error": "' + b"x" * 400 + b'"}', limit=50).endswith("…")
+    assert upstream_message(b'{"error": "' + b"x" * 300 + b'"}') == "x" * 300
+    assert upstream_message(b'{"error": "' + b"x" * 400 + b'"}') == "x" * 299 + "…"
 
 
 async def test_sequential_requests_are_spaced_by_the_source_interval():

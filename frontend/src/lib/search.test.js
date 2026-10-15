@@ -28,7 +28,6 @@ const SOURCES = enabledSources([
 	{
 		id: 'civitai',
 		label: 'CivitAI',
-		enabled: true,
 		types: [
 			{ value: 'Checkpoint', label: 'Checkpoint' },
 			{ value: 'LORA', label: 'LoRA' },
@@ -52,14 +51,12 @@ const SOURCES = enabledSources([
 	{
 		id: 'huggingface',
 		label: 'Hugging Face',
-		enabled: true,
 		types: [{ value: 'lora', label: 'LoRA' }],
 		base_models: [],
 		sorts: [{ value: 'trending', label: 'Trending' }, { value: 'downloads', label: 'Most downloaded' }],
 		periods: [],
 		search_help: 'org/repo, @author'
-	},
-	{ id: 'civarchive', label: 'CivArchive', enabled: false }
+	}
 ]);
 const CIVITAI = SOURCES[0];
 const HF = SOURCES[1];
@@ -68,7 +65,6 @@ const OPENMODELDB = enabledSources([
 	{
 		id: 'openmodeldb',
 		label: 'OpenModelDB',
-		enabled: true,
 		types: [
 			{ value: 'esrgan', label: 'ESRGAN' },
 			{ value: 'swinir', label: 'SwinIR' }
@@ -89,7 +85,7 @@ const OPENMODELDB = enabledSources([
 	}
 ])[0];
 
-test('enabledSources keeps the enabled sources with their option lists', () => {
+test('enabledSources keeps each source with its option lists', () => {
 	assert.deepEqual(
 		SOURCES.map((source) => source.id),
 		['civitai', 'huggingface']
@@ -252,13 +248,12 @@ test('searchRequest repeats types and makes sort and period explicit', () => {
 		searchRequest(state, CIVITAI),
 		`q=detail&types=LORA&types=Checkpoint&base_models=SDXL+1.0&sort=highest_rated&period=month&limit=${DEFAULT_LIMIT}`
 	);
-	assert.equal(searchRequest(emptyState('civitai'), CIVITAI, { cursor: 'abc|1', limit: 30 }), 'sort=highest_rated&period=all_time&cursor=abc%7C1&limit=30');
+	assert.equal(searchRequest(emptyState('civitai'), CIVITAI, { cursor: 'abc|1' }), `sort=highest_rated&period=all_time&cursor=abc%7C1&limit=${DEFAULT_LIMIT}`);
 });
 
-test('searchRequest leaves out what the source does not have, and bounds the limit', () => {
+test('searchRequest leaves out what the source does not have', () => {
 	assert.equal(searchRequest({ ...emptyState('huggingface'), period: 'month' }, HF), 'sort=trending&limit=24');
-	assert.equal(searchRequest(emptyState('huggingface'), HF, { limit: 500 }), 'sort=trending&limit=50');
-	assert.equal(searchRequest(emptyState('x'), undefined, { limit: 0 }), 'limit=24');
+	assert.equal(searchRequest(emptyState('x'), undefined), 'limit=24');
 });
 
 test('searchKey ignores the open model, the order of types and surrounding spaces', () => {

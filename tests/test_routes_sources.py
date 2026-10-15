@@ -99,7 +99,7 @@ def test_sources_lists_civitai_hugging_face_and_openmodeldb_with_their_filters(c
     assert civitai["id"] == "civitai"
     assert [option["value"] for option in civitai["types"]] == body("enums")["ModelType"]
     assert [option["value"] for option in civitai["base_models"]] == body("enums")["ActiveBaseModel"]
-    assert (huggingface["id"], huggingface["label"], huggingface["enabled"]) == ("huggingface", "Hugging Face", True)
+    assert (huggingface["id"], huggingface["label"]) == ("huggingface", "Hugging Face")
     assert [option["value"] for option in huggingface["types"]][:2] == ["text-to-image", "image-to-image"]
     assert (huggingface["base_models"], huggingface["periods"]) == ([], [])
     assert [option["value"] for option in huggingface["sorts"]] == ["trending", "downloads", "likes", "updated", "newest"]
@@ -108,7 +108,7 @@ def test_sources_lists_civitai_hugging_face_and_openmodeldb_with_their_filters(c
         assert (source["types_label"], source["base_models_label"], source["base_model_label"]) == (
             "Types", "Base model", "Base model",
         )
-    assert (openmodeldb["id"], openmodeldb["label"], openmodeldb["enabled"]) == ("openmodeldb", "OpenModelDB", True)
+    assert (openmodeldb["id"], openmodeldb["label"]) == ("openmodeldb", "OpenModelDB")
     assert (openmodeldb["types_label"], openmodeldb["base_models_label"], openmodeldb["base_model_label"]) == (
         "Architecture", "Scale", "Architecture",
     )
