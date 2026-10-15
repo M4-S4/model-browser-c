@@ -15,9 +15,10 @@ same tables and declare the same model fields, notifications and plan limits, so
 refuses to enable the second one. Switching from one to the other keeps group rights,
 requests and plan limits; plugin settings are per plugin and have to be set again.
 
-The plugin needs PotionUI 0.0.16 or newer. Install it by placing this folder in
-`content/plugins/local/model-browser-c`, then Admin → Plugins → Scan for Plugins, and
-enable it.
+The plugin needs PotionUI 0.0.16 or newer, or PotionUI's `master` branch from commit
+`3b3b78a2` (2026-10-14) on; it does not load on 0.0.15 or older. Install it by placing this
+folder in `content/plugins/local/model-browser-c`, then Admin → Plugins → Scan for Plugins,
+and enable it.
 
 Once the plugin is enabled, a **Model Browser** entry appears in the sidebar; it opens the
 page `/plugins/model-browser-c`. The plugin keeps its own database tables (`model_browser_*`,

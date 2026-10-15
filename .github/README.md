@@ -14,6 +14,14 @@ This is the Model Browser with the CivArchive source, which is off by default. T
 of the PotionUI marketplace has no CivArchive source. The two plugins share their data and cannot be
 enabled together.
 
+## Requirements
+
+**PotionUI 0.0.16 or newer**, or, until 0.0.16 is released, PotionUI's `master` branch from commit
+[`3b3b78a2`](https://github.com/PotionUI/PotionUI/commit/3b3b78a2) (2026-10-14) on. The plugin does not
+load on 0.0.15 or older: it needs the plugin API exports and the `download.after_complete` hook of
+[PotionUI#11](https://github.com/PotionUI/PotionUI/pull/11), and its on/off settings rely on the fix of
+[PotionUI#12](https://github.com/PotionUI/PotionUI/pull/12).
+
 ## Screenshots
 
 Searching CivArchive, with the notice it shows as an unofficial source:
@@ -41,8 +49,6 @@ Settings:
 ![Settings](screenshots/settings.png)
 
 ## Installing
-
-The plugin needs PotionUI 0.0.16 or newer.
 
 1. Place this repository's content in `content/plugins/local/model-browser-c` of your PotionUI
    installation, for example with
